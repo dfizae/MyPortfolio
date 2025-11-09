@@ -7,15 +7,16 @@
 |분야|기술|
 |:---|:---|
 |Frontend|`React`, `Typescript`, `Vite`|
-|Styling|`Tailwind CSS`, `Framer Motion`|
+|Library|`Lenis`, `Lottie`, `Swiper`|
+|Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
 |Test|`Jest`, `React Testing Library`|
 |Version Control|`Git`, `GitHub`|
 |Deployment|`Vercel`|
 |Design Tool|`Figma`|
 <br>
 
-- 프리코스에서 배운 언어 활용: Jest<br>
-- 처음으로 써보는 언어: Tailwind CSS, Framer Motion
+- **프리코스에서 배운 언어 활용**: `Jest`<br>
+- **처음으로 써보는 언어**: `Tailwind CSS`, `Framer Motion`
 
 ## 🎯 프로젝트를 시작하게 된 계기
 
@@ -42,7 +43,8 @@
 ### 🎨 기술적 목표
 - `React + TypeScript`를 사용하여, 타입 안정성과 유지보수성을 갖춘 프로젝트 구조 설계
 - 컴포넌트 기반 설계를 통해 UI를 효율적으로 재사용하고 관리
-- 프리코스에서 처음 배운 **테스트 코드(`Jest`, `React Testing Library`)**를 작성하여 안정적인 애플리케이션 구현
+- 프리코스에서 배운 **테스트 코드(`Jest`, `React Testing Library`)**를 작성하여 안정적인 애플리케이션 구현
+- 프리코스에서 배운 MVC 아키텍처 기반 구조 반영 (Model / View / Controller 개념 반영)
 - 반응형 디자인 & UI 완성도 향상을 통해 다양한 환경에서 일관된 사용자 경험 제공
 
 ### 💡 개인적 목표
@@ -66,12 +68,33 @@ portfolio/
 ├── public/
 │   └── /...
 ├── src/
-│   ├── components/     # 공통 UI 컴포넌트
-│   ├── pages/          # Home, Projects, About 등 페이지 단위
-│   ├── hooks/          # 커스텀 훅
-│   ├── styles/         # 전역 스타일, Tailwind 설정
-│   ├── tests/          # 단위 및 통합 테스트
-│   └── utils/          # 공용 유틸 함수
+│   ├── Main.tsx
+│   ├── App.tsx
+│   ├── components/ # View: 재사용 UI
+│   │   ├── common/ #공통 컴포넌트 관리
+│   │   │   ├── Gnb.tsx: gnb 컴포넌트 
+│   │   │   ├── Quickmenu.tsx: 퀵메뉴 컴포넌트
+│   │   │   └── SideText.tsx: 사이드 라인, 문구 컴포넌트
+│   │   ├── constants/ #메시지 상수 파일 폴더
+│   │   │   ├── HyperLink.tsx: 링크 관련 상수 메시지
+│   │   │   ├── ImageInfo.tsx: 이미지 관련 상수 메시지
+│   │   │   └── Text.tsx: 문장, 단어 등 상수 메시지
+│   │   └── layout/
+│   │      ├── Header.tsx: 타이틀 컴포넌트
+│   │      ├── ScrollFixedComponents.tsx: 스크롤 시 고정되는 공통컴포넌트들의 상위 컴포넌트
+│   │      └── /...
+│   ├── images/
+│   │   ├── icons/ #아이콘 이미지 모음
+│   │   │   └── /...
+│   │   └── pics/  #기타 이미지 모음
+│   │   │   └── /...
+│   ├── pages/  # View: 페이지 단위
+│   ├── styles/ # View: 전역 스타일, Tailwind 설정
+│   │   └── App.css: 공통 스타일 파일
+│   ├── hooks/  # Controller: 로직/이벤트 제어
+│   ├── utils/  # Model: 공용 로직, 데이터 가공
+│   ├── store/  # Model: 전역 상태
+│   └── tests/  # 테스트 코드 
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
@@ -86,3 +109,15 @@ portfolio/
 
 ## 🧠 핵심 키워드
 **도전/몰입/성장/기록**
+
+## 🧠 피그마 작업물
+
+
+## 🗓️ 개발 과정
+
+- 2025-11-05 ~ 2025-11-07
+[x] 자료조사 및 와이어프레임 작성 (Figma 활용)
+
+- 2025-11-08 ~ 
+[x] 헤더 컴포넌트(타이틀) 코딩
+[o] 자기소개 컴포넌트 코딩

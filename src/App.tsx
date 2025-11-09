@@ -1,10 +1,13 @@
-import './App.css'
+import './styles/App.css'
+import Header from './components/layout/Header'
+import ScrollFixedComponents from './components/layout/ScrollFixedComponents'
 
 function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
+      <ScrollFixedComponents/>
+      <Header />
     </>
   )
 }
