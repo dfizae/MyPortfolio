@@ -1,5 +1,5 @@
-import { IMAGE_INFO } from "../constants/ImageInfo";
-import { LINK } from "../constants/HyperLink";
+import { IMAGE_INFO } from "../../constants/ImageInfo";
+import { LINK } from "../../constants/HyperLink";
 
 export default function Quickmenu() {
   const menus = [

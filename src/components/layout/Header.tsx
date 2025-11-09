@@ -1,4 +1,4 @@
-import { MESSAGE } from "../constants/Text";
+import { MESSAGE } from "../../constants/Text";
 
 export default function Header(){
     return (

@@ -75,14 +75,14 @@ portfolio/
 │   │   │   ├── Gnb.tsx: gnb 컴포넌트 
 │   │   │   ├── Quickmenu.tsx: 퀵메뉴 컴포넌트
 │   │   │   └── SideText.tsx: 사이드 라인, 문구 컴포넌트
-│   │   ├── constants/ #메시지 상수 파일 폴더
-│   │   │   ├── HyperLink.tsx: 링크 관련 상수 메시지
-│   │   │   ├── ImageInfo.tsx: 이미지 관련 상수 메시지
-│   │   │   └── Text.tsx: 문장, 단어 등 상수 메시지
 │   │   └── layout/
 │   │      ├── Header.tsx: 타이틀 컴포넌트
 │   │      ├── ScrollFixedComponents.tsx: 스크롤 시 고정되는 공통컴포넌트들의 상위 컴포넌트
 │   │      └── /...
+│   ├── constants/ #메시지 상수 파일 폴더
+│   │   ├── HyperLink.ts: 링크 관련 상수 메시지
+│   │   ├── ImageInfo.ts: 이미지 관련 상수 메시지
+│   │   └── Text.ts: 문장, 단어 등 상수 메시지
 │   ├── images/
 │   │   ├── icons/ #아이콘 이미지 모음
 │   │   │   └── /...

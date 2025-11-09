@@ -1,5 +1,5 @@
-import { IMAGE_INFO } from "../constants/ImageInfo";
-import { MESSAGE } from "../constants/Text";
+import { IMAGE_INFO } from "../../constants/ImageInfo";
+import { MESSAGE } from "../../constants/Text";
 
 export default function SideText(){
     return(

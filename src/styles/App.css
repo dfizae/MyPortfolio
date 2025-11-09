@@ -77,6 +77,10 @@ header {
     background-color: #C4C4C4;
 }
 
+section {
+    background-color: #C4C4C4;
+}
+
 ul, ol {
   list-style: none;
 }

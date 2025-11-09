@@ -1,6 +1,6 @@
 import Gnb from "../common/Gnb";
 import Quickmenu from "../common/Quickmenu";
-import { MESSAGE } from "../constants/Text";
+import { MESSAGE } from "../../constants/Text";
 import SideText from "../common/SideText";
 
 export default function ScrollFixedComponents(){
