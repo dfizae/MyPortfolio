@@ -1,15 +1,17 @@
 import './styles/App.css'
-import Header from './components/layout/Header'
-import ScrollFixedComponents from './components/layout/ScrollFixedComponents'
+import Title from './pages/main/Title'
+import ScrollFixedComponents from './pages/main/ScrollFixedComponents'
+import Profile from './pages/main/Profile';
 
 function App() {
 
   return (
     <>
       <ScrollFixedComponents/>
-      <Header />
+      <Title />
+      <Profile />
     </>
-  )
+  );
 }
 
 export default App

@@ -75,10 +75,7 @@ portfolio/
 │   │   │   ├── Gnb.tsx: gnb 컴포넌트 
 │   │   │   ├── Quickmenu.tsx: 퀵메뉴 컴포넌트
 │   │   │   └── SideText.tsx: 사이드 라인, 문구 컴포넌트
-│   │   └── layout/
-│   │      ├── Header.tsx: 타이틀 컴포넌트
-│   │      ├── ScrollFixedComponents.tsx: 스크롤 시 고정되는 공통컴포넌트들의 상위 컴포넌트
-│   │      └── /...
+│   │   └── layout/ #공통 틀 관리
 │   ├── constants/ #메시지 상수 파일 폴더
 │   │   ├── HyperLink.ts: 링크 관련 상수 메시지
 │   │   ├── ImageInfo.ts: 이미지 관련 상수 메시지
@@ -89,6 +86,11 @@ portfolio/
 │   │   └── pics/  #기타 이미지 모음
 │   │   │   └── /...
 │   ├── pages/  # View: 페이지 단위
+│   │   ├──main/ # 메인페이지 컴포넌트 관리
+│   │   │   ├── Title.tsx: 타이틀 컴포넌트
+│   │   │   ├── ScrollFixedComponents.tsx: 스크롤 시 고정되는 공통컴포넌트들의 상위 컴포넌트
+│   │   │   └── Profile.tsx: 프로필 컴포넌트
+│   │   └──sub/ # 서브페이지 컴포넌트 관리
 │   ├── styles/ # View: 전역 스타일, Tailwind 설정
 │   │   └── App.css: 공통 스타일 파일
 │   ├── hooks/  # Controller: 로직/이벤트 제어

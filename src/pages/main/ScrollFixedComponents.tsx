@@ -1,7 +1,7 @@
-import Gnb from "../common/Gnb";
-import Quickmenu from "../common/Quickmenu";
+import Gnb from "../../components/common/Gnb";
+import Quickmenu from "../../components/common/Quickmenu";
 import { MESSAGE } from "../../constants/Text";
-import SideText from "../common/SideText";
+import SideText from "../../components/common/SideText";
 
 export default function ScrollFixedComponents(){
     const menus = MESSAGE.MENUS;

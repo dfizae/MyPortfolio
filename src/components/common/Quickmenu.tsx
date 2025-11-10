@@ -9,7 +9,7 @@ export default function Quickmenu() {
   ];
 
   return (
-    <div className="fixed left-[50px] bottom-[50px]">
+    <div className="fixed left-8 bottom-8">
       <ul className="flex flex-col gap-4">
         {menus.map((menu, index) => (
           <li key={index}>

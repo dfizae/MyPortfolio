@@ -65,12 +65,12 @@
 }
 
 /* 공통 클래스 */
-* {
-  max-width: 1920px;
-  margin: 0;
-  padding: 0;
-  font-family: 'Paperozi';
-  color: #fff;
+body {
+  font-family: 'Paperozi', sans-serif; /* 1. 기본 폰트를 body에 적용 */
+  color: #fff; /* 2. 기본 글자색을 body에 적용 */
+  /* max-width: 1920px는 레이아웃 컴포넌트(예: App.tsx의 최상위 div)에
+     Tailwind 클래스(예: max-w-[1920px] mx-auto)로 적용하는 것이 좋습니다.
+  */
 }
 
 header {
@@ -81,9 +81,6 @@ section {
     background-color: #C4C4C4;
 }
 
-ul, ol {
-  list-style: none;
-}
 
 
 
