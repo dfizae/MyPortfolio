@@ -89,7 +89,12 @@ portfolio/
 │   │   ├──main/ # 메인페이지 컴포넌트 관리
 │   │   │   ├── Title.tsx: 타이틀 컴포넌트
 │   │   │   ├── ScrollFixedComponents.tsx: 스크롤 시 고정되는 공통컴포넌트들의 상위 컴포넌트
-│   │   │   └── Profile.tsx: 프로필 컴포넌트
+│   │   │   ├── Profile/ # Profile 페이지
+│   │   │   │   ├──index.tsx: Profile 컴포넌트들의 최상위 컴포넌트
+│   │   │   │   └──.../
+│   │   │   ├── Skills/ # Skills 페이지
+│   │   │   │   ├──index.tsx: Profile 컴포넌트들의 최상위 컴포넌트
+│   │   │   │   └──.../
 │   │   └──sub/ # 서브페이지 컴포넌트 관리
 │   ├── styles/ # View: 전역 스타일, Tailwind 설정
 │   │   └── App.css: 공통 스타일 파일
@@ -123,3 +128,4 @@ portfolio/
 - 2025-11-08 ~ 
 [x] 헤더 컴포넌트(타이틀) 코딩
 [o] 자기소개 컴포넌트 코딩
+[o] 스킬소개 컼포넌트 코딩
