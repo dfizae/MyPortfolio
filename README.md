@@ -140,4 +140,3 @@ portfolio/
 - [x] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
 - [x] 폰트, 색상 등의 디자인 설계 및 반응형 설계
 
-Test
