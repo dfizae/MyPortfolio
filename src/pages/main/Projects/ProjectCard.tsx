@@ -14,7 +14,7 @@ export type Project = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-white flex flex-col p-6 rounded-lg shadow-lg w-full max-w-md text-slate-700">
+    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full max-w-md text-slate-700">
       <div className="flex justify-between items-center mb-2">
         <span className="text-2xl font-bold text-slate-900">{project.name}</span>
         {project.logo && (
@@ -22,20 +22,20 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      <div className="border-b-2 border-slate-700 pb-2 mb-4">
-        <span className="text-sm text-slate-700">{project.period}</span>
+      <div className="border-b-2 border-slate-300 pb-2 mb-4">
+        <span className="text-sm text-slate-600">{project.period}</span>
       </div>
 
       <div className="mb-4">
         <span className="text-lg font-semibold">{project.mainTitle}</span>
-        <ul className="list-disc list-inside mt-2">
+        <ul className="list-disc list-inside mt-2 text-slate-700">
           {project.descriptions.map((desc, i) => (
             <li key={i}>{desc}</li>
           ))}
         </ul>
       </div>
 
-      <div className="flex justify-between mt-auto pt-4 border-t border-slate-300">
+      <div className="flex flex-col md:flex-row justify-between gap-4 mt-auto pt-4 border-t border-slate-300">
         <p className="flex justify-center bg-indigo-800 text-slate-50 rounded-lg">
           <span className="font-normal text-sm py-1 px-4">{project.skill}</span>
         </p>

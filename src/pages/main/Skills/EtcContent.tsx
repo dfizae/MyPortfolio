@@ -4,7 +4,7 @@ import type { Skill } from "./SkillInfo";
 export default function EtcContent( { skills }: { skills: Skill[] } ){
     return(
         <>
-            <div className="flex flex-wrap justify-evenly">
+            <div className="flex flex-wrap justify-center lg:justify-between gap-4">
                 {skills.map((skill) => (
                     <SkillBadge 
                         key={skill.name} 

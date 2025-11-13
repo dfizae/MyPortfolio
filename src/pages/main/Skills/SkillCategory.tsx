@@ -8,22 +8,25 @@ interface SkillCategoryProps {
 export default function SkillCategory({category, activeCategory, clickHandler}: SkillCategoryProps){
     return(
         <>
-            <ul className="flex shadow-lg bg-white rounded-full">
-                {category.map((name, i) => (
-                    <li 
-                        id={name} 
-                        key={i} 
-                        onClick={() => clickHandler(name)}
-                        className={`
-                            px-9 py-4 m-2 cursor-pointer rounded-full text-2xl font-medium text-center
-                            ${activeCategory === name 
-                                ? 'bg-indigo-800 text-white'
-                                : 'bg-white text-slate-700 hover:bg-indigo-900 hover:text-white transition-all duration-200'
-                            }
-                        `}
-                    >{name}</li>
-                ))}
-            </ul>
+           <div className="w-5/6 overflow-x-auto text-center bg-white rounded-full shadow-lg p-2">
+                <ul className="inline-flex gap-6 pr-2">
+                    {category.map((name, i) => (
+                        <li 
+                            id={name} 
+                            key={i} 
+                            onClick={() => clickHandler(name)}
+                            className={`
+                                relative px-5 py-3 lg:px-9 lg:py-4 cursor-pointer rounded-full 
+                                text-base lg:text-2xl font-medium text-center whitespace-nowrap
+                                ${activeCategory === name 
+                                    ? 'bg-indigo-800 text-white'
+                                    : 'bg-white text-slate-700 hover:bg-indigo-900 hover:text-white transition-all duration-200'
+                                }
+                            `}
+                        >{name}</li>
+                    ))}
+                </ul>
+           </div>
         </>
     );
 }
