@@ -3,9 +3,9 @@ import { LINK } from "../../constants/HyperLink";
 
 export default function Quickmenu() {
   const menus = [
-    { src: "/src/images/icons/github-mark.svg", alt: IMAGE_INFO.GITHUB_ALT, href: LINK.LINK_GITHUB },
-    { src: "/src/images/icons/velog-mark.svg", alt: IMAGE_INFO.VELOG_ALT, href: LINK.LINK_VELOG },
-    { src: "/src/images/icons/Naver-mark.svg", alt: IMAGE_INFO.NBLOG_ALT, href: LINK.LINK_NBLOG },
+    { src: "/images/icons/github-mark.svg", alt: IMAGE_INFO.GITHUB_ALT, href: LINK.LINK_GITHUB },
+    { src: "/images/icons/velog-mark.svg", alt: IMAGE_INFO.VELOG_ALT, href: LINK.LINK_VELOG },
+    { src: "/images/icons/Naver-mark.svg", alt: IMAGE_INFO.NBLOG_ALT, href: LINK.LINK_NBLOG },
   ];
 
   return (

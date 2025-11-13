@@ -5,7 +5,7 @@ const projects: Project[] = [
   {
     name: 'GLYF',
     period: '2025.05',
-    logo: '/src/images/icons/glyf-logo.svg',
+    logo: '/images/icons/glyf-logo.svg',
     mainTitle: "뷰티 브랜드 홈페이지 리뉴얼",
     descriptions: ["설명 1", "설명 2"],
     skill: ['html, ', 'css, ', 'javascript, ', 'swiper'],
@@ -14,7 +14,7 @@ const projects: Project[] = [
   {
     name: 'MyProtein',
     period: '2025.02',
-    logo: '/src/images/icons/myprotein-logo.svg',
+    logo: '/images/icons/myprotein-logo.svg',
     mainTitle: "운동 보조제 회사 홈페이지 리뉴얼",
     descriptions: ["설명 1", "설명 2"],
     skill: ['html, ', 'css, ', 'javascript'],
@@ -23,7 +23,7 @@ const projects: Project[] = [
   {
     name: 'AstroCafe',
     period: '2024.11',
-    logo: '/src/images/icons/astrocafe-logo.svg',
+    logo: '/images/icons/astrocafe-logo.svg',
     mainTitle: "천문대 홈페이지 리뉴얼",
     descriptions: ["설명 1", "설명 2"],
     skill: ['html, ', 'css, ', 'javascript, ', 'swiper'],
@@ -32,7 +32,7 @@ const projects: Project[] = [
   {
     name: 'WaterKingdom',
     period: '2024.10',
-    logo: '/src/images/icons/waterkingdom-icon.svg',
+    logo: '/images/icons/waterkingdom-icon.svg',
     mainTitle: "워터파크 홈페이지 리뉴얼",
     descriptions: ["설명 1", "설명 2"],
     skill: ['html, ', 'css, ', 'javascript,  ', 'swiper'],

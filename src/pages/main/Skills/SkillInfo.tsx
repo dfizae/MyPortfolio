@@ -15,24 +15,24 @@ const category = ['Language', 'Frontend', "Test", "Deployment", "etc"];
 
 const skillData: Record<string, Skill[]> = {
     'Language': [
-        { name: 'HTML', icon: '/src/images/icons/skills/Html-icon.png' },
-        { name: 'CSS', icon: '/src/images/icons/skills/Css-icon.png' },
-        { name: 'Javascript', icon: '/src/images/icons/skills/JS-icon.png' },
-        { name: 'Typescript', icon: '/src/images/icons/skills/TS-icon.png' }
+        { name: 'HTML', icon: '/images/icons/skills/Html-icon.png' },
+        { name: 'CSS', icon: '/images/icons/skills/Css-icon.png' },
+        { name: 'Javascript', icon: '/images/icons/skills/JS-icon.png' },
+        { name: 'Typescript', icon: '/images/icons/skills/TS-icon.png' }
     ],
     'Frontend': [
-        { name: 'React', icon: '/src/images/icons/skills/React.svg' },
-        { name: 'TailwindCSS', icon: '/src/images/icons/skills/Tailwind.svg' },
-        { name: 'Vite', icon: '/src/images/icons/skills/Vite.svg' },
-        { name: 'Zustand', icon: '/src/images/icons/skills/Zustand.svg' },
-        { name: 'Next.js', icon: '/src/images/icons/skills/Nextjs.svg' }
+        { name: 'React', icon: '/images/icons/skills/React.svg' },
+        { name: 'TailwindCSS', icon: '/images/icons/skills/Tailwind.svg' },
+        { name: 'Vite', icon: '/images/icons/skills/Vite.svg' },
+        { name: 'Zustand', icon: '/images/icons/skills/Zustand.svg' },
+        { name: 'Next.js', icon: '/images/icons/skills/Nextjs.svg' }
     ],
-    'Test': [{ name: 'JEST', icon: '/src/images/icons/skills/Jest.svg' }],
-    'Deployment': [{ name: 'Vercel', icon: '/src/images/icons/skills/Vercel.svg' }],
+    'Test': [{ name: 'JEST', icon: '/images/icons/skills/Jest.svg' }],
+    'Deployment': [{ name: 'Vercel', icon: '/images/icons/skills/Vercel.svg' }],
     'etc': [
-        { name: 'Github', icon: '/src/images/icons/skills/Github.svg' },
-        { name: 'Figma', icon: '/src/images/icons/skills/Figma.svg' },
-        { name: 'Photoshop', icon: '/src/images/icons/skills/Photoshop.svg' }
+        { name: 'Github', icon: '/images/icons/skills/Github.svg' },
+        { name: 'Figma', icon: '/images/icons/skills/Figma.svg' },
+        { name: 'Photoshop', icon: '/images/icons/skills/Photoshop.svg' }
     ]
 };
 

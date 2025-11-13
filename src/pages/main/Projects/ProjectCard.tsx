@@ -42,17 +42,17 @@ export default function ProjectCard({ project }: { project: Project }) {
         <ul className="flex gap-5 justify-end items-center">
           <li>
             <a href={project.links.web} target="_blank">
-                <img src="/src/images/icons/website-mark.svg" alt="웹사이트 아이콘" className="w-5 h-5"/>
+                <img src="/images/icons/website-mark.svg" alt="웹사이트 아이콘" className="w-5 h-5"/>
             </a>
           </li>
           <li>
             <a href={project.links.github} target="_blank">
-                <img src="/src/images/icons/github-mark.svg" alt="깃허브 아이콘" className="w-5 h-5"/>
+                <img src="/images/icons/github-mark.svg" alt="깃허브 아이콘" className="w-5 h-5"/>
             </a>
           </li>
           <li>
             <a href={project.links.blog} target="_blank">
-                <img src="/src/images/icons/Naver-mark.svg" alt="블로그 아이콘" className="w-5 h-5"/>
+                <img src="/images/icons/Naver-mark.svg" alt="블로그 아이콘" className="w-5 h-5"/>
             </a>
           </li>
         </ul>
