@@ -45,7 +45,7 @@ export default function ContactForm() {
       <div className="mb-6">
         <label 
           htmlFor="email" 
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-slate-700 text-sm font-bold mb-2"
         >
           이메일
         </label>
@@ -54,8 +54,8 @@ export default function ContactForm() {
           type="email" 
           name="email"
           required
-          className="shadow appearance-none border rounded w-full py-3 px-4 
-                     text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow border rounded w-full py-3 px-4 
+                     text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
         />
         <ValidationError 
           prefix="Email" 
@@ -76,7 +76,7 @@ export default function ContactForm() {
           required
           rows={6}
           className="shadow appearance-none border rounded w-full py-3 px-4 
-                     text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                     text-slate-700 leading-tight focus:outline-none focus:shadow-outline"
         />
         <ValidationError 
           prefix="Message" 
@@ -88,7 +88,7 @@ export default function ContactForm() {
         <button 
           type="submit" 
           disabled={state.submitting}
-          className="bg-blue-600 hover:bg-blue-700 text-white 
+          className="bg-indigo-800 hover:bg-indigo-900 text-white cursor-pointer
                      font-bold py-3 px-6 rounded-lg 
                      focus:outline-none focus:shadow-outline
                      disabled:bg-gray-400"

@@ -8,17 +8,17 @@ interface SkillCategoryProps {
 export default function SkillCategory({category, activeCategory, clickHandler}: SkillCategoryProps){
     return(
         <>
-            <ul className="flex shadow-lg">
+            <ul className="flex shadow-lg bg-white rounded-full">
                 {category.map((name, i) => (
                     <li 
                         id={name} 
                         key={i} 
                         onClick={() => clickHandler(name)}
                         className={`
-                            relative px-9 py-4 cursor-pointer first:rounded-l-2xl last:rounded-r-2xl text-2xl font-medium text-center
+                            px-9 py-4 m-2 cursor-pointer rounded-full text-2xl font-medium text-center
                             ${activeCategory === name 
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-white text-black hover:bg-blue-700 hover:text-white transition-all duration-200'
+                                ? 'bg-indigo-800 text-white'
+                                : 'bg-white text-slate-700 hover:bg-indigo-900 hover:text-white transition-all duration-200'
                             }
                         `}
                     >{name}</li>

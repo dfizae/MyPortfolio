@@ -65,7 +65,7 @@ export default function SkillInfo(){
     return(
         <>
             <SkillCategory category={category} activeCategory={activeCategory} clickHandler={clickHandler}/>
-            <div className="bg-white text-black px-16 py-20 rounded-2xl shadow-lg w-full border-4">
+            <div className="bg-white text-slate-700 px-16 py-20 rounded-2xl shadow-lg w-full border-4 border-slate-700">
                 {renderContent()}
             </div>
         </>

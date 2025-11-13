@@ -14,16 +14,16 @@ export type Project = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-[#D4D4D4] flex flex-col p-6 rounded-lg shadow-lg w-full max-w-md text-black">
+    <div className="bg-white flex flex-col p-6 rounded-lg shadow-lg w-full max-w-md text-slate-700">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-2xl font-bold">{project.name}</span>
+        <span className="text-2xl font-bold text-slate-900">{project.name}</span>
         {project.logo && (
           <img src={project.logo} alt={`${project.name} 로고`} className="w-10 h-10" />
         )}
       </div>
 
-      <div className="border-b-2 border-gray-500 pb-2 mb-4">
-        <span className="text-sm text-gray-700">{project.period}</span>
+      <div className="border-b-2 border-slate-700 pb-2 mb-4">
+        <span className="text-sm text-slate-700">{project.period}</span>
       </div>
 
       <div className="mb-4">
@@ -35,8 +35,8 @@ export default function ProjectCard({ project }: { project: Project }) {
         </ul>
       </div>
 
-      <div className="flex justify-between mt-auto pt-4 border-t border-gray-500">
-        <p className="flex justify-center bg-[#848484] rounded-lg">
+      <div className="flex justify-between mt-auto pt-4 border-t border-slate-300">
+        <p className="flex justify-center bg-indigo-800 text-slate-50 rounded-lg">
           <span className="font-normal text-sm py-1 px-4">{project.skill}</span>
         </p>
         <ul className="flex gap-5 justify-end items-center">

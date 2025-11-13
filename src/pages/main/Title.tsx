@@ -3,8 +3,8 @@ import { MESSAGE } from "../../constants/Text";
 export default function Title(){
     return (
         <>
-            <header className="flex w-full min-h-screen items-center justify-center">
-                <h1 className="font-extrabold text-8xl leading-[1.35] text-center whitespace-pre-line line-hei">
+            <header className="flex w-full min-h-screen items-center justify-center bg-slate-200">
+                <h1 className="font-extrabold text-8xl leading-[1.35] text-center whitespace-pre-line line-hei text-slate-900">
                     {MESSAGE.TITLE}
                 </h1>
             </header>

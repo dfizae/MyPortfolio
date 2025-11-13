@@ -43,8 +43,8 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <>
-      <section className="w-full flex flex-col gap-16 justify-center items-center pb-24">
-        <h1 className="text-6xl font-bold">🖥️ Projects</h1>
+      <section className="w-full flex flex-col gap-12 justify-center items-center pt-5 pb-25 bg-slate-200">
+        <h1 className="text-6xl font-bold text-slate-900">🖥️ Projects</h1>
         <div className="grid grid-cols-2 place-items-center gap-8 w-full max-w-6xl px-8">
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />

@@ -7,7 +7,7 @@
 |분야|기술|
 |:---|:---|
 |Frontend|`React`, `Typescript`, `Vite`|
-|Library|`Lenis`, `Lottie`, `Swiper`|
+|Library|`Lenis`, `Lottie`, `Swiper`, `formspree`|
 |Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
 |Test|`Jest`, `React Testing Library`|
 |Version Control|`Git`, `GitHub`|
@@ -16,7 +16,7 @@
 <br>
 
 - **프리코스에서 배운 언어 활용**: `Jest`<br>
-- **처음으로 써보는 언어**: `Tailwind CSS`, `Framer Motion`
+- **새롭게 학습하고 적용한 기술**: `Tailwind CSS`, `formspree`, `React Testing Library`, `Lenis`, 'Lottie`
 
 ## 🎯 프로젝트를 시작하게 된 계기
 
@@ -44,7 +44,8 @@
 - `React + TypeScript`를 사용하여, 타입 안정성과 유지보수성을 갖춘 프로젝트 구조 설계
 - 컴포넌트 기반 설계를 통해 UI를 효율적으로 재사용하고 관리
 - 프리코스에서 배운 **테스트 코드(`Jest`, `React Testing Library`)**를 작성하여 안정적인 애플리케이션 구현
-- 프리코스에서 배운 MVC 아키텍처 기반 구조 반영 (Model / View / Controller 개념 반영)
+- React의 '관심사 분리(Separation of Concerns)' 원칙 적용
+-   - `SkillInfo.tsx`와 같은 **컨테이너(Controller/Model)** 컴포넌트가 상태와 로직을 관리하고, `SkillBadge.tsx` 같은 **프리젠터(View)** 컴포넌트는 UI만 그리도록 설계하여 테스트가 용이한 구조 구현
 - 반응형 디자인 & UI 완성도 향상을 통해 다양한 환경에서 일관된 사용자 경험 제공
 
 ### 💡 개인적 목표
@@ -60,7 +61,7 @@
 |1주차|🔹 기획 & 기본 구조 설계|- 와이어프레임 / 페이지 구성 기획 (Figma)<br> - `React + Vite` 세팅<br> - 공통 UI 컴포넌트 제작<br> - 라우팅 설정|
 |2주차|🔹 데이터 연결 & 배포| - `Github Pages or vercel`로 홈페이지 배포<br> - `JEST`로 테스트 코드 작성<br> - 스타일링 (Tailwind)|
 
-## 📁 프로젝트 구조 (예정)
+## 📁 프로젝트 구조 (와이어프레임 완성)
 ```
 portfolio/
 ├── node_modules/
@@ -129,11 +130,12 @@ portfolio/
 ## 🗓️ 개발 과정
 
 - 2025-11-05 ~ 2025-11-07
-+[x] 자료조사 및 와이어프레임 작성 (Figma 활용)
+- [x] 자료조사 및 와이어프레임 작성 (Figma 활용)
 
-- 2025-11-08 ~ 2025-11-13
-+[x] 헤더 컴포넌트(타이틀) 코딩
-+[x] 자기소개 컴포넌트 코딩
-+[x] 스킬소개 컴포넌트 코딩
-+[x] 프로젝트소개 컴포넌트 코딩
-+[x] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
+- 2025-11-08 ~ 2025-11-13 (와이어프레임, 반응형 설계, 스타일 다듬기)
+- [x] 헤더 컴포넌트(타이틀) 코딩
+- [x] 자기소개 컴포넌트 코딩
+- [x] 스킬소개 컴포넌트 코딩
+- [x] 프로젝트소개 컴포넌트 코딩
+- [x] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
+- [x] 폰트, 색상 등의 디자인 설계 및 반응형 설계
