@@ -4,6 +4,7 @@ import ScrollFixedComponents from './pages/main/ScrollFixedComponents'
 import Profile from './pages/main/Profile';
 import Skills from './pages/main/Skills';
 import Projects from './pages/main/Projects';
+import Contact from './pages/main/Contact';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Profile />
       <Skills />
       <Projects />
+      <Contact />
     </>
   );
 }
