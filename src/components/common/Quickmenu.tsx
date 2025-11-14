@@ -16,7 +16,7 @@ export default function Quickmenu() {
             <a
               href={menu.href}
               target="_blank"
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-white border-0 border-slate-50 hover:bg-indigo-200 hover:border-2 hover:border-indigo-900 transition-all"
+              className="w-12 h-12 flex items-center justify-center cursor-pointer rounded-full bg-white border-0 border-slate-50 hover:bg-indigo-200 hover:border-2 hover:border-indigo-900 transition-all"
             >
               <img src={menu.src} alt={menu.alt} className="w-6 h-6" />
             </a>

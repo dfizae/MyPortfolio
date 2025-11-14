@@ -6,16 +6,35 @@ import Skills from './pages/main/Skills';
 import Projects from './pages/main/Projects';
 import Contact from './pages/main/Contact';
 
+//Framer Motion
+import ScrollFadeIn from './components/common/ScrollFadeIn';
+
+//Lenis 훅
+import useSmoothScroll from './hooks/useSmoothScroll';
+
+
 function App() {
+  useSmoothScroll();
 
   return (
     <>
       <ScrollFixedComponents/>
-      <Title />
+      
+      <ScrollFadeIn>
+        <Title />
+      </ScrollFadeIn>
+  
       <Profile />
-      <Skills />
-      <Projects />
-      <Contact />
+  
+      <ScrollFadeIn direction='left'>
+        <Skills />
+      </ScrollFadeIn>
+      <ScrollFadeIn direction='down' distance={100}>
+        <Projects />
+      </ScrollFadeIn>
+      <ScrollFadeIn direction='down'>
+        <Contact />
+      </ScrollFadeIn>
     </>
   );
 }
