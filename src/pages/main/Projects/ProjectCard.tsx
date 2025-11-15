@@ -1,16 +1,4 @@
-export type Project = {
-  name: string;
-  period: string;
-  logo?: string;
-  mainTitle: string;
-  descriptions: string[];
-  skill: string[];
-  links: {
-    web: string;
-    github: string;
-    blog: string;
-  };
-};
+import type { Project } from "../../../constants/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (

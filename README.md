@@ -55,12 +55,6 @@
 - 처음으로 프리코스에서 배운 `JEST`를 내 `React` 프로그램에 접목
 - `Tailwind CSS`, `Framer Motion` 처럼 처음 써보는 기술로 스타일해보기, `JEST`외에 `React Testing Library`로도 테스트 도전
 
-## 🧑‍💻 구체적인 실행 계획
-|주차|주요 목표|상세 작업|
-|:---|:---|:---|
-|1주차|🔹 기획 & 기본 구조 설계|- 와이어프레임 / 페이지 구성 기획 (Figma)<br> - `React + Vite` 세팅<br> - 공통 UI 컴포넌트 제작<br> - 라우팅 설정|
-|2주차|🔹 데이터 연결 & 배포| - `Github Pages or vercel`로 홈페이지 배포<br> - `JEST`로 테스트 코드 작성<br> - 스타일링 (Tailwind)|
-
 ## 📁 프로젝트 구조 (와이어프레임 완성)
 ```
 portfolio/
@@ -86,9 +80,11 @@ portfolio/
 │   │   │   └── SideText.tsx: 사이드 라인, 문구 컴포넌트
 │   │   └── layout/ #공통 틀 관리
 │   │
-│   ├── constants/ #메시지 상수 파일 폴더
+│   ├── constants/ #메시지, 데이터, 타입 폴더
 │   │   ├── HyperLink.ts: 링크 관련 상수 메시지
 │   │   ├── ImageInfo.ts: 이미지 관련 상수 메시지
+│   │   ├── Projects.ts: 프로젝트 데이터, 타입 
+│   │   ├── Skills.ts: 스킬 데이터, 타입
 │   │   └── Text.ts: 문장, 단어 등 상수 메시지
 │   │
 │   ├── pages/  # View: 페이지 단위

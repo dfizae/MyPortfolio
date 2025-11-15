@@ -1,5 +1,5 @@
 import SkillBadge from "./SkillBadge";
-import type { Skill } from "./SkillInfo";
+import type { Skill } from "../../../constants/Skills";
 
 export default function DeploymentContent( { skills }: { skills: Skill[] } ){
     return(

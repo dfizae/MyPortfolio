@@ -5,46 +5,19 @@ import FrontendContent from './FrontendContent';
 import TestContent from './TestContent';
 import DeploymentContent from './DeploymentContent';
 import EtcContent from './EtcContent';
+import { category, skillData, type Category } from '../../../constants/Skills';
 
-export type Skill = {
-  name: string;
-  icon: string;
-};
 
-const category = ['Language', 'Frontend', "Test", "Deployment", "etc"];
-
-const skillData: Record<string, Skill[]> = {
-    'Language': [
-        { name: 'HTML', icon: '/images/icons/skills/Html-icon.png' },
-        { name: 'CSS', icon: '/images/icons/skills/Css-icon.png' },
-        { name: 'Javascript', icon: '/images/icons/skills/JS-icon.png' },
-        { name: 'Typescript', icon: '/images/icons/skills/TS-icon.png' }
-    ],
-    'Frontend': [
-        { name: 'React', icon: '/images/icons/skills/React.svg' },
-        { name: 'TailwindCSS', icon: '/images/icons/skills/Tailwind.svg' },
-        { name: 'Vite', icon: '/images/icons/skills/Vite.svg' },
-        { name: 'Zustand', icon: '/images/icons/skills/Zustand.svg' },
-        { name: 'Next.js', icon: '/images/icons/skills/Nextjs.svg' }
-    ],
-    'Test': [{ name: 'JEST', icon: '/images/icons/skills/Jest.svg' }],
-    'Deployment': [{ name: 'Vercel', icon: '/images/icons/skills/Vercel.svg' }],
-    'etc': [
-        { name: 'Github', icon: '/images/icons/skills/Github.svg' },
-        { name: 'Figma', icon: '/images/icons/skills/Figma.svg' },
-        { name: 'Photoshop', icon: '/images/icons/skills/Photoshop.svg' }
-    ]
-};
 
 export default function SkillInfo(){
-    const [activeCategory, setActiveCategory] = useState(category[0]);
+    const [activeCategory, setActiveCategory] = useState<Category>(category[0]);
 
-    const clickHandler = (name: string) => {
+    const clickHandler = (name: Category) => {
         setActiveCategory(name);
     };
 
     const renderContent = () => {
-        const skillsForCategory = skillData[activeCategory as keyof typeof skillData] || [];
+        const skillsForCategory = skillData[activeCategory] || [];
 
         switch (activeCategory) {
             case "Language":

@@ -1,6 +1,7 @@
 export const MESSAGE = Object.freeze({
     TITLE_DESKTOP: "안녕하세요\n도전을 즐기며 성장하는\nFrontend Developer\n김재영 입니다.",
     TITLE_MOBILE: "안녕하세요\n도전을 즐기며\n성장하는\nFrontend\nDeveloper\n김재영 입니다.",
+    
     MENUS: ['Profile', 'Skill', 'Project', 'Contact'],
     MY_PORTFOLIO: "My Portfolio",
     DFIZAE: "Dfizae",
@@ -11,5 +12,19 @@ export const MESSAGE = Object.freeze({
     PHONENUMBER: "📞 연락처: 010-xxxx-xxxx",
     EMAIL: "📧 이메일: gaza1268@naver.com",
     COMMENT: "“사람들에게 도움을 주는 웹 서비스를 만들고 싶어요.”",
+
+    // Contact 폼
+    FORM_SUCCESS_TITLE: "감사합니다!",
+    FORM_SUCCESS_BODY: "메시지가 성공적으로 전송되었습니다.",
+    FORM_LABEL_NAME: "성함",
+    FORM_LABEL_EMAIL: "이메일",
+    FORM_LABEL_MESSAGE: "문의 내용",
+    FORM_BUTTON_SEND: "보내기",
+    FORM_BUTTON_SENDING: "전송 중...",
+
+    // Project 카드
+    PROJECT_STACK: "사용한 기술:",
+    PROJECT_LINK_WEB: "웹사이트",
+    PROJECT_LINK_GITHUB: "깃허브",
 });
 

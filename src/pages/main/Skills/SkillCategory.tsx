@@ -1,7 +1,9 @@
+import type { Category } from "../../../constants/Skills";
+
 interface SkillCategoryProps {
-    category: string[];
+    category: readonly Category[];
     activeCategory: string;
-    clickHandler: (name: string) => void;
+    clickHandler: (name: Category) => void;
 };
 
 
