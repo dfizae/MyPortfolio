@@ -19,22 +19,34 @@ function App() {
   return (
     <>
       <ScrollFixedComponents/>
-      
+       
       <ScrollFadeIn>
-        <Title />
+        <div id="home">
+            <Title />
+        </div>
       </ScrollFadeIn>
-      
-      <Profile />
-  
-      <ScrollFadeIn direction='left'>
-        <Skills />
-      </ScrollFadeIn>
-      <ScrollFadeIn direction='down' distance={100}>
-        <Projects />
-      </ScrollFadeIn>
-      <ScrollFadeIn direction='down'>
-        <Contact />
-      </ScrollFadeIn>
+       
+      <div id="profile">
+        <Profile />
+      </div>
+ 
+      <div id="skill">
+        <ScrollFadeIn direction='left'>
+            <Skills />
+        </ScrollFadeIn>
+      </div>
+
+      <div id="project">
+        <ScrollFadeIn direction='down' distance={100}>
+            <Projects />
+        </ScrollFadeIn>
+      </div>
+
+      <div id="contact">
+        <ScrollFadeIn direction='down'>
+            <Contact />
+        </ScrollFadeIn>
+      </div>
     </>
   );
 }
