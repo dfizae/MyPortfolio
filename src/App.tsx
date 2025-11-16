@@ -23,7 +23,7 @@ function App() {
       <ScrollFadeIn>
         <Title />
       </ScrollFadeIn>
-  
+      
       <Profile />
   
       <ScrollFadeIn direction='left'>

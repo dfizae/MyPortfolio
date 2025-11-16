@@ -86,7 +86,10 @@ portfolio/
 │   │   ├── common/ #공통 컴포넌트 관리
 │   │   │   ├── Gnb.tsx: gnb 컴포넌트 
 │   │   │   ├── Quickmenu.tsx: 퀵메뉴 컴포넌트
-│   │   │   └── SideText.tsx: 사이드 라인, 문구 컴포넌트
+│   │   │   ├── SideText.tsx: 사이드 라인, 문구 컴포넌트
+│   │   │   ├── AnimatedLetters.tsx: 한 글자씩 차례로 나오는 애니메이션 기능
+│   │   │   ├── ScrollFadeIn.tsx: 스크롤을 내릴 때 컴포넌트가 등장하는 애니메이션 기능
+│   │   │   └── ScrollPinAnimation.tsx: 프로필 컴포넌트 애니메이션 기능
 │   │   └── layout/ #공통 틀 관리
 │   │
 │   ├── constants/ #메시지, 데이터, 타입 폴더
@@ -94,6 +97,7 @@ portfolio/
 │   │   ├── ImageInfo.ts: 이미지 관련 상수 메시지
 │   │   ├── Projects.ts: 프로젝트 데이터, 타입 
 │   │   ├── Skills.ts: 스킬 데이터, 타입
+│   │   ├── Experience.ts: 프로필 카드 뒷면 경험, 교육 정보 데이터, 타입
 │   │   └── Text.ts: 문장, 단어 등 상수 메시지
 │   │
 │   ├── pages/  # View: 페이지 단위
@@ -165,7 +169,9 @@ portfolio/
   - [ ] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
   - [ ] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
   - [ ] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
-- [ ] **2. 상태 관리:**
+- [ ] **2. 컴포넌트 추가:**
+  - [ ] `ㅇㅇ`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
+- [ ] **3. 상태 관리:**
   - [ ] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
-- [ ] **3. 테스트:**
+- [ ] **4. 테스트:**
   - [ ] `React Testing Library` / `Jest`: 주요 컴포넌트(SkillInfo, ProjectCard 등) 단위 테스트 및 통합 테스트 코드 작성

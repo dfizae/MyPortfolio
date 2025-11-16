@@ -1,21 +1,38 @@
 import ProfileCard from "./ProfileCard";
 import ProfileComment from "./Comment";
-import ScrollFadeIn from "../../../components/common/ScrollFadeIn";
+import ScrollPinAnimation from '../../../components/common/ScrollPinAnimation';
 
 export default function Profile(){
+
     return(
         <>
-            <section className="w-full min-h-screen flex items-center justify-center bg-slate-200 md:py-24 p-4">
-                <div className="w-full max-w-6xl flex items-center justify-center flex-col gap-12">
-                    <ScrollFadeIn direction="left" distance={100}>
-                        <ProfileComment/>
-                    </ScrollFadeIn>
-                   
-                    <ScrollFadeIn direction="right" distance={100}>
-                        <ProfileCard />
-                    </ScrollFadeIn>
-                </div>
-            </section>
+            <ScrollPinAnimation height="400vh">
+                
+                {/* 1. [수정] 'commentCombinedOpacity'를 받지 않습니다. */}
+                {({ commentX, entryOpacity, cardX, rotateY }) => (
+                    
+                    <>
+                        {/* 2. [수정] ProfileComment가 
+                               'rotateY' (텍스트 교체용),
+                               'entryOpacity' (등장용),
+                               'commentX' (등장용)
+                               3개의 값을 받도록 합니다.
+                        */}
+                        <ProfileComment
+                            rotateY={rotateY}
+                            opacity={entryOpacity}
+                            x={commentX}
+                        />
+                         
+                        <ProfileCard 
+                            rotateY={rotateY} 
+                            opacity={entryOpacity}
+                            x={cardX}
+                        />
+                    </>
+                )}
+
+            </ScrollPinAnimation>
         </>
     );
 }
