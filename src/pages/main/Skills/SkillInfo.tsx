@@ -1,12 +1,7 @@
 import { useState } from 'react'; 
 import SkillCategory from "./SkillCategory";
-import LanguageContent from './LanguageContent';
-import FrontendContent from './FrontendContent';
-import LibraryContent from './LibraryContent';
-import TestContent from './TestContent';
-import DeploymentContent from './DeploymentContent';
-import EtcContent from './EtcContent';
 import { category, skillData, type Category } from '../../../constants/Skills';
+import SkillContentDisplay from './SkillContentDisplay';
 
 
 
@@ -18,25 +13,9 @@ export default function SkillInfo(){
         setActiveCategory(name);
     };
 
-    const renderContent = () => {
+const renderContent = () => {
         const skillsForCategory = skillData[activeCategory] || [];
-
-        switch (activeCategory) {
-            case "Language":
-                return <LanguageContent skills={skillsForCategory} />
-            case "Frontend":
-                return <FrontendContent skills={skillsForCategory} />
-            case "Library":
-                return <LibraryContent skills={skillsForCategory} />
-            case "Test":
-                return <TestContent skills={skillsForCategory} />
-            case "Deployment":
-                return <DeploymentContent skills={skillsForCategory} />
-            case "etc":
-                return <EtcContent skills={skillsForCategory} />
-            default:
-                return <LanguageContent skills={skillsForCategory} />
-        }
+        return <SkillContentDisplay skills={skillsForCategory} />;
     }
 
     return(

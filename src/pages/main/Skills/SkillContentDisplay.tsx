@@ -1,7 +1,7 @@
 import SkillBadge from "./SkillBadge";
-import type { Skill } from "../../../constants/Skills";
+import { type Skill } from '../../../constants/Skills';
 
-export default function DeploymentContent( { skills }: { skills: Skill[] } ){
+export default function SkillContentDisplay( { skills }: { skills: Skill[] } ){
     return(
         <>
             <div className="flex flex-wrap justify-center lg:justify-evenly gap-4">

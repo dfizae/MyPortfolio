@@ -43,7 +43,7 @@
 ### 🎨 기술적 목표
 - `React + TypeScript`를 사용하여, 타입 안정성과 유지보수성을 갖춘 프로젝트 구조 설계
 - 컴포넌트 기반 설계를 통해 UI를 효율적으로 재사용하고 관리
-- 프리코스에서 배운 **테스트 코드(`Jest`, `React Testing Library`)**를 작성하여 안정적인 애플리케이션 구현
+- 프리코스에서 배운 **테스트 코드(`Vitest(Jest)`, `React Testing Library`)**를 작성하여 안정적인 애플리케이션 구현
 - React의 '관심사 분리(Separation of Concerns)' 원칙 적용
 -   - `SkillInfo.tsx`와 같은 **컨테이너(Controller/Model)** 컴포넌트가 상태와 로직을 관리하고, `SkillBadge.tsx` 같은 **프리젠터(View)** 컴포넌트는 UI만 그리도록 설계하여 테스트가 용이한 구조 구현
 - 반응형 디자인 & UI 완성도 향상을 통해 다양한 환경에서 일관된 사용자 경험 제공
@@ -118,7 +118,9 @@ portfolio/
 │   │
 │   ├── store/  # Model: 전역 상태
 │   └── tests/  # 테스트 코드 
-│  
+│       ├── setup.ts: Vitest가 'jest-dom'의 편리한 기능들을 사용할 수 있도록 설정하는 파일  
+│       ├── pages/skills # skill 페이지 테스트 폴더   
+│
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
@@ -137,7 +139,7 @@ portfolio/
 |Frontend|`React`, `Typescript`, `Vite`|
 |Library|`Lenis`, `Lottie`, `Swiper`, `formspree`|
 |Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
-|Test|`Jest`, `React Testing Library`|
+|Test|`Jest(Vitest)`, `React Testing Library`|
 |Version Control|`Git`, `GitHub`|
 |Deployment|`Vercel`|
 |Design Tool|`Figma`|
@@ -176,4 +178,4 @@ portfolio/
 - [o] **3. 상태 관리:**
   - [o] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
 - [o] **4. 테스트:**
-  - [o] `React Testing Library` / `Jest`: 주요 컴포넌트(SkillInfo, ProjectCard 등) 단위 테스트 및 통합 테스트 코드 작성
+  - [o] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
