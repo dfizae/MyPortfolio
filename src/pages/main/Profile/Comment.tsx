@@ -35,8 +35,8 @@ export default function ProfileComment({ rotateY, opacity, x }: CommentProps){
                     className="shadow-lg rounded-2xl text-center bg-white text-black"
                 >
                     <span 
-                        className="font-bold text-2xl md:text-4xl 
-                                   leading-normal py-8 md:py-10 
+                        className="font-bold text-2xl md:text-3xl 
+                                   leading-normal py-8 md:py-10 whitespace-pre-line 
                                    px-6 md:px-16 block"
                     >
                         {currentText}

@@ -34,17 +34,6 @@
 **“끊임없이 배우고 시도하며 성장하는 개발자”로서의 기록**이자,
 우테코 프리코스의 핵심 가치인 **도전과 몰입**을 실천하는 제 마음가짐이 담겨있습니다.
 
-### 🧩 개발 환경
-|분야|기술|
-|:---|:---|
-|Frontend|`React`, `Typescript`, `Vite`|
-|Library|`Lenis`, `Lottie`, `Swiper`, `formspree`|
-|Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
-|Test|`Jest`, `React Testing Library`|
-|Version Control|`Git`, `GitHub`|
-|Deployment|`Vercel`|
-|Design Tool|`Figma`|
-<br>
 
 - **프리코스에서 경험한 기능 활용**: `Jest`를 위시한 테스트 라이브러리 활용 <br>
 
@@ -142,6 +131,18 @@ portfolio/
 └── README.md
 ```
 
+## 🧩 개발 환경
+|분야|기술|
+|:---|:---|
+|Frontend|`React`, `Typescript`, `Vite`|
+|Library|`Lenis`, `Lottie`, `Swiper`, `formspree`|
+|Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
+|Test|`Jest`, `React Testing Library`|
+|Version Control|`Git`, `GitHub`|
+|Deployment|`Vercel`|
+|Design Tool|`Figma`|
+<br>
+
 ## 🧠 핵심 키워드
 **도전/몰입/성장/기록**
 
@@ -151,27 +152,28 @@ portfolio/
 ## 🗓️ 개발 과정
 
 - *** 2025-11-05 ~ 2025-11-07 ***
-- [ ] 자료조사 및 와이어프레임 작성 (Figma 활용)
+- [o] 자료조사 및 와이어프레임 작성 (Figma 활용)
 
 - *** 2025-11-08 ~ 2025-11-13 (와이어프레임, 반응형 설계, 스타일 다듬기) ***
-- [ ] **1. 컴포넌트 코딩**
-  - [ ] 헤더 컴포넌트(타이틀) 코딩
-  - [ ] 자기소개 컴포넌트 코딩
-  - [ ] 스킬소개 컴포넌트 코딩
-  - [ ] 프로젝트소개 컴포넌트 코딩
-  - [ ] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
-- [ ] **2. 스타일 다듬기 (tailwindCss 첫 사용)**
-  - [ ] 폰트, 색상 등의 디자인 설계 및 반응형 설계
-  - [ ] vercel 배포 및 연동
+- [o] **1. 컴포넌트 코딩**
+  - [o] 헤더 컴포넌트(타이틀) 코딩
+  - [o] 자기소개 컴포넌트 코딩
+  - [o] 스킬소개 컴포넌트 코딩
+  - [o] 프로젝트소개 컴포넌트 코딩
+  - [o] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
+- [o] **2. 스타일 다듬기 (tailwindCss 첫 사용)**
+  - [o] 폰트, 색상 등의 디자인 설계 및 반응형 설계
+  - [o] vercel 배포 및 연동
 
 - *** 2025-11-14 ~ ***
-- [ ] **1. 사용자 경험(UX) 고도화:**
-  - [ ] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
-  - [ ] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
-  - [ ] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
-- [ ] **2. 컴포넌트 추가:**
-  - [ ] `ㅇㅇ`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
-- [ ] **3. 상태 관리:**
-  - [ ] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
-- [ ] **4. 테스트:**
-  - [ ] `React Testing Library` / `Jest`: 주요 컴포넌트(SkillInfo, ProjectCard 등) 단위 테스트 및 통합 테스트 코드 작성
+- [o] **1. 사용자 경험(UX) 고도화:**
+  - [o] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
+  - [o] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
+  - [o] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
+  - [o] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
+- [o] **2. 컴포넌트 추가:**
+  - [o] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
+- [o] **3. 상태 관리:**
+  - [o] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
+- [o] **4. 테스트:**
+  - [o] `React Testing Library` / `Jest`: 주요 컴포넌트(SkillInfo, ProjectCard 등) 단위 테스트 및 통합 테스트 코드 작성

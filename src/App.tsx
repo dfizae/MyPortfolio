@@ -21,9 +21,7 @@ function App() {
       <ScrollFixedComponents/>
        
       <ScrollFadeIn>
-        <div id="home">
             <Title />
-        </div>
       </ScrollFadeIn>
        
       <div id="profile">

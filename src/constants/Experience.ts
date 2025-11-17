@@ -10,7 +10,7 @@ export const EXPERIENCES: Experience[] = [
     name: "우아한테크코스 (프리코스)",
     duration: "2025.10 - 2025.11",
     description: "테스트 코드 작성, 관심사 분리,\n클린 코드 원칙 학습",
-    link: "https://github.com/woowacourse/javascript-pre-course"
+    link: "https://github.com/dfizae/woowacourse-precourse-missions.git"
   },
   {
     name: "feeple (팀 프로젝트)",

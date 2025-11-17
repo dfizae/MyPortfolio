@@ -15,7 +15,7 @@ export const MESSAGE = Object.freeze({
     PHONENUMBER: "📞 연락처: 010-xxxx-xxxx",
     EMAIL: "📧 이메일: gaza1268@naver.com",
     COMMENT: "“사람들에게 도움을 주는 웹 서비스를 만들고 싶어요.”",
-    COMMENT_FLIP_INSTRUCTION:"아래 항목을 슬라이드로 내리세요",
+    COMMENT_FLIP_INSTRUCTION:"데스크탑: 전체 화면으로 봐주세요:)\n모바일: 아래 항목을 슬라이드",
     MY_DIRECTION_TITLE: "개발자로서의 방향",
     MY_DIRECTION_COMMENT: "아이디어를 ‘작동하는 웹’으로 구현하는 것을 좋아하는 프론트엔드 개발자입니다.\n코드를 디자인의 연장선으로 보고, UI와 UX를 함께 고민합니다.\n도전과 실험을 두려워하지 않고, 더 나은 사용자 경험을 위한 코드를 만듭니다.",
     MY_EXPERIENCE_TITLE:"교육·협업 경험",
