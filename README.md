@@ -121,6 +121,7 @@ portfolio/
 │       ├── setup.ts: Vitest가 'jest-dom'의 편리한 기능들을 사용할 수 있도록 설정하는 파일  
 │       ├── pages/skills # skill 페이지 테스트 폴더   
 │       ├── pages/projects # project 페이지 테스트 폴더
+│       ├── pages/profile # ProfileBack 컴포넌트 페이지 테스트 폴더
 │       ├── pages/contact # contact 폼 작동 테스트 폴더
 │       └── components/gnb # gnb 작동 테스트
 ├── .gitignore
