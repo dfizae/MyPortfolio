@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="flex flex-col md:flex-row justify-between gap-4 mt-auto pt-4 border-t border-slate-300">
         <p className="flex justify-center bg-indigo-800 text-slate-50 rounded-lg">
-          <span className="font-normal text-sm py-1 px-4">{project.skill}</span>
+          <span className="font-normal text-sm py-1 px-4">{project.skill.join('')}</span>
         </p>
         <ul className="flex gap-5 justify-end items-center">
           <li>

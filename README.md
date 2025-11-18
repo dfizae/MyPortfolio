@@ -175,7 +175,7 @@ portfolio/
   - [o] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
 - [o] **2. 컴포넌트 추가:**
   - [o] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
-- [o] **3. 상태 관리:**
-  - [o] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
+- [ ] **3. 상태 관리:**
+  - [ ] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
 - [o] **4. 테스트:**
   - [o] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
