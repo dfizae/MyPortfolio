@@ -37,7 +37,7 @@ export default function ScrollPinAnimation({
           className="relative w-full bg-slate-200"
           style={{ height: height }}
       >
-          <div className="sticky top-0 h-screen flex flex-col gap-12 justify-center items-center p-4 overflow-hidden perspective-[1000px]">
+          <div className="sticky top-0 h-screen flex flex-col gap-12 justify-center items-center p-4 overflow-x-hidden perspective-[1000px]">
               {children({
                   commentX,
                   entryOpacity,
