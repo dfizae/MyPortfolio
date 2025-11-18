@@ -2,19 +2,17 @@ import type { Project } from "../../../constants/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-slate-700 h-full">
+    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-slate-700">
       <div className="flex justify-between items-center mb-2">
         <span className="text-2xl font-bold text-slate-900">{project.name}</span>
         {project.logo && (
           <img src={project.logo} alt={`${project.name} 로고`} className="w-10 h-10" />
         )}
       </div>
-
       <div className="border-b-2 border-slate-300 pb-2 mb-4">
         <span className="text-sm text-slate-600">{project.period}</span>
       </div>
-
-      <div className="mb-4 flex-1 overflow-y-auto">
+      <div className="mb-4">
         <span className="text-lg font-semibold">{project.mainTitle}</span>
         <ul className="list-disc list-inside mt-2 text-slate-700">
           {project.descriptions.map((desc, i) => (
