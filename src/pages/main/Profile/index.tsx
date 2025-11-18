@@ -1,30 +1,21 @@
 import ProfileCard from "./ProfileCard";
 import ProfileComment from "./Comment";
-import ScrollPinAnimation from '../../../components/common/ScrollPinAnimation';
+import ScrollFadeIn from "../../../components/common/ScrollFadeIn";
 
 export default function Profile(){
-
     return(
         <>
-            <ScrollPinAnimation height="400vh">
-                {({ commentX, entryOpacity, cardX, rotateY }) => (
+            <section className="w-full min-h-screen flex items-center justify-center bg-slate-200 md:py-24 p-4">
+                <div className="w-full max-w-6xl flex items-center justify-center flex-col gap-12">
+                    <ScrollFadeIn direction="left" distance={100}>
+                        <ProfileComment/>
+                    </ScrollFadeIn>
                     
-                    <>
-                        <ProfileComment
-                            rotateY={rotateY}
-                            opacity={entryOpacity}
-                            x={commentX}
-                        />
-                         
-                        <ProfileCard 
-                            rotateY={rotateY} 
-                            opacity={entryOpacity}
-                            x={cardX}
-                        />
-                    </>
-                )}
-
-            </ScrollPinAnimation>
+                    <ScrollFadeIn direction="right" distance={100}>
+                        <ProfileCard />
+                    </ScrollFadeIn>
+                </div>
+            </section>
         </>
     );
 }
