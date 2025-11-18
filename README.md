@@ -149,7 +149,7 @@ portfolio/
 **도전/몰입/성장/기록**
 
 ## 🧠 피그마 작업물
-
+https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1
 
 ## 🗓️ 개발 과정
 
