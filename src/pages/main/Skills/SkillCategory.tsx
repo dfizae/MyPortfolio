@@ -10,7 +10,7 @@ interface SkillCategoryProps {
 export default function SkillCategory({category, activeCategory, clickHandler}: SkillCategoryProps){
     return(
         <>
-           <div className="w-full overflow-x-auto text-center bg-white rounded-full shadow-lg p-2">
+           <div className="w-full max-w-full overflow-x-auto text-center bg-white rounded-full shadow-lg p-2">
                 <ul className="inline-flex gap-6 pr-2">
                     {category.map((name, i) => (
                         <li 
