@@ -122,7 +122,7 @@ portfolio/
 │       ├── pages/skills # skill 페이지 테스트 폴더   
 │       ├── pages/projects # project 페이지 테스트 폴더
 │       ├── pages/contact # contact 폼 작동 테스트 폴더
-│
+│       └── components/gnb # gnb 작동 테스트
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
