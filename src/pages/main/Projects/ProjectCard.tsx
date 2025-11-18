@@ -2,7 +2,7 @@ import type { Project } from "../../../constants/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md h-full max-w-md text-slate-700">
+    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-slate-700 h-full">
       <div className="flex justify-between items-center mb-2">
         <span className="text-2xl font-bold text-slate-900">{project.name}</span>
         {project.logo && (
@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <span className="text-sm text-slate-600">{project.period}</span>
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 flex-1 overflow-y-auto">
         <span className="text-lg font-semibold">{project.mainTitle}</span>
         <ul className="list-disc list-inside mt-2 text-slate-700">
           {project.descriptions.map((desc, i) => (
@@ -23,23 +23,25 @@ export default function ProjectCard({ project }: { project: Project }) {
         </ul>
       </div>
 
+
       <div className="flex flex-col md:flex-row justify-between gap-4 mt-auto pt-4 border-t border-slate-300">
-        <p className="flex justify-center bg-indigo-800 text-slate-50 rounded-lg">
-          <span className="font-normal text-sm py-1 px-4">{project.skill.join(' ')}</span>
+        <p className="flex justify-center items-center bg-indigo-800 text-slate-50 rounded-lg">
+          <span className="font-normal text-sm py-1 px-4">{project.skill.join(" ")}</span>
         </p>
+
         <ul className="flex gap-5 justify-end items-center">
           <li>
-            <a href={project.links.web} target="_blank">
+            <a href={project.links.web} target="_blank" rel="noopener noreferrer">
                 <img src="/images/icons/website-mark.svg" alt="웹사이트 아이콘" className="w-5 h-5"/>
             </a>
           </li>
           <li>
-            <a href={project.links.github} target="_blank">
+            <a href={project.links.github} target="_blank" rel="noopener noreferrer">
                 <img src="/images/icons/github-mark.svg" alt="깃허브 아이콘" className="w-5 h-5"/>
             </a>
           </li>
           <li>
-            <a href={project.links.blog} target="_blank">
+            <a href={project.links.blog} target="_blank" rel="noopener noreferrer">
                 <img src="/images/icons/Naver-mark.svg" alt="블로그 아이콘" className="w-5 h-5"/>
             </a>
           </li>
