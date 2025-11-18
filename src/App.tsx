@@ -35,7 +35,7 @@ function App() {
       </div>
 
       <div id="project">
-        <ScrollFadeIn direction='down' distance={100}>
+        <ScrollFadeIn direction='down'>
             <Projects />
         </ScrollFadeIn>
       </div>
