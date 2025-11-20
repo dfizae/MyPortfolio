@@ -21,10 +21,10 @@ export const skillData: Record<Category, Skill[]> = {
         { name: 'Next.js', icon: '/images/icons/skills/Nextjs.svg' }
     ],
     'Library': [
-        { name: 'Swiper', icon:'/public/images/icons/skills/Swiper-logo.svg' },
-        { name: 'Framer Motion', icon: '/public/images/icons/skills/FramerMotion-logo.svg'},
-        { name: 'Lenis', icon: '/public/images/icons/skills/Lenis-logo.svg'},
-        { name: 'Lottie', icon: '/public/images/icons/skills/Lottie-logo.svg'},
+        { name: 'Swiper', icon:'/images/icons/skills/Swiper-logo.svg' },
+        { name: 'Framer Motion', icon: '/images/icons/skills/FramerMotion-logo.svg'},
+        { name: 'Lenis', icon: '/images/icons/skills/Lenis-logo.svg'},
+        { name: 'Lottie', icon: '/images/icons/skills/Lottie-logo.svg'},
     ]
     ,
     'Test': [
@@ -33,7 +33,7 @@ export const skillData: Record<Category, Skill[]> = {
     ],
     'Deployment': [
         { name: 'Vercel', icon: '/images/icons/skills/Vercel.svg' },
-        { name: 'dothome', icon: '/public/images/icons/skills/dothome-logo.svg' },
+        { name: 'dothome', icon: '/images/icons/skills/dothome-logo.svg' },
     ],
     'etc': [
         { name: 'Github', icon: '/images/icons/skills/Github.svg' },

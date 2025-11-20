@@ -1,5 +1,3 @@
-// 경로: src/tests/pages/main/Projects/index.test.tsx
-
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import Projects from '../../../pages/main/Projects';
