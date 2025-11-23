@@ -1,8 +1,15 @@
 ## 💡 우아한 테크코스 프리코스 4, 5주차 오픈 미션
-[오픈 미션 회고록 링크](https://velog.io/@dfizae/%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-4-5%EC%A3%BC%EC%B0%A8-%EC%98%A4%ED%94%88-%EB%AF%B8%EC%85%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D)
+
 
 ### 🎯 미션 주제명
 **🌐 Frontend Portfolio**
+
+### 🖥️ 관련 링크
+|목록|설명|
+|:--|:--|
+|'figma'|[피그마 작업물 링크](https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1)|
+|'vercel`|[웹사이트 vercel 링크](https://pf-qep3algbv-dfizaes-projects.vercel.app)|
+|`velog`|[오픈 미션 회고록 링크](https://velog.io/@dfizae/%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-4-5%EC%A3%BC%EC%B0%A8-%EC%98%A4%ED%94%88-%EB%AF%B8%EC%85%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D)|
 
 ## 🚀 프로젝트를 통해 기대하는 성장
 이번 미션의 목표는 단순히 포트폴리오를 **완성하는 것**에 그치지 않고,
@@ -149,35 +156,29 @@ portfolio/
 |Design Tool|`Figma`|
 <br>
 
-## 🧠 핵심 키워드
-**도전/몰입/성장/기록**
-
-## 🧠 피그마 작업물
-[피그마 작업물 링크](https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1)
-
 ## 🗓️ 개발 과정
 
 - **2025-11-05 ~ 2025-11-07**
-- [ ] 자료조사 및 와이어프레임 작성 (Figma 활용)
+- [x] 자료조사 및 와이어프레임 작성 (Figma 활용)
 
 - **2025-11-08 ~ 2025-11-13 (와이어프레임, 반응형 설계, 스타일 다듬기)**
 - **1. 컴포넌트 코딩**
-  - [ ] 헤더 컴포넌트(타이틀) 코딩
-  - [ ] 자기소개 컴포넌트 코딩
-  - [ ] 스킬소개 컴포넌트 코딩
-  - [ ] 프로젝트소개 컴포넌트 코딩
-  - [ ] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
+  - [x] 헤더 컴포넌트(타이틀) 코딩
+  - [x] 자기소개 컴포넌트 코딩
+  - [x] 스킬소개 컴포넌트 코딩
+  - [x] 프로젝트소개 컴포넌트 코딩
+  - [x] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
 - **2. 스타일 다듬기 (tailwindCss 첫 사용)**
-  - [ ] 폰트, 색상 등의 디자인 설계 및 반응형 설계
-  - [ ] vercel 배포 및 연동
+  - [x] 폰트, 색상 등의 디자인 설계 및 반응형 설계
+  - [x] vercel 배포 및 연동
 
 - **2025-11-14 ~**
 - **1. 사용자 경험(UX) 고도화:**
-  - [ ] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
-  - [ ] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
-  - [ ] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
-  - [ ] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
+  - [x] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
+  - [x] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
+  - [x] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
+  - [x] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
 - **2. 컴포넌트 추가:**
-  - [ ] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
+  - [x] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
 - **3. 테스트:**
-  - [ ] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
+  - [x] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
