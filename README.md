@@ -1,4 +1,5 @@
 ## 💡 우아한 테크코스 프리코스 4, 5주차 오픈 미션
+[오픈 미션 회고록 링크](https://velog.io/@dfizae/%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-4-5%EC%A3%BC%EC%B0%A8-%EC%98%A4%ED%94%88-%EB%AF%B8%EC%85%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D)
 
 ### 🎯 미션 주제명
 **🌐 Frontend Portfolio**
@@ -152,33 +153,31 @@ portfolio/
 **도전/몰입/성장/기록**
 
 ## 🧠 피그마 작업물
-https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1
+[피그마 작업물 링크](https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1)
 
 ## 🗓️ 개발 과정
 
 - **2025-11-05 ~ 2025-11-07**
-- [o] 자료조사 및 와이어프레임 작성 (Figma 활용)
+- [ ] 자료조사 및 와이어프레임 작성 (Figma 활용)
 
 - **2025-11-08 ~ 2025-11-13 (와이어프레임, 반응형 설계, 스타일 다듬기)**
-- [o] **1. 컴포넌트 코딩**
-  - [o] 헤더 컴포넌트(타이틀) 코딩
-  - [o] 자기소개 컴포넌트 코딩
-  - [o] 스킬소개 컴포넌트 코딩
-  - [o] 프로젝트소개 컴포넌트 코딩
-  - [o] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
-- [o] **2. 스타일 다듬기 (tailwindCss 첫 사용)**
-  - [o] 폰트, 색상 등의 디자인 설계 및 반응형 설계
-  - [o] vercel 배포 및 연동
+- **1. 컴포넌트 코딩**
+  - [ ] 헤더 컴포넌트(타이틀) 코딩
+  - [ ] 자기소개 컴포넌트 코딩
+  - [ ] 스킬소개 컴포넌트 코딩
+  - [ ] 프로젝트소개 컴포넌트 코딩
+  - [ ] contact 컴포넌트 코딩 및 `formspree` 폼 제출 서비스 구독
+- **2. 스타일 다듬기 (tailwindCss 첫 사용)**
+  - [ ] 폰트, 색상 등의 디자인 설계 및 반응형 설계
+  - [ ] vercel 배포 및 연동
 
 - **2025-11-14 ~**
-- [o] **1. 사용자 경험(UX) 고도화:**
-  - [o] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
-  - [o] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
-  - [o] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
-  - [o] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
-- [o] **2. 컴포넌트 추가:**
-  - [o] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
-- [ ] **3. 상태 관리:**
-  - [ ] `Zustand`: '다크/라이트 모드' 등 전역 상태 관리 기능 도입
-- [o] **4. 테스트:**
-  - [o] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
+- **1. 사용자 경험(UX) 고도화:**
+  - [ ] `Lenis`: 부드러운 스크롤(Smooth Scroll) 기능 적용
+  - [ ] `Framer Motion`: 스크롤에 반응하는 섹션 등장 애니메이션 적용
+  - [ ] `Lottie`: 헤더 타이틀 등 주요 영역에 인터랙티브 Lottie 아이콘 적용
+  - [ ] `Gnb.tsx`: 앵커 기능 추가 (skills 버튼을 누르면 skills 페이지로 넘어가는 기능)
+- **2. 컴포넌트 추가:**
+  - [ ] `components/common/ScrollPinAnimation.tsx`: `Framer Motion`, `CSS`를 활용하여 Profile 컴포넌트의 성장 배경 설명 강화
+- **3. 테스트:**
+  - [ ] `React Testing Library` / `Vitest`: Vite에서는 `Jest` 대신 `Vitest`를 사용 (`JEST`랑 문법이 99% 똑같다.)
