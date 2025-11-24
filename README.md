@@ -8,7 +8,7 @@
 |목록|링크|비고|
 |:--|:--|:--|
 |`figma`|[피그마 작업물 링크](https://www.figma.com/design/7xNMlfJ2XTmViY1xzcIreq/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%B9%80%EC%9E%AC%EC%98%81?node-id=3-5&t=jt0ecp2aciODJ4b5-1)||
-|`vercel`|[웹사이트 vercel 링크](https://pf-qep3algbv-dfizaes-projects.vercel.app)|구글, 깃허브 로그인 필요; 웹사이트 열람 시 전체화면 권장|
+|`vercel`|[웹사이트 vercel 링크](https://pf-gb29t3vlt-dfizaes-projects.vercel.app)|구글, 깃허브 로그인 필요; 웹사이트 열람 시 전체화면 권장|
 |`velog`|[오픈 미션 회고록 링크](https://velog.io/@dfizae/%ED%94%84%EB%A6%AC%EC%BD%94%EC%8A%A4-4-5%EC%A3%BC%EC%B0%A8-%EC%98%A4%ED%94%88-%EB%AF%B8%EC%85%98-%ED%9A%8C%EA%B3%A0%EB%A1%9D)||
 
 ## 🚀 프로젝트를 통해 기대하는 성장
