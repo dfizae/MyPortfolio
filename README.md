@@ -137,6 +137,8 @@ portfolio/
 ├── index.html
 ├── package-lock.json
 ├── package.json
+├── postcss.config.js
+├── tailwind.config.js
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
