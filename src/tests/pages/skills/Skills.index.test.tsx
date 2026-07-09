@@ -21,15 +21,15 @@ vi.mock('../../../../constants/skills', () => ({
 
 describe('Skils/index.tsx 테스트', () => {
 
-  it('Lottie 아이콘, 제목, 탭(SkillInfo) 컨텐츠를 모두 렌더링되어야 한다.', () => {
-    
+  it('Lottie 아이콘, 제목, 탭(SkillInfo) 컨텐츠를 모두 렌더링되어야 한다.', async () => {
+
     // Given, when
     render(<Skills />);
 
     // Then
-    
-    // 1. 가짜 Lottie가 렌더링 되었는가?
-    expect(screen.getByTestId('lottie-mock')).toBeInTheDocument();
+
+    // 1. 가짜 Lottie가 렌더링 되었는가? (지연 로딩되므로 findBy로 대기)
+    expect(await screen.findByTestId('lottie-mock')).toBeInTheDocument();
 
     // 2. 'AnimatedLetters' 컴포넌트가 렌더링하는 'aria-label="Skills"'를 찾는다.
     expect(screen.getByLabelText('Skills')).toBeInTheDocument();
