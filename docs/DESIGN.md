@@ -51,6 +51,7 @@
 - 토큰 이름은 `--color-bg` 대신 `--color-canvas` — Tailwind v4 유틸리티가 `bg-canvas` / `bg-surface` / `text-ink` / `text-ink-muted` / `bg-brand` / `text-brand-ink` / `border-line` / `text-success` 로 생김.
 - 대비 검사 (WCAG, 2026-08-21 계산): ink/canvas **16.3** · ink/surface **17.9** · ink-muted/canvas **6.9** · ink-muted/surface **7.6** · brand-ink/brand **6.3** · brand(글자로)/canvas **5.7** · brand/surface **6.3** · success/surface **5.0** · success/canvas **4.6** — 본문 4.5:1 전부 통과.
 - 현재 코드 → 토큰 매핑: `bg-slate-200`→`bg-canvas` · `bg-white`→`bg-surface` · `text-slate-900`/`text-slate-700`/`text-black`→`text-ink` · `text-slate-600`/`text-gray-700`→`text-ink-muted` · `bg-indigo-800`/`bg-indigo-900`/`text-indigo-900`/`before:bg-indigo-900`→`brand` · `text-slate-50`/`text-white`(인디고 위)→`text-brand-ink` · `border-slate-300`/`border-slate-700`→`border-line` · `text-green-600`→`text-success`. 그 외(`bg-slate-900/600`, `bg-indigo-200`, `bg-gray-400`, `text-slate-100/300`, `border-slate-50`)는 교체 시 역할을 보고 위 8개 중 하나로 — 새 토큰 추가는 여기 먼저.
+- **어두운 면** (Profile 뒷면 경험 카드의 `bg-slate-600` / `bg-slate-900`): 토큰 추가 없이 **`bg-ink` + `text-surface`**(보조 글자 `text-surface/70`, 구분선 `border-surface/30`), 제목 pill만 `bg-brand text-brand-ink` — 2026-08-21 결정 (`ca07d0a`). 밝은 틴트가 필요하면 `bg-brand/10`처럼 토큰에 투명도 수식자(color-mix)로.
 
 ### 2.2 현재 코드에서 쓰이는 색 (매핑용)
 
@@ -64,9 +65,9 @@
 **교체 진행 (배치 단위, 배치마다 커밋 1개)**
 - ✅ 2026-08-21 `65f6ad3` — `@theme` 도입 + 공용 UI (Title · Gnb · SideText · Quickmenu), `tailwind.config.js` 제거
 - ✅ 2026-08-21 `12a16ff` — Projects (index · ProjectCard) · Contact (index · ContactForm)
-- ⬜ Profile (Comment · ProfileCard · ProfileInfo · ProfileBackInfo · ScrollPinAnimation) — 이때 `body { color }`를 `ink`로 전환 (ProfileBack의 상속 흰 글자에 명시 색 부여)
+- ✅ 2026-08-21 `ca07d0a` — Profile (Comment · ProfileCard · ProfileInfo · ProfileBack · ProfileBackInfo · ScrollPinAnimation) + `body { color }` → `ink` 전환. 뒷면 어두운 면은 `bg-ink`/`text-surface` 재사용
 - ⬜ Skills (index · SkillBadge · SkillCategory · SkillInfo) — `SkillCategory.test` / `SkillInfo.test`가 `bg-indigo-800` `bg-white` 클래스를 검사하므로 테스트도 함께 갱신
-- 남은 raw 색 클래스: 약 77곳 → **40곳 / 9파일** (2026-08-21 기준)
+- 남은 raw 색 클래스: 약 77곳 → 40곳 → **14곳 / 4파일 (Skills만)** (2026-08-21 기준)
 
 ### 2.3 규칙
 
@@ -163,6 +164,8 @@
 | 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`) |
 | pill (기술 태그) | `Projects/ProjectCard.tsx` | `bg-brand text-brand-ink rounded-lg text-sm` | — | — | 브랜드 면적 규칙(§2.3) 안 — 작은 면만 |
 | 퀵메뉴 버튼 | `common/Quickmenu.tsx` | `bg-surface rounded-full w-12 h-12` | `bg-brand/10 border-2 border-brand` | ___ (현재 없음) | `65f6ad3` |
+| 경험 카드 (어두운 면) | `Profile/ProfileBackInfo.tsx` | `bg-ink text-surface rounded-2xl shadow-lg` · 제목 pill `bg-brand text-brand-ink rounded-full` · 기간 `text-surface/70 border-b-2 border-surface/30` | — | ___ (링크 아이콘) | 토큰 추가 없이 ink/surface 재사용, github 아이콘은 `bg-surface` 원형 (`ca07d0a`) |
+| 프로필 카드 앞/뒤 · 코멘트 | `Profile/ProfileCard.tsx` `Profile/Comment.tsx` | `bg-surface text-ink rounded-2xl shadow-lg` | — | — | 이름 밑줄 `border-b-[3px] border-line` (`ca07d0a`) |
 | 배지 | `Skills/SkillBadge.tsx` | `bg-slate-200 rounded-lg shadow-lg` (미교체) | ___ | — | Skills 배치에서 `bg-canvas` 또는 `bg-surface` 결정 |
 | 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard · Quickmenu 있음, ProfileBackInfo 미적용 |
 | 섹션 제목 | 각 `pages/main/*/index.tsx` | `text-ink font-bold` (Projects · Contact 교체됨, 크기는 §3.2에서) | — | — | |
@@ -185,6 +188,7 @@
 - [2026-08-21] slate / gray 혼용 금지 — 같은 역할(폼 라벨)에 두 팔레트가 섞여 미세하게 톤이 다름
 - [2026-08-21] 스크롤 등장 트리거는 섹션 높이에 의존하면 안 된다 (IntersectionObserver `threshold` ≤ 0.2 + `rootMargin`, 뷰포트보다 긴 섹션은 래퍼가 아니라 카드·항목 단위로 등장) — `threshold 0.5`가 모바일 1열 Projects 섹션을 9개월간 투명하게 만든 원인이었음 (`89a8615`)
 - [2026-08-21] 색은 §2.1 역할 토큰 8개만, 상태색이 필요하면 대비 계산 후 여기 먼저 추가 — `success`를 green-600으로 두려다 본문 대비 3.3:1로 탈락해 green-700으로 올린 사례
+- [2026-08-21] 어두운 면은 새 토큰 없이 `bg-ink` + `text-surface`(보조 `/70`), 틴트는 토큰 + 투명도 수식자(`bg-brand/10`) — 관리할 색을 8개로 유지. Profile 뒷면 경험 카드에서 `slate-600/900` 두 단계를 ink 한 단계로 (`ca07d0a`)
 -
 
 ---
@@ -192,9 +196,10 @@
 ## 10. 미결 질문
 
 - ~~`focus:shadow-outline` 무효 → 폼 포커스 표시 없음~~ — **닫힘 (`12a16ff`)**: `focus-visible:ring-2 ring-brand`(버튼은 `ring-offset-2`)로 복구. 나머지 링크·버튼(Gnb · Quickmenu · ProjectCard 아이콘 링크)의 focus-visible은 §7에 빈칸으로 남아 있음 → §8 키보드 항목 정할 때 일괄.
-- `body { color: #fff }` 전역값 — **진행 중**: `65f6ad3`에서 `background-color: var(--color-canvas)`만 적용. `ProfileBack.tsx`의 h2/p가 색 클래스 없이 이 흰색을 상속하므로 Profile 배치에서 명시 색을 넣은 뒤 `color: var(--color-ink)`로 전환 (App.css TODO 주석).
+- ~~`body { color: #fff }` 전역값~~ — **닫힘 (`ca07d0a`)**: `color: var(--color-ink)`로 전환. 흰색 상속에 기대는 텍스트가 없음을 Profile·Skills 전부 확인(ProfileBack은 ProfileCard 뒷면의 `text-ink`를 상속). 어두운 면은 명시적으로 `text-surface`.
 - 섹션 `id`(profile / skill / project / contact)와 메뉴 라벨 단·복수 통일 여부 (§6)
 - ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관. 상세 경위는 WORKLOG 2026-08-21 엔트리.
 - `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh` 전환 여부 (Title·Skills·Contact·ScrollPinAnimation 4곳). §4 레이아웃 토큰 정할 때 결정.
 - `prefers-reduced-motion` 미대응 (§5). 등장 애니메이션을 래퍼 단위에서 카드 단위로 바꿀 때 같이.
+- Tailwind v4 자동 소스 스캔이 `docs/*.md`·`README.md`의 클래스 문자열까지 읽어 `bg-slate-900/600`, `text-slate-100/300` 같은 **쓰이지 않는 유틸리티를 빌드 CSS에 생성**(2026-08-21 발견). 해롭진 않지만 "토큰 외 색 금지" 감사 때 노이즈 → `App.css`에 `@source not "../../docs"` 추가 검토 (Skills 배치 끝나고 raw 클래스 0 확인할 때).
 -
