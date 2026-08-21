@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* 디자인 토큰 — 단일 소스는 docs/DESIGN.md §2.1 (2026-08-21 확정).
+   여기 값은 그 표를 그대로 옮긴 것. 새 색이 필요하면 DESIGN.md에 먼저 추가한다.
+   유틸리티: bg-canvas · bg-surface · text-ink · text-ink-muted · bg-brand · text-brand-ink · border-line · text-success */
+@theme {
+  --color-canvas: #f1f5f9;     /* 페이지·섹션 바닥 (slate-100) */
+  --color-surface: #ffffff;    /* 카드·폼·배지 */
+  --color-ink: #0f172a;        /* 제목·본문 (slate-900) */
+  --color-ink-muted: #475569;  /* 설명·캡션·라벨 (slate-600) */
+  --color-brand: #4f46e5;      /* 강조 한 가지 (indigo-600) */
+  --color-brand-ink: #ffffff;  /* brand 배경 위 글자 */
+  --color-line: #cbd5e1;       /* 보더·구분선 (slate-300) */
+  --color-success: #15803d;    /* 전송 완료 (green-700) */
+}
+
 /* Paperlogy 폰트 */
 @font-face {
     font-family: 'Paperozi';
@@ -67,6 +81,9 @@
 /* 공통 클래스 */
 body {
   font-family: 'Paperozi', sans-serif; /* 1. 기본 폰트를 body에 적용 */
+  background-color: var(--color-canvas);
+  /* TODO(토큰 교체 · Profile 배치): color: var(--color-ink) 로 전환.
+     ProfileBack.tsx 의 h2/p 가 색 클래스 없이 이 흰색을 상속하고 있어, 거기에 명시 색을 넣은 뒤 바꾼다. (DESIGN.md §10) */
   color: #fff; /* 2. 기본 글자색을 body에 적용 */
 }
 
