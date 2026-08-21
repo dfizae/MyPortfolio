@@ -7,7 +7,7 @@ export default function ProfileBack() {
   const experiences = EXPERIENCES;
 
   return (
-    <div className="flex flex-col text-left gap-4 w-full p-4 md:p-6">
+    <div className="flex flex-col text-left gap-4 w-full p-4 md:p-6 text-ink">
       <h2 className="text-xl md:text-2xl font-bold">
         {MESSAGE.MY_DIRECTION_TITLE}
       </h2>

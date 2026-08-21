@@ -82,9 +82,7 @@
 body {
   font-family: 'Paperozi', sans-serif; /* 1. 기본 폰트를 body에 적용 */
   background-color: var(--color-canvas);
-  /* TODO(토큰 교체 · Profile 배치): color: var(--color-ink) 로 전환.
-     ProfileBack.tsx 의 h2/p 가 색 클래스 없이 이 흰색을 상속하고 있어, 거기에 명시 색을 넣은 뒤 바꾼다. (DESIGN.md §10) */
-  color: #fff; /* 2. 기본 글자색을 body에 적용 */
+  color: var(--color-ink); /* 2. 기본 글자색 — 토큰 ink (2026-08-21 Profile 배치에서 #fff 에서 전환, DESIGN.md §10) */
 }
 
 

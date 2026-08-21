@@ -32,7 +32,7 @@ export default function ProfileComment({ rotateY, opacity, x }: CommentProps){
                 }}
             >
                 <motion.div 
-                    className="shadow-lg rounded-2xl text-center bg-white text-black"
+                    className="shadow-lg rounded-2xl text-center bg-surface text-ink"
                 >
                     <span 
                         className="font-bold text-2xl md:text-3xl 

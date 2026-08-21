@@ -34,7 +34,7 @@ export default function ScrollPinAnimation({
   return (
       <section 
           ref={sectionRef} 
-          className="relative w-full bg-slate-200"
+          className="relative w-full bg-canvas"
           style={{ height: height }}
       >
           <div className="sticky top-0 h-screen flex flex-col gap-12 justify-center items-center p-4 overflow-x-hidden perspective-[1000px]">

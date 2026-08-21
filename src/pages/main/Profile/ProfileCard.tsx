@@ -22,8 +22,8 @@ export default function ProfileCard({ rotateY, opacity, x }: ProfileCardProps){
                 }}
             >
                 <div
-                    className="absolute w-full h-full bg-white rounded-2xl shadow-lg 
-                               flex flex-col md:flex-row gap-8 md:gap-16 
+                    className="absolute w-full h-full bg-surface text-ink rounded-2xl shadow-lg
+                               flex flex-col md:flex-row gap-8 md:gap-16
                                py-12 px-8 md:px-12
                                items-center justify-center
                                "
@@ -34,7 +34,7 @@ export default function ProfileCard({ rotateY, opacity, x }: ProfileCardProps){
                 </div>
 
                 <div
-                    className="absolute w-full h-full bg-white text-slate-900 
+                    className="absolute w-full h-full bg-surface text-ink
                                rounded-2xl shadow-lg overflow-y-auto
                                items-center
                                "
