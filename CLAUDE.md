@@ -40,3 +40,14 @@ framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · l
 - 작업 중 새로 합의된 디자인 규칙은 DESIGN.md §9에 `[날짜] 규칙 — 왜` 형식으로 추가한다.
 - 의미 있는 커밋 직후와 세션 마무리 전에 `docs/WORKLOG.md`를 갱신한다 (이력서·포트폴리오 소재. 절차·규칙은 그 파일 §1~3). 사용자가 "WORKLOG 갱신해줘"라고 하면 그 절차를 따른다.
   - `docs/WORKLOG.md`는 **.gitignore 대상(로컬 전용)**. 커밋·푸시하지 않는다. 파일이 없으면 Notion 미러(취준 아카이브 > WORKLOG)에서 복원한다. 변환 스크립트 `scripts/md-to-notion.mjs`는 추적 대상.
+
+## 다른 PC에서 이어서 작업하기
+
+Claude Code의 대화 기록·메모리는 PC별이라 따라오지 않는다. git에 없는 네 가지를 맞춘 뒤, **이 파일 → `docs/DESIGN.md` §2.2 진행 현황 → `docs/WORKLOG.md` 헤더 "다음 세션 시작점"** 순으로 읽고 시작한다.
+
+1. 환경: `git clone https://github.com/dfizae/MyPortfolio.git && npm ci` (Node 24 기준). 레포 로컬 author 설정: `git config user.name dfizae` (email `gaza1268@naver.com`).
+2. `docs/WORKLOG.md` 복원: Notion 미러(취준 아카이브 > "WORKLOG — MyPortfolio 작업 기록")에서. Claude에게 **"Notion WORKLOG 페이지에서 docs/WORKLOG.md 복원해줘"** — Notion MCP로 읽어 일반 md로 되돌린다(표는 파이프 표, 콜아웃은 `>` 인용, `\~`는 `~`, 탭 들여쓰기는 2칸). Notion MCP는 계정 연동이라 어느 PC든 같고, Chrome MCP는 확장 설치가 필요하다.
+3. 레퍼런스 레포 clone — `docs/DESIGN.md` §1이 `C:\Users\SSAFY\refs\…` 절대경로를 가리키므로 경로가 다르면 §1을 갱신:
+   - `git clone https://github.com/uxjoseph/supanova-design-skill.git`
+   - `git clone https://github.com/Leonxlnx/taste-skill.git`
+4. IDE에서 `docs/DESIGN.md`·`docs/WORKLOG.md`를 열어 둔 채 Claude가 편집하면 오래된 버퍼 저장으로 덮어쓸 수 있다 — Claude가 고친 직후엔 파일을 다시 연다.
