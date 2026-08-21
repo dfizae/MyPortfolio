@@ -21,13 +21,13 @@
 - 형용사 3개: 경쾌한 / 밝은 / 뚜렷한
 - 레퍼런스 (무엇을 가져올지 한 줄씩):
   - C:\Users\SSAFY\refs\supanova-design-skill
-  - 
+  - C:\Users\SSAFY\refs\taste-skill
 - 절대 하지 않을 것:
   - 무한 반복 애니메이션(마키·펄스·파티클·배경 영상) 금지 — "뚜렷한"과 충돌, 번들도 이미 818KB
-  - 글로우·그라데이션으로 강조 금지 — 강조는 브랜드색 하나와 글자 굵기로만 ("밝은"은 색 면적이 아니라 대비로 만든다)
+  - 글로우·네온 그림자·그라데이션으로 강조 금지 — 강조는 브랜드색 1개 + 글자 굵기로만 ("밝은"은 색 면적이 아니라 대비로 만든다)
   - 섹션마다 다른 등장 방향 금지 — 현재 up/left/down 혼용. 방향은 한 가지, 리듬은 stagger로
   - 사용자에게 환경을 요구하는 안내 문구 금지 — 현재 "데스크탑: 전체 화면으로 봐주세요:)" 같은 것. 레이아웃이 적응해야지 사용자가 맞추면 안 됨
-  - 상투어 금지 — "열정적인", "최선을 다하는", "끊임없는 학습". 프로젝트명·숫자·구체적 행동으로 대체
+  - "열정적인 / 최선을 다하는 / 끊임없이" 금지 — 사실(숫자·프로젝트명)로 대체
   - 정보 라벨에 이모지 금지 — 현재 Profile의 🧑‍💻🎂📍 (§6 이모지 항목과 함께 최종 확정)
 - Figma 원본: README의 "피그마 작업물 링크" 참고
 
@@ -35,18 +35,22 @@
 
 ## 2. 색
 
-### 2.1 역할 토큰 (채울 것)
+### 2.1 역할 토큰 (확정 2026-08-21 — "초안 + 밝게")
 
 | 역할 | 토큰 | 값 | 용도 |
 |---|---|---|---|
-| 페이지 배경 | `--color-bg` | ___ | body 기본 |
-| 서피스 | `--color-surface` | ___ | 카드 / 폼 / 배지 배경 |
-| 본문 글자 | `--color-ink` | ___ | 기본 텍스트 |
-| 보조 글자 | `--color-ink-muted` | ___ | 설명, 캡션, 폼 라벨 |
-| 브랜드 | `--color-brand` | ___ | 강조, 링크 hover, 버튼, 언더라인 |
-| 브랜드 위 글자 | `--color-brand-ink` | ___ | 브랜드색 배경 위 텍스트 |
-| 선 | `--color-line` | ___ | 보더, 구분선 |
-| 성공 | `--color-success` | ___ | Contact 전송 완료 메시지 |
+| 페이지 배경 | `--color-canvas` | `#f1f5f9` (slate-100) | body·섹션 바닥. 초안 slate-200에서 한 단계 밝게 |
+| 서피스 | `--color-surface` | `#ffffff` | 카드 / 폼 / 배지 배경 |
+| 본문 글자 | `--color-ink` | `#0f172a` (slate-900) | 제목·본문 모두. 위계는 굵기로 |
+| 보조 글자 | `--color-ink-muted` | `#475569` (slate-600) | 설명, 캡션, 폼 라벨, 기간 |
+| 브랜드 | `--color-brand` | `#4f46e5` (indigo-600) | 강조, 링크 hover, 버튼, pill, 언더라인, 포커스 링. 초안 indigo-800에서 선명하게 |
+| 브랜드 위 글자 | `--color-brand-ink` | `#ffffff` | 브랜드색 배경 위 텍스트 |
+| 선 | `--color-line` | `#cbd5e1` (slate-300) | 보더, 구분선 (장식선이라 대비 기준 없음) |
+| 성공 | `--color-success` | `#15803d` (green-700) | Contact 전송 완료. green-600은 본문 대비 3.3:1로 탈락해 한 단계 진하게 |
+
+- 토큰 이름은 `--color-bg` 대신 `--color-canvas` — Tailwind v4 유틸리티가 `bg-canvas` / `bg-surface` / `text-ink` / `text-ink-muted` / `bg-brand` / `text-brand-ink` / `border-line` / `text-success` 로 생김.
+- 대비 검사 (WCAG, 2026-08-21 계산): ink/canvas **16.3** · ink/surface **17.9** · ink-muted/canvas **6.9** · ink-muted/surface **7.6** · brand-ink/brand **6.3** · brand(글자로)/canvas **5.7** · brand/surface **6.3** · success/surface **5.0** · success/canvas **4.6** — 본문 4.5:1 전부 통과.
+- 현재 코드 → 토큰 매핑: `bg-slate-200`→`bg-canvas` · `bg-white`→`bg-surface` · `text-slate-900`/`text-slate-700`/`text-black`→`text-ink` · `text-slate-600`/`text-gray-700`→`text-ink-muted` · `bg-indigo-800`/`bg-indigo-900`/`text-indigo-900`/`before:bg-indigo-900`→`brand` · `text-slate-50`/`text-white`(인디고 위)→`text-brand-ink` · `border-slate-300`/`border-slate-700`→`border-line` · `text-green-600`→`text-success`. 그 외(`bg-slate-900/600`, `bg-indigo-200`, `bg-gray-400`, `text-slate-100/300`, `border-slate-50`)는 교체 시 역할을 보고 위 8개 중 하나로 — 새 토큰 추가는 여기 먼저.
 
 ### 2.2 현재 코드에서 쓰이는 색 (매핑용)
 
@@ -60,8 +64,8 @@
 ### 2.3 규칙
 
 - 위 토큰 외의 색 사용 금지 — Tailwind 팔레트 직접 사용(`slate-*`, `indigo-*`, `gray-*`), 임의 hex 모두 포함.
-- 한 화면에서 브랜드색 면적은 ___ (예: 버튼·언더라인·포인트만. 큰 면 배경으로 쓰지 않음)
-- 다크모드: 지원 안 함 / 지원 (택1) → ___
+- 브랜드색 면적: **버튼 · pill · 언더라인 · 링크 hover · 포커스 링만.** 섹션·카드 같은 큰 면의 배경으로 쓰지 않는다 — "밝은"은 색 면적이 아니라 톤·대비로 만든다 (2026-08-21 확정)
+- 다크모드: **지원 안 함** (2026-08-21 확정). 토큰이 역할 기반이라 필요해지면 값만 바꿔 추가할 수 있으니 미리 만들지 않는다
 
 ---
 
@@ -110,7 +114,7 @@
   - 현재: hover 전환 `duration-200`, ScrollFadeIn 기본 0.7s, Lenis 1.2s
 - Easing: ___
   - 현재: framer `easeOut`, Lenis `1.001 - 2^(-10t)`, 글자 등장은 spring(damping 12, stiffness 100)
-- 스크롤 등장 `ScrollFadeIn` 기본값: direction `up`, distance 20px, threshold 0.5, triggerOnce → 유지 / 변경: ___
+- 스크롤 등장 `ScrollFadeIn` 기본값: direction `up`, distance 20px, triggerOnce, **threshold 0.15 + rootMargin `0px 0px -10% 0px`** (2026-08-21 `89a8615`로 0.5에서 변경, 이유는 §9) → duration·distance·방향은 유지 / 변경: ___
   - 섹션별 현재: Title up · Skills left · Projects down(100px) · Contact down → 방향 통일 여부: ___
 - 글자 단위 stagger(`AnimatedLetters`): 0.03s 간격, 0.3s 딜레이 → 유지 / 변경: ___
 - `prefers-reduced-motion`: ___ (현재 미대응. 대응 시 Lenis 비활성 + framer 등장 생략)
@@ -158,7 +162,7 @@
 
 ## 8. 접근성 최소선
 
-- 대비: 본문 4.5:1, 큰 글자 3:1 — 토큰 정한 뒤 검사 (`ink` on `bg`, `brand-ink` on `brand`, `ink-muted` on `surface`)
+- 대비: 본문 4.5:1, 큰 글자 3:1 — §2.1 토큰 조합은 2026-08-21 검사 통과(수치는 §2.1). 새 조합(예: `ink-muted` on `brand`)을 쓰려면 먼저 계산할 것
 - 키보드: 모든 링크 / 버튼에 `focus-visible` 스타일 → ___
 - 이미지 alt: 로고 / 아이콘 alt 규칙 → ___
 - reduced-motion: §5
@@ -171,6 +175,7 @@
 
 - [2026-08-21] slate / gray 혼용 금지 — 같은 역할(폼 라벨)에 두 팔레트가 섞여 미세하게 톤이 다름
 - [2026-08-21] 스크롤 등장 트리거는 섹션 높이에 의존하면 안 된다 (IntersectionObserver `threshold` ≤ 0.2 + `rootMargin`, 뷰포트보다 긴 섹션은 래퍼가 아니라 카드·항목 단위로 등장) — `threshold 0.5`가 모바일 1열 Projects 섹션을 9개월간 투명하게 만든 원인이었음 (`89a8615`)
+- [2026-08-21] 색은 §2.1 역할 토큰 8개만, 상태색이 필요하면 대비 계산 후 여기 먼저 추가 — `success`를 green-600으로 두려다 본문 대비 3.3:1로 탈락해 green-700으로 올린 사례
 -
 
 ---
@@ -180,10 +185,7 @@
 - `focus:shadow-outline`은 Tailwind v1 클래스라 v4에 없음 → 현재 폼 인풋·버튼은 `outline-none`만 적용돼 **포커스 표시가 사실상 없음**. 의도한 포커스 스타일은? (`ring` 계열로 대체?)
 - `body { color: #fff }` 전역값 — 토큰(`--color-ink`)으로 바꿀 때 흰 글자에 의존하던 곳이 있는지 확인 (Profile 뒷면, 인디고 배경 영역 등)
 - 섹션 `id`(profile / skill / project / contact)와 메뉴 라벨 단·복수 통일 여부 (§6)
-- **모바일에서 Projects 섹션이 안 나타나는 이슈 — 2025-11-18부터 미해결 → 2026-08-21 원인 진단 + 수정 적용 `89a8615` (`threshold 0.15` + `rootMargin`). Vercel 실기기 검증 대기. 확인되면 이 항목 닫고 §9 규칙만 남김.**
-  - 증상: 실제 폰 + Vercel 배포본에서 **Projects 섹션만** 렌더링 안 됨. 데스크톱 정상.
-  - 원인: `components/common/ScrollFadeIn.tsx`의 `useInView({ triggerOnce: true, threshold: 0.5 })` — 요소의 **50%가 동시에 뷰포트 안에** 들어와야 등장 애니메이션 시작. 모바일(`grid-cols-1`, 카드 4장 세로 적층)에서 Projects 래퍼 높이 ≈ 1,700~1,900px인데 폰 뷰포트는 ≈ 660~850px → 교차비 최대 0.39~0.47로 **0.5에 영원히 도달 못 함** → `opacity:0` 유지. 데스크톱(2열)은 980px / 765px = 0.78로 통과 (측정값). Skills·Contact는 `min-h-screen` 기준이라 비율이 0.8 안팎으로 통과 — 그래서 Projects만 증상.
-  - 그래서 11-18에 카드 폭·overflow·Vercel 캐시를 건드려도 안 고쳐졌음 (레이아웃 문제가 아니라 트리거 조건 문제).
-  - 고칠 방향 (§5 모션 규칙으로 확정): **등장 트리거는 섹션 높이에 의존하면 안 된다** → `threshold` 0.1~0.2 또는 `rootMargin` 기반, 긴 섹션은 래퍼 말고 카드 단위 등장. 가로/세로 짧은 폰(랜드스케이프)에서 Skills·Contact도 같은 위험이므로 함께 적용.
-  - 별건(같이 볼 것): `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh`, `prefers-reduced-motion` 미대응.
+- ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관. 상세 경위는 WORKLOG 2026-08-21 엔트리.
+- `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh` 전환 여부 (Title·Skills·Contact·ScrollPinAnimation 4곳). §4 레이아웃 토큰 정할 때 결정.
+- `prefers-reduced-motion` 미대응 (§5). 등장 애니메이션을 래퍼 단위에서 카드 단위로 바꿀 때 같이.
 -
