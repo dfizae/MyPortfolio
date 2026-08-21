@@ -61,6 +61,13 @@
 
 → 관찰: 팔레트는 사실상 **slate + indigo + white**. slate / gray 혼용 있음 (ContactForm 라벨).
 
+**교체 진행 (배치 단위, 배치마다 커밋 1개)**
+- ✅ 2026-08-21 `65f6ad3` — `@theme` 도입 + 공용 UI (Title · Gnb · SideText · Quickmenu), `tailwind.config.js` 제거
+- ✅ 2026-08-21 `12a16ff` — Projects (index · ProjectCard) · Contact (index · ContactForm)
+- ⬜ Profile (Comment · ProfileCard · ProfileInfo · ProfileBackInfo · ScrollPinAnimation) — 이때 `body { color }`를 `ink`로 전환 (ProfileBack의 상속 흰 글자에 명시 색 부여)
+- ⬜ Skills (index · SkillBadge · SkillCategory · SkillInfo) — `SkillCategory.test` / `SkillInfo.test`가 `bg-indigo-800` `bg-white` 클래스를 검사하므로 테스트도 함께 갱신
+- 남은 raw 색 클래스: 약 77곳 → **40곳 / 9파일** (2026-08-21 기준)
+
 ### 2.3 규칙
 
 - 위 토큰 외의 색 사용 금지 — Tailwind 팔레트 직접 사용(`slate-*`, `indigo-*`, `gray-*`), 임의 hex 모두 포함.
@@ -150,13 +157,15 @@
 
 | 컴포넌트 | 위치 | 기본 | hover | focus-visible | 비고 |
 |---|---|---|---|---|---|
-| 내비 링크 | `common/Gnb.tsx` | slate-700, 언더라인 0 | indigo-900 + bold + 언더라인 | ___ | hover 시 bold로 폭이 변함 → 흔들림 확인 |
-| 버튼(primary) | `Contact/ContactForm.tsx` | ___ | ___ | ___ | 현재 `focus:outline-none focus:shadow-outline` |
-| 텍스트 인풋 | `Contact/ContactForm.tsx` | ___ | — | ___ | 라벨 `text-gray-700` / `text-slate-700` 혼용 |
-| 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-white rounded-2xl shadow-lg` | ___ | — | |
-| 배지 | `Skills/SkillBadge.tsx` | `bg-slate-200 rounded-lg shadow-lg` | ___ | — | |
-| 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard만 있음 |
-| 섹션 제목 | 각 `pages/main/*/index.tsx` | ___ | — | — | |
+| 내비 링크 | `common/Gnb.tsx` | `text-ink`, 언더라인 0 | `text-brand` + bold + `before:bg-brand` 언더라인 | ___ (현재 없음) | hover 시 bold로 폭이 변함 → 흔들림 확인 (`65f6ad3` 색만 교체) |
+| 버튼(primary) | `Contact/ContactForm.tsx` | `bg-brand text-brand-ink rounded-lg font-bold py-3 px-6` | `bg-brand/90` | `focus-visible:ring-2 ring-brand ring-offset-2` | disabled `opacity-60 cursor-not-allowed` (`12a16ff`) |
+| 텍스트 인풋 | `Contact/ContactForm.tsx` | `bg-surface border border-line text-ink rounded py-3 px-4 shadow` | — | `focus-visible:ring-2 ring-brand` | 라벨 `text-ink-muted text-sm font-bold` (`12a16ff`, `FIELD_CLASS`/`LABEL_CLASS` 상수) |
+| 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`) |
+| pill (기술 태그) | `Projects/ProjectCard.tsx` | `bg-brand text-brand-ink rounded-lg text-sm` | — | — | 브랜드 면적 규칙(§2.3) 안 — 작은 면만 |
+| 퀵메뉴 버튼 | `common/Quickmenu.tsx` | `bg-surface rounded-full w-12 h-12` | `bg-brand/10 border-2 border-brand` | ___ (현재 없음) | `65f6ad3` |
+| 배지 | `Skills/SkillBadge.tsx` | `bg-slate-200 rounded-lg shadow-lg` (미교체) | ___ | — | Skills 배치에서 `bg-canvas` 또는 `bg-surface` 결정 |
+| 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard · Quickmenu 있음, ProfileBackInfo 미적용 |
+| 섹션 제목 | 각 `pages/main/*/index.tsx` | `text-ink font-bold` (Projects · Contact 교체됨, 크기는 §3.2에서) | — | — | |
 
 ---
 
@@ -182,8 +191,8 @@
 
 ## 10. 미결 질문
 
-- `focus:shadow-outline`은 Tailwind v1 클래스라 v4에 없음 → 현재 폼 인풋·버튼은 `outline-none`만 적용돼 **포커스 표시가 사실상 없음**. 의도한 포커스 스타일은? (`ring` 계열로 대체?)
-- `body { color: #fff }` 전역값 — 토큰(`--color-ink`)으로 바꿀 때 흰 글자에 의존하던 곳이 있는지 확인 (Profile 뒷면, 인디고 배경 영역 등)
+- ~~`focus:shadow-outline` 무효 → 폼 포커스 표시 없음~~ — **닫힘 (`12a16ff`)**: `focus-visible:ring-2 ring-brand`(버튼은 `ring-offset-2`)로 복구. 나머지 링크·버튼(Gnb · Quickmenu · ProjectCard 아이콘 링크)의 focus-visible은 §7에 빈칸으로 남아 있음 → §8 키보드 항목 정할 때 일괄.
+- `body { color: #fff }` 전역값 — **진행 중**: `65f6ad3`에서 `background-color: var(--color-canvas)`만 적용. `ProfileBack.tsx`의 h2/p가 색 클래스 없이 이 흰색을 상속하므로 Profile 배치에서 명시 색을 넣은 뒤 `color: var(--color-ink)`로 전환 (App.css TODO 주석).
 - 섹션 `id`(profile / skill / project / contact)와 메뉴 라벨 단·복수 통일 여부 (§6)
 - ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관. 상세 경위는 WORKLOG 2026-08-21 엔트리.
 - `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh` 전환 여부 (Title·Skills·Contact·ScrollPinAnimation 4곳). §4 레이아웃 토큰 정할 때 결정.
