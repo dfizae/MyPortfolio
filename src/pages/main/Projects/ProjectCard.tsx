@@ -2,19 +2,19 @@ import type { Project } from "../../../constants/Projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="bg-white flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-slate-700">
+    <div className="bg-surface flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-ink">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-2xl font-bold text-slate-900">{project.name}</span>
+        <span className="text-2xl font-bold text-ink">{project.name}</span>
         {project.logo && (
           <img src={project.logo} alt={`${project.name} 로고`} className="w-10 h-10" />
         )}
       </div>
-      <div className="border-b-2 border-slate-300 pb-2 mb-4">
-        <span className="text-sm text-slate-600">{project.period}</span>
+      <div className="border-b-2 border-line pb-2 mb-4">
+        <span className="text-sm text-ink-muted">{project.period}</span>
       </div>
       <div className="mb-4">
         <span className="text-lg font-semibold">{project.mainTitle}</span>
-        <ul className="list-disc list-inside mt-2 text-slate-700">
+        <ul className="list-disc list-inside mt-2 text-ink">
           {project.descriptions.map((desc, i) => (
             <li key={i}>{desc}</li>
           ))}
@@ -22,8 +22,8 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
 
-      <div className="flex flex-col md:flex-row justify-between gap-4 mt-auto pt-4 border-t border-slate-300">
-        <p className="flex justify-center items-center bg-indigo-800 text-slate-50 rounded-lg">
+      <div className="flex flex-col md:flex-row justify-between gap-4 mt-auto pt-4 border-t border-line">
+        <p className="flex justify-center items-center bg-brand text-brand-ink rounded-lg">
           <span className="font-normal text-sm py-1 px-4">{project.skill.join(" ")}</span>
         </p>
 
