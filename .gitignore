@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 이력서·포트폴리오 소재 (로컬 전용, Notion 미러로 백업)
+docs/WORKLOG.md

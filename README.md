@@ -150,7 +150,7 @@ portfolio/
 |분야|기술|
 |:---|:---|
 |Frontend|`React`, `Typescript`, `Vite`|
-|Library|`Lenis`, `Lottie`, `Swiper`, `formspree`|
+|Library|`Lenis`, `Lottie`, `formspree`|
 |Styling| `CSS3`, `Tailwind CSS`, `Framer Motion`|
 |Test|`Jest(Vitest)`, `React Testing Library`|
 |Version Control|`Git`, `GitHub`|
