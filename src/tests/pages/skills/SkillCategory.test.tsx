@@ -27,12 +27,12 @@ describe('SkillCategory 컴포넌트 (단위/통합 테스트)', () => {
     // 1. 활성 탭('Language')이 올바른 스타일을 가졌는지 확인
     const languageTab = screen.getByText('Language');
     expect(languageTab).toBeInTheDocument();
-    expect(languageTab).toHaveClass('bg-indigo-800 text-white');
+    expect(languageTab).toHaveClass('bg-brand text-brand-ink');
 
     // 2. 비활성 탭('Frontend')이 올바른 스타일을 가졌는지 확인
     const frontendTab = screen.getByText('Frontend');
     expect(frontendTab).toBeInTheDocument();
-    expect(frontendTab).toHaveClass('bg-white text-slate-700');
+    expect(frontendTab).toHaveClass('bg-surface text-ink');
   });
 
 

@@ -6,7 +6,7 @@ import skillsAnimationData from '../../../assets/lottie/skills-icon.json';
 export default function Skills(){
     return(
         <>
-            <section className="w-full min-h-screen flex flex-col gap-8 lg:gap-16 justify-center items-center bg-slate-200 p-4 md:py-24">
+            <section className="w-full min-h-screen flex flex-col gap-8 lg:gap-16 justify-center items-center bg-canvas p-4 md:py-24">
                 <div className="flex justify-center items-center gap-4">
                     <Lottie 
                         animationData={skillsAnimationData} 
@@ -16,7 +16,7 @@ export default function Skills(){
 
                     <AnimatedLetters 
                         text="Skills"
-                        className="font-bold text-4xl lg:text-6xl text-slate-900 text-center"
+                        className="font-bold text-4xl lg:text-6xl text-ink text-center"
                     />
                 </div>
 

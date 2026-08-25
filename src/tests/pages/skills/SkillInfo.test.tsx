@@ -32,10 +32,10 @@ describe('SkillInfo 컴포넌트 (통합 테스트)', () => {
     render(<SkillInfo />);
 
     // Then
-    // 1. 'Language' 탭이 활성화(bg-indigo-800)되어 있는가?
-    expect(screen.getByText('Language')).toHaveClass('bg-indigo-800');
-    // 2. 'Frontend' 탭은 비활성화(bg-white)되어 있는가?
-    expect(screen.getByText('Frontend')).toHaveClass('bg-white');
+    // 1. 'Language' 탭이 활성화(bg-brand)되어 있는가?
+    expect(screen.getByText('Language')).toHaveClass('bg-brand');
+    // 2. 'Frontend' 탭은 비활성화(bg-surface)되어 있는가?
+    expect(screen.getByText('Frontend')).toHaveClass('bg-surface');
 
     // 3. 'HTML' 뱃지가 화면에 보이는가?
     expect(screen.getByText('HTML')).toBeInTheDocument();
@@ -56,10 +56,10 @@ describe('SkillInfo 컴포넌트 (통합 테스트)', () => {
     await user.click(frontendTab);
 
     // Then 
-    // 1. 'Frontend' 탭이 활성화(bg-indigo-800)되었는가?
-    expect(frontendTab).toHaveClass('bg-indigo-800');
-    // 2. 'Language' 탭은 비활성화(bg-white)되었는가?
-    expect(screen.getByText('Language')).toHaveClass('bg-white');
+    // 1. 'Frontend' 탭이 활성화(bg-brand)되었는가?
+    expect(frontendTab).toHaveClass('bg-brand');
+    // 2. 'Language' 탭은 비활성화(bg-surface)되었는가?
+    expect(screen.getByText('Language')).toHaveClass('bg-surface');
 
     // 3. 'React' 뱃지가 화면에 나타났는가?
     expect(screen.getByText('React')).toBeInTheDocument();

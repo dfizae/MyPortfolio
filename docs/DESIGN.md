@@ -66,8 +66,8 @@
 - ✅ 2026-08-21 `65f6ad3` — `@theme` 도입 + 공용 UI (Title · Gnb · SideText · Quickmenu), `tailwind.config.js` 제거
 - ✅ 2026-08-21 `12a16ff` — Projects (index · ProjectCard) · Contact (index · ContactForm)
 - ✅ 2026-08-21 `ca07d0a` — Profile (Comment · ProfileCard · ProfileInfo · ProfileBack · ProfileBackInfo · ScrollPinAnimation) + `body { color }` → `ink` 전환. 뒷면 어두운 면은 `bg-ink`/`text-surface` 재사용
-- ⬜ Skills (index · SkillBadge · SkillCategory · SkillInfo) — `SkillCategory.test` / `SkillInfo.test`가 `bg-indigo-800` `bg-white` 클래스를 검사하므로 테스트도 함께 갱신
-- 남은 raw 색 클래스: 약 77곳 → 40곳 → **14곳 / 4파일 (Skills만)** (2026-08-21 기준)
+- ✅ 2026-08-25 — Skills (index · SkillBadge · SkillCategory · SkillInfo) + `SkillCategory.test` / `SkillInfo.test` 단언 갱신(`bg-indigo-800`→`bg-brand`, `bg-white text-slate-700`→`bg-surface text-ink`). 배지 배경은 `bg-canvas`, SkillInfo 카드의 `border-4 border-slate-700`은 §7 카드 패턴에 맞춰 **제거**
+- 남은 raw 색 클래스: 약 77곳 → 40곳 → 14곳 → **0곳 (`src/**` 전체, `@theme` 토큰 정의 제외)** (2026-08-25 확인)
 
 ### 2.3 규칙
 
@@ -166,9 +166,10 @@
 | 퀵메뉴 버튼 | `common/Quickmenu.tsx` | `bg-surface rounded-full w-12 h-12` | `bg-brand/10 border-2 border-brand` | ___ (현재 없음) | `65f6ad3` |
 | 경험 카드 (어두운 면) | `Profile/ProfileBackInfo.tsx` | `bg-ink text-surface rounded-2xl shadow-lg` · 제목 pill `bg-brand text-brand-ink rounded-full` · 기간 `text-surface/70 border-b-2 border-surface/30` | — | ___ (링크 아이콘) | 토큰 추가 없이 ink/surface 재사용, github 아이콘은 `bg-surface` 원형 (`ca07d0a`) |
 | 프로필 카드 앞/뒤 · 코멘트 | `Profile/ProfileCard.tsx` `Profile/Comment.tsx` | `bg-surface text-ink rounded-2xl shadow-lg` | — | — | 이름 밑줄 `border-b-[3px] border-line` (`ca07d0a`) |
-| 배지 | `Skills/SkillBadge.tsx` | `bg-slate-200 rounded-lg shadow-lg` (미교체) | ___ | — | Skills 배치에서 `bg-canvas` 또는 `bg-surface` 결정 |
+| 배지 | `Skills/SkillBadge.tsx` | `bg-canvas text-ink rounded-lg shadow-lg` | — (현재 없음) | — | `bg-surface` 카드 **안**에 놓이므로 canvas로 한 단계 낮춰 구분 (2026-08-25) |
+| 탭 (카테고리) | `Skills/SkillCategory.tsx` | 컨테이너 `bg-surface rounded-full shadow-lg` · 활성 `bg-brand text-brand-ink` · 비활성 `bg-surface text-ink` | 비활성만 `bg-brand text-brand-ink` (200ms) | ___ (현재 없음. `li` + onClick이라 키보드 접근 자체가 안 됨 → §10) | 브랜드 면적 규칙(§2.3) 안 — pill 크기 (2026-08-25) |
 | 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard · Quickmenu 있음, ProfileBackInfo 미적용 |
-| 섹션 제목 | 각 `pages/main/*/index.tsx` | `text-ink font-bold` (Projects · Contact 교체됨, 크기는 §3.2에서) | — | — | |
+| 섹션 제목 | 각 `pages/main/*/index.tsx` | `text-ink font-bold` (전 섹션 교체 완료, 크기는 §3.2에서) | — | — | |
 
 ---
 
@@ -189,6 +190,8 @@
 - [2026-08-21] 스크롤 등장 트리거는 섹션 높이에 의존하면 안 된다 (IntersectionObserver `threshold` ≤ 0.2 + `rootMargin`, 뷰포트보다 긴 섹션은 래퍼가 아니라 카드·항목 단위로 등장) — `threshold 0.5`가 모바일 1열 Projects 섹션을 9개월간 투명하게 만든 원인이었음 (`89a8615`)
 - [2026-08-21] 색은 §2.1 역할 토큰 8개만, 상태색이 필요하면 대비 계산 후 여기 먼저 추가 — `success`를 green-600으로 두려다 본문 대비 3.3:1로 탈락해 green-700으로 올린 사례
 - [2026-08-21] 어두운 면은 새 토큰 없이 `bg-ink` + `text-surface`(보조 `/70`), 틴트는 토큰 + 투명도 수식자(`bg-brand/10`) — 관리할 색을 8개로 유지. Profile 뒷면 경험 카드에서 `slate-600/900` 두 단계를 ink 한 단계로 (`ca07d0a`)
+- [2026-08-25] 면의 깊이는 canvas → surface → canvas 순서로 번갈아 쌓는다 — 같은 토큰을 겹치면(흰 카드 위 흰 배지) 경계가 그림자에만 의존해 사라짐. SkillBadge를 `bg-surface` 아닌 `bg-canvas`로 둔 이유
+- [2026-08-25] 카드에 테두리를 두르지 않는다. 면 구분은 배경색 + `shadow-lg`로 — 진회색 4px 테두리(SkillInfo)를 `border-line`으로 옮기면 §7 카드 패턴(Projects·Contact·Profile은 전부 테두리 없음)만 어긋난 채 남음
 -
 
 ---
@@ -201,5 +204,6 @@
 - ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관. 상세 경위는 WORKLOG 2026-08-21 엔트리.
 - `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh` 전환 여부 (Title·Skills·Contact·ScrollPinAnimation 4곳). §4 레이아웃 토큰 정할 때 결정.
 - `prefers-reduced-motion` 미대응 (§5). 등장 애니메이션을 래퍼 단위에서 카드 단위로 바꿀 때 같이.
-- Tailwind v4 자동 소스 스캔이 `docs/*.md`·`README.md`의 클래스 문자열까지 읽어 `bg-slate-900/600`, `text-slate-100/300` 같은 **쓰이지 않는 유틸리티를 빌드 CSS에 생성**(2026-08-21 발견). 해롭진 않지만 "토큰 외 색 금지" 감사 때 노이즈 → `App.css`에 `@source not "../../docs"` 추가 검토 (Skills 배치 끝나고 raw 클래스 0 확인할 때).
+- Tailwind v4 자동 소스 스캔이 `docs/*.md`·`README.md`의 클래스 문자열까지 읽어 `bg-slate-900/600`, `text-slate-100/300` 같은 **쓰이지 않는 유틸리티를 빌드 CSS에 생성**(2026-08-21 발견). 해롭진 않지만 "토큰 외 색 금지" 감사 때 노이즈 → `App.css`에 `@source not "../../docs"` 추가 검토. **선행 조건(Skills 배치 완료 + `src/**` raw 색 클래스 0)은 2026-08-25에 충족** — 이제 넣기만 하면 됨. 단 테스트 파일(`src/tests/**`)에도 클래스 문자열이 남아 있으므로 감사 스크립트를 만든다면 그쪽도 제외 대상.
+- `Skills/SkillCategory.tsx`의 탭이 `<li onClick>` — 키보드 포커스·엔터가 안 되고 role도 없음. 색 교체(2026-08-25) 때 발견했으나 마크업 변경이라 §8 키보드 항목을 정할 때 `<button>`(또는 `role="tab"` + `tabIndex`)로 함께 처리.
 -

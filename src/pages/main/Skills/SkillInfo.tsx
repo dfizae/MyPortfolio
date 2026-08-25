@@ -21,7 +21,7 @@ const renderContent = () => {
     return(
         <>
             <SkillCategory category={category} activeCategory={activeCategory} clickHandler={clickHandler}/>
-            <div className="bg-white text-slate-700 p-6 lg:px-16 lg:py-20 rounded-2xl shadow-lg w-full border-4 border-slate-700">
+            <div className="bg-surface text-ink p-6 lg:px-16 lg:py-20 rounded-2xl shadow-lg w-full">
                 {renderContent()}
             </div>
         </>
