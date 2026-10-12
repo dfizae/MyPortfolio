@@ -34,10 +34,9 @@ function App() {
         </ScrollFadeIn>
       </div>
 
+      {/* Projects는 모바일에서 뷰포트의 5배 이상 길어 섹션 래퍼 대신 카드 단위로 등장 (DESIGN.md §9 2026-08-21) */}
       <div id="project">
-        <ScrollFadeIn direction='down' distance={100}>
-            <Projects />
-        </ScrollFadeIn>
+        <Projects />
       </div>
 
       <div id="contact">

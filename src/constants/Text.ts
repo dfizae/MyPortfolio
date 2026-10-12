@@ -29,6 +29,8 @@ export const MESSAGE = Object.freeze({
     // Project 카드
     PROJECT_STACK: "사용한 기술",
     PROJECT_CASES_TITLE: "문제 해결 사례",
+    PROJECT_PUBLISHING_TITLE: "웹 퍼블리싱 작업",
+    PROJECT_PUBLISHING_DESC: "HTML · CSS · JavaScript로 만든 리뉴얼 사이트 (2024.10 - 2025.05)",
     PROJECT_LINK_WEB: "웹사이트",
     PROJECT_LINK_GITHUB: "깃허브",
 });

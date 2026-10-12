@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import Projects from '../../../pages/main/Projects';
+import { MESSAGE } from '../../../constants/Text';
 
 // 1. Lottie를 테스트에 제외하기 위해 mocking
 vi.mock('lottie-react', () => ({
@@ -22,7 +23,13 @@ describe('Projects 페이지 통합 테스트', () => {
     // 2. AnimatedLetters'의 aria-label을 찾는다.
     expect(screen.getByLabelText('Projects')).toBeInTheDocument();
 
-    // 3. GLYF, MyProtein이 잘나오는지 확인
+    // 3. 앱·웹 프로젝트 카드(KeyFin, 냉큼, 방방봐)가 나오는지 확인
+    expect(screen.getByText('KeyFin')).toBeInTheDocument();
+    expect(screen.getByText('냉큼')).toBeInTheDocument();
+    expect(screen.getByText('방방봐')).toBeInTheDocument();
+
+    // 4. 퍼블리싱 묶음 제목과 GLYF, MyProtein이 잘나오는지 확인
+    expect(screen.getByText(MESSAGE.PROJECT_PUBLISHING_TITLE)).toBeInTheDocument();
     expect(screen.getByText('GLYF')).toBeInTheDocument();
     expect(screen.getByText('MyProtein')).toBeInTheDocument();
   });
