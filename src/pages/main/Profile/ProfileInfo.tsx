@@ -1,7 +1,7 @@
 import { MESSAGE } from "../../../constants/Text";
 
 export default function ProfileInfo(){
-    const messages = [MESSAGE.BIRTH, MESSAGE.CERTIFICATE, MESSAGE.LOCATION, MESSAGE.PHONENUMBER, MESSAGE.EMAIL];
+    const messages = [MESSAGE.CERTIFICATE, MESSAGE.PHONENUMBER, MESSAGE.EMAIL];
     return(
         <>
             <div className="w-full md:flex-1 flex flex-col justify-center text-left gap-6">

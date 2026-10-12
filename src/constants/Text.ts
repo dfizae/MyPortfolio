@@ -8,12 +8,10 @@ export const MESSAGE = Object.freeze({
     DFIZAE: "Dfizae",
     
     // Profile 컴포넌트 내용
-    NAME: "🧑‍💻 이름: 김재영",
-    BIRTH: "🎂 생년월일: 1999 / 05 / 16",
-    CERTIFICATE: "🎓 학력: 가천대학교 글로벌경영 / 소프트웨어 학사", 
-    LOCATION: "📍 거주지: 경기도 성남시 분당구",
-    PHONENUMBER: "📞 연락처: 010-xxxx-xxxx",
-    EMAIL: "📧 이메일: gaza1268@naver.com",
+    NAME: "이름: 김재영",
+    CERTIFICATE: "학력: 가천대학교 글로벌경영 / 소프트웨어 학사", 
+    PHONENUMBER: "연락처: 010-xxxx-xxxx",
+    EMAIL: "이메일: gaza1268@naver.com",
     COMMENT: "“사람들에게 도움을 주는 웹 서비스를 만들고 싶어요.”",
     COMMENT_FLIP_INSTRUCTION:"데스크탑: 전체 화면으로 봐주세요:)\n모바일: 아래 항목을 슬라이드",
     MY_DIRECTION_TITLE: "개발자로서의 방향",
