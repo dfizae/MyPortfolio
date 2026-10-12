@@ -16,7 +16,7 @@ export default function Title(){
                 <div className="hidden md:block">
                     <AnimatedLetters 
                         text={MESSAGE.TITLE_DESKTOP}
-                        className={`${commonClasses} text-7xl lg:text-8xl`}
+                        className={`${commonClasses} text-4xl lg:text-6xl`}
                     />
                 </div>
                 
