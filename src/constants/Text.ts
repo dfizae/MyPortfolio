@@ -27,7 +27,8 @@ export const MESSAGE = Object.freeze({
     FORM_BUTTON_SENDING: "전송 중...",
 
     // Project 카드
-    PROJECT_STACK: "사용한 기술:",
+    PROJECT_STACK: "사용한 기술",
+    PROJECT_CASES_TITLE: "문제 해결 사례",
     PROJECT_LINK_WEB: "웹사이트",
     PROJECT_LINK_GITHUB: "깃허브",
 });
