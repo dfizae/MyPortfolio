@@ -16,7 +16,6 @@ export const MESSAGE = Object.freeze({
     MY_DIRECTION_TITLE: "개발자로서의 방향",
     MY_DIRECTION_COMMENT: "웹에서는 되던 기능이 React Native 앱에서는 동작하지 않는 부분을 찾습니다.\n최신화되지 않는 값, 키패드에 가려진 입력창, 앱에서 읽히지 않는 응답까지,\n원인을 코드에서 확인하고 공용 훅, 래퍼, API 모듈로 고쳐 왔습니다.",
     MY_EXPERIENCE_TITLE:"교육·협업 경험",
-    MY_EXPERIENCE_NAMES: ['이젠컴퓨터아카데미 - 분당', 'feeple', '우아한테크코스 (프리코스)'],
 
     // Contact 폼
     FORM_SUCCESS_TITLE: "감사합니다!",
