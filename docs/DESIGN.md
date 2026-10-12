@@ -148,7 +148,7 @@
   - Projects: ___
   - Contact: ___
 - 금지 표현 / 피할 상투어: ___ (예: "열정적인", "최선을 다하는")
-- 메타 (React 밖이라 `index.html`에 직접 둔다. 2026-10-12 결정): `<title>` "김재영 | 프론트엔드 개발자" · `lang` "ko" · 파비콘 `public/favicon.svg` (brand 바탕 + 흰 "김". Noto Sans KR Bold 윤곽선을 path로 옮겨 글꼴에 의존하지 않음) · OG `og:type` · `og:title`(= `<title>`) · `og:url` · `og:locale` · OG 설명·이미지 ___ (소개 문구를 정하는 2단계에서)
+- 메타 (React 밖이라 `index.html`에 직접 둔다. 2026-10-12 결정): `<title>` "김재영 | 프론트엔드 개발자" · `lang` "ko" · 파비콘 `public/favicon.svg` (brand 바탕 + 흰 "김". Noto Sans KR Bold 윤곽선을 path로 옮겨 글꼴에 의존하지 않음) · OG `og:type` · `og:title`(= `<title>`) · `og:url` · `og:locale` · OG 설명(`description` · `og:description`) = 제출 PDF 소개 첫 문장 "웹에서는 되던 기능이 React Native 앱에서는 동작하지 않는 부분을 찾습니다." (2026-10-12 결정) · OG 이미지 ___
 
 ---
 
@@ -162,13 +162,14 @@
 | 버튼(primary) | `Contact/ContactForm.tsx` | `bg-brand text-brand-ink rounded-lg font-bold py-3 px-6` | `bg-brand/90` | `focus-visible:ring-2 ring-brand ring-offset-2` | disabled `opacity-60 cursor-not-allowed` (`12a16ff`) |
 | 텍스트 인풋 | `Contact/ContactForm.tsx` | `bg-surface border border-line text-ink rounded py-3 px-4 shadow` | — | `focus-visible:ring-2 ring-brand` | 라벨 `text-ink-muted text-sm font-bold` (`12a16ff`, `FIELD_CLASS`/`LABEL_CLASS` 상수) |
 | 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`) |
-| pill (기술 태그) | `Projects/ProjectCard.tsx` | `bg-brand text-brand-ink rounded-lg text-sm` | — | — | 브랜드 면적 규칙(§2.3) 안 — 작은 면만 |
+| 기술 칩 | `Projects/ProjectCard.tsx` | 칩 하나에 기술 하나: `bg-canvas text-ink rounded-lg text-sm px-3 py-1` | — | — | 2026-10-12 brand pill 한 개(기술을 공백으로 이어 붙임) → 칩 여러 개. surface 카드 안이라 canvas (§9 면 깊이 규칙), brand 면은 쓰지 않음 |
+| 문제 해결 사례 | `Projects/ProjectCard.tsx` | 제목 `text-sm font-bold text-brand` · 문제 `text-sm text-ink-muted` · 해결 `font-semibold text-ink` · 항목 사이 `border-t border-line` | — | — | 앱 프로젝트 카드만. 제출 PDF 2쪽 「문제 해결 사례」 목차와 같은 문장 (2026-10-12) |
 | 퀵메뉴 버튼 | `common/Quickmenu.tsx` | `bg-surface rounded-full w-12 h-12` | `bg-brand/10 border-2 border-brand` | ___ (현재 없음) | `65f6ad3` |
 | 경험 카드 (어두운 면) | `Profile/ProfileBackInfo.tsx` | `bg-ink text-surface rounded-2xl shadow-lg` · 제목 pill `bg-brand text-brand-ink rounded-full` · 기간 `text-surface/70 border-b-2 border-surface/30` | — | ___ (링크 아이콘) | 토큰 추가 없이 ink/surface 재사용, github 아이콘은 `bg-surface` 원형 (`ca07d0a`) |
 | 프로필 카드 앞/뒤 · 코멘트 | `Profile/ProfileCard.tsx` `Profile/Comment.tsx` | `bg-surface text-ink rounded-2xl shadow-lg` | — | — | 이름 밑줄 `border-b-[3px] border-line` (`ca07d0a`) |
 | 배지 | `Skills/SkillBadge.tsx` | `bg-canvas text-ink rounded-lg shadow-lg` | — (현재 없음) | — | `bg-surface` 카드 **안**에 놓이므로 canvas로 한 단계 낮춰 구분 (2026-08-25) |
 | 탭 (카테고리) | `Skills/SkillCategory.tsx` | 컨테이너 `bg-surface rounded-full shadow-lg` · 활성 `bg-brand text-brand-ink` · 비활성 `bg-surface text-ink` | 비활성만 `bg-brand text-brand-ink` (200ms) | ___ (현재 없음. `li` + onClick이라 키보드 접근 자체가 안 됨 → §10) | 브랜드 면적 규칙(§2.3) 안 — pill 크기 (2026-08-25) |
-| 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard · Quickmenu 있음, ProfileBackInfo 미적용 |
+| 외부 링크 | `ProjectCard`, `Quickmenu`, `ProfileBackInfo` | ___ | ___ | ___ | `rel="noopener noreferrer"`: ProjectCard · Quickmenu 있음, ProfileBackInfo 미적용. ProjectCard는 값이 있는 링크(GitHub · Figma · 웹 · 블로그)만 그린다 (2026-10-12) |
 | 섹션 제목 | 각 `pages/main/*/index.tsx` | `text-ink font-bold` (전 섹션 교체 완료, 크기는 §3.2에서) | — | — | |
 
 ---
@@ -195,6 +196,10 @@
 - [2026-10-12] 공개 사이트에는 생년월일·거주지를 싣지 않는다. 연락처 번호는 지금처럼 가린 채로 둔다 — 누구나 여는 페이지라 개인정보가 그대로 노출됨
 - [2026-10-12] 정보 라벨은 글자만 쓴다(이모지 없음) — §1 금지 원칙 확정. 라벨 이름만으로 뜻이 충분하고 OS마다 이모지 모양이 달라 톤이 흔들림
 - [2026-10-12] 화면 상태(카드 뒤집기 등)에 따라 문구를 사용 안내로 바꾸지 않는다 — Profile 코멘트가 뒤집힐 때 "전체 화면으로 봐주세요"로 바뀌던 것을 없애고 같은 문장 유지 (§1)
+- [2026-10-12] 프로젝트 카드의 기술은 칩 여러 개(`bg-canvas`)로 보여 주고 brand 면은 쓰지 않는다 — 앱 프로젝트는 기술이 7개라 brand pill을 늘어놓으면 §2.3 브랜드 면적 규칙을 넘음. surface 카드 안이라 canvas (면 깊이 규칙)
+- [2026-10-12] 링크는 값이 있는 것만 그린다(빈 `href` 금지) — 앱 프로젝트에는 웹 · 블로그 링크가 없고, 죽은 링크는 검토자가 페이지를 닫는 이유가 됨
+- [2026-10-12] Projects는 앱·웹 프로젝트 카드(문제 → 해결 사례)를 먼저, 퍼블리싱 4종은 그 아래 묶음으로 둔다 — 제출 PDF와 같은 순서. 최신이고 직무와 가까운 경험을 앞에
+- [2026-10-12] 한글은 단어 단위로 줄바꿈한다(`body { word-break: keep-all }`) — 모바일 390px에서 학력 줄이 "소프트웨/어"처럼 단어 중간에서 끊김
 -
 
 ---
