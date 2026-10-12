@@ -1,26 +1,12 @@
 import { MESSAGE } from "../../../constants/Text";
-import { motion, useTransform, useMotionValueEvent, type MotionValue } from 'framer-motion';
-import { useState } from "react";
+import { motion, type MotionValue } from 'framer-motion';
 
 type CommentProps = {
-    rotateY: MotionValue<number>;
     opacity?: MotionValue<number>; 
     x?: MotionValue<number>;
 }
 
-export default function ProfileComment({ rotateY, opacity, x }: CommentProps){
-
-    const text1 = MESSAGE.COMMENT;
-    const text2 = MESSAGE.COMMENT_FLIP_INSTRUCTION;
-    const [currentText, setCurrentText] = useState<string>(text1);
-
-    const commentText = useTransform(rotateY, (latest) => {
-        return latest > 90 ? text2 : text1;
-    });
-
-    useMotionValueEvent(commentText, "change", (latest) => {
-        setCurrentText(latest);
-    });
+export default function ProfileComment({ opacity, x }: CommentProps){
 
     return(
          <>
@@ -39,7 +25,7 @@ export default function ProfileComment({ rotateY, opacity, x }: CommentProps){
                                    leading-normal py-8 md:py-10 whitespace-pre-line 
                                    px-6 md:px-16 block"
                     >
-                        {currentText}
+                        {MESSAGE.COMMENT}
                     </span>
                 </motion.div>
             </motion.div>

@@ -11,7 +11,6 @@ export default function Profile(){
                     
                     <>
                         <ProfileComment
-                            rotateY={rotateY}
                             opacity={entryOpacity}
                             x={commentX}
                         />
