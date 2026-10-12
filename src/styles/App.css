@@ -83,6 +83,8 @@ body {
   font-family: 'Paperozi', sans-serif; /* 1. 기본 폰트를 body에 적용 */
   background-color: var(--color-canvas);
   color: var(--color-ink); /* 2. 기본 글자색 — 토큰 ink (2026-08-21 Profile 배치에서 #fff 에서 전환, DESIGN.md §10) */
+  word-break: keep-all;     /* 3. 한글은 단어 단위로 줄바꿈 (DESIGN.md §9 2026-10-12) */
+  overflow-wrap: break-word; /*    한 단어가 칸보다 길 때만 단어 안에서 줄바꿈 (예: requestAnimationFrame으로) */
 }
 
 
