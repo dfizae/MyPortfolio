@@ -210,7 +210,7 @@
 - ~~`focus:shadow-outline` 무효 → 폼 포커스 표시 없음~~ — **닫힘 (`12a16ff`)**: `focus-visible:ring-2 ring-brand`(버튼은 `ring-offset-2`)로 복구. 나머지 링크·버튼(Gnb · Quickmenu · ProjectCard 아이콘 링크)의 focus-visible은 §7에 빈칸으로 남아 있음 → §8 키보드 항목 정할 때 일괄.
 - ~~`body { color: #fff }` 전역값~~ — **닫힘 (`ca07d0a`)**: `color: var(--color-ink)`로 전환. 흰색 상속에 기대는 텍스트가 없음을 Profile·Skills 전부 확인(ProfileBack은 ProfileCard 뒷면의 `text-ink`를 상속). 어두운 면은 명시적으로 `text-surface`.
 - 섹션 `id`(profile / skill / project / contact)와 메뉴 라벨 단·복수 통일 여부 (§6)
-- ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관. 상세 경위는 WORKLOG 2026-08-21 엔트리.
+- ~~모바일에서 Projects 섹션이 안 나타나는 이슈~~ — **닫힘 (2025-11-18 ~ 2026-08-21).** 원인은 `ScrollFadeIn`의 `useInView threshold 0.5`(뷰포트 2배 길이 섹션에서 영원히 불충족). `threshold 0.15` + `rootMargin`으로 수정(`89a8615`), 실제 폰에서 표시 확인. 규칙은 §9로 이관.
 - `h-screen`/`min-h-screen`의 모바일 주소창 100vh 문제 → `100dvh` 전환 여부 (Title·Skills·Contact·ScrollPinAnimation 4곳). §4 레이아웃 토큰 정할 때 결정.
 - `prefers-reduced-motion` 미대응 (§5). 등장 애니메이션을 래퍼 단위에서 카드 단위로 바꿀 때 같이.
 - Tailwind v4 자동 소스 스캔이 `docs/*.md`·`README.md`의 클래스 문자열까지 읽어 `bg-slate-900/600`, `text-slate-100/300` 같은 **쓰이지 않는 유틸리티를 빌드 CSS에 생성**(2026-08-21 발견). 해롭진 않지만 "토큰 외 색 금지" 감사 때 노이즈 → `App.css`에 `@source not "../../docs"` 추가 검토. **선행 조건(Skills 배치 완료 + `src/**` raw 색 클래스 0)은 2026-08-25에 충족** — 이제 넣기만 하면 됨. 단 테스트 파일(`src/tests/**`)에도 클래스 문자열이 남아 있으므로 감사 스크립트를 만든다면 그쪽도 제외 대상.
