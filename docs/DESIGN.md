@@ -168,6 +168,7 @@
 - 문장 길이: 한 문장 ___자 이하, 한 문단 ___문장 이하
 - 한·영 혼용:
   - 메뉴 / 섹션 라벨: 영문 (현재 Profile · Skill · Project · Contact) → 단수/복수 통일: ___
+  - 글 분류 메뉴: 영문 Retrospective, Thoughts, Study (2026-11-23, 사용자 선택). 분류 목록 페이지 제목은 한글(프로젝트 회고, 기술 고찰, 공부). 글이 1편(Study는 2편) 이상인 분류만 메뉴에 보인다
   - 본문: 국문
   - 기술명: 영문 원어 (React, TypeScript …)
 - 이모지: 쓰지 않음 (2026-10-12 결정. Profile 정보 라벨의 이모지 제거)
@@ -189,7 +190,7 @@
 
 | 컴포넌트 | 위치 | 기본 | hover | focus-visible | 비고 |
 |---|---|---|---|---|---|
-| 내비 링크 | `common/Gnb.tsx` | `text-ink`, 언더라인 0 | `text-brand` + bold + `before:bg-brand` 언더라인 | ___ (현재 없음) | hover 시 bold로 폭이 변함 → 흔들림 확인 (`65f6ad3` 색만 교체) |
+| 내비 링크 | `common/Gnb.tsx` | `text-ink`, 언더라인 0 | `text-brand` + bold + `before:bg-brand` 언더라인 | ___ (현재 없음) | hover 시 bold로 폭이 변함 → 흔들림 확인 (`65f6ad3` 색만 교체). 2026-11-23: 섹션 메뉴 뒤 세로 구분선(`w-px bg-line`) 다음에 글 분류 링크(`NavLink`, 현재 페이지에 `aria-current`). 홈 밖에서는 섹션 메뉴가 `/#id` |
 | 버튼(primary) | `Contact/ContactForm.tsx` | `bg-brand text-brand-ink rounded-lg font-bold py-3 px-6` | `bg-brand/90` | `focus-visible:ring-2 ring-brand ring-offset-2` | disabled `opacity-60 cursor-not-allowed` (`12a16ff`) |
 | 텍스트 인풋 | `Contact/ContactForm.tsx` | `bg-surface border border-line text-ink rounded py-3 px-4 shadow` | — | `focus-visible:ring-2 ring-brand` | 라벨 `text-ink-muted text-sm font-bold` (`12a16ff`, `FIELD_CLASS`/`LABEL_CLASS` 상수) |
 | 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`) |
@@ -235,6 +236,7 @@
 - [2026-11-23] 페이지 메타(title, description, OG)는 라우트 모듈의 `meta`에 두고 문구는 `Text.ts`에서 가져온다 — React Router 프레임워크 모드로 옮기며 `index.html`이 없어졌고, 블로그 글은 빌드 때 HTML을 미리 만들면서 글마다 제목과 OG를 따로 넣어야 한다
 - [2026-11-23] 홈의 대표 글, 최근 글 섹션은 Profile 바로 아래(Skills 앞)에 둔다 — 소개 바로 다음에 글이 보이게 (사용자 선택)
 - [2026-11-23] 글 본문 스타일은 `App.css`의 `.post-body` 아래 요소 선택자(h2, p, pre 등)로 둔다 — md에서 만든 HTML에는 클래스를 붙일 수 없다. 값은 §3.3과 `@theme`에서만 가져온다
+- [2026-11-23] 위쪽 메뉴는 홈, 글 상세, 분류 목록이 같은 것을 같은 자리(오른쪽 위, lg 이상)에 쓴다. 글 분류 링크는 섹션 메뉴 뒤 구분선 다음 — 홈 안 이동과 다른 페이지 이동을 나누고, 어느 페이지에서든 다른 분류로 바로 간다 (사용자 선택)
 -
 
 ---
@@ -249,4 +251,5 @@
 - `prefers-reduced-motion` 미대응 (§5). 등장 애니메이션을 래퍼 단위에서 카드 단위로 바꿀 때 같이.
 - Tailwind v4 자동 소스 스캔이 `docs/*.md`·`README.md`의 클래스 문자열까지 읽어 `bg-slate-900/600`, `text-slate-100/300` 같은 **쓰이지 않는 유틸리티를 빌드 CSS에 생성**(2026-08-21 발견). 해롭진 않지만 "토큰 외 색 금지" 감사 때 노이즈 → `App.css`에 `@source not "../../docs"` 추가 검토. **선행 조건(Skills 배치 완료 + `src/**` raw 색 클래스 0)은 2026-08-25에 충족** — 이제 넣기만 하면 됨. 단 테스트 파일(`src/tests/**`)에도 클래스 문자열이 남아 있으므로 감사 스크립트를 만든다면 그쪽도 제외 대상.
 - `Skills/SkillCategory.tsx`의 탭이 `<li onClick>` — 키보드 포커스·엔터가 안 되고 role도 없음. 색 교체(2026-08-25) 때 발견했으나 마크업 변경이라 §8 키보드 항목을 정할 때 `<button>`(또는 `role="tab"` + `tabIndex`)로 함께 처리.
+- 1024px 미만에는 위쪽 메뉴가 없다(Gnb, Quickmenu, SideText 모두 `hidden lg:`). 모바일에서 글 분류 목록으로 가는 길은 홈 글 섹션과 글 페이지의 분류 이름 링크뿐 — 모바일 메뉴를 둘지, 둔다면 모양(위쪽 고정 줄, 햄버거)과 동작 (2026-11-23 사용자 결정으로 보류)
 -
