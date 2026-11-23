@@ -30,6 +30,11 @@ function App({ pinnedPosts, recentPosts }: AppProps) {
       <div id="profile">
         <Profile />
       </div>
+
+      {/* 대표 글, 최근 글은 소개(Profile) 바로 아래. 글이 없으면 그리지 않는다 (DESIGN.md §9 2026-11-23) */}
+      <div id="posts">
+        <Posts pinned={pinnedPosts} recent={recentPosts} />
+      </div>
  
       <div id="skill">
         <ScrollFadeIn direction='left'>
@@ -40,11 +45,6 @@ function App({ pinnedPosts, recentPosts }: AppProps) {
       {/* Projects는 모바일에서 뷰포트의 5배 이상 길어 섹션 래퍼 대신 카드 단위로 등장 (DESIGN.md §9 2026-08-21) */}
       <div id="project">
         <Projects />
-      </div>
-
-      {/* 대표 글, 최근 글. 글이 없으면 그리지 않는다 */}
-      <div id="posts">
-        <Posts pinned={pinnedPosts} recent={recentPosts} />
       </div>
 
       <div id="contact">
