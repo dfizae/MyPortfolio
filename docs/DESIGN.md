@@ -148,7 +148,7 @@
   - Projects: ___
   - Contact: ___
 - 금지 표현 / 피할 상투어: ___ (예: "열정적인", "최선을 다하는")
-- 메타 (React 밖이라 `index.html`에 직접 둔다. 2026-10-12 결정): `<title>` "김재영 | 프론트엔드 개발자" · `lang` "ko" · 파비콘 `public/favicon.svg` (brand 바탕 + 흰 "김". Noto Sans KR Bold 윤곽선을 path로 옮겨 글꼴에 의존하지 않음) · OG `og:type` · `og:title`(= `<title>`) · `og:url` · `og:locale` · OG 설명(`description` · `og:description`) = 제출 PDF 소개 첫 문장 "웹에서는 되던 기능이 React Native 앱에서는 동작하지 않는 부분을 찾습니다." (2026-10-12 결정) · OG 이미지 ___
+- 메타 (2026-10-12 결정. 처음엔 React 밖이라 `index.html`에 뒀고, 2026-11-23부터 `src/routes/home.tsx`의 `meta`와 `src/root.tsx`에 둔다. 문구는 `Text.ts`의 `META_*`, 주소는 `HyperLink.ts`의 `LINK_SITE`): `<title>` "김재영 | 프론트엔드 개발자" · `lang` "ko" · 파비콘 `public/favicon.svg` (brand 바탕 + 흰 "김". Noto Sans KR Bold 윤곽선을 path로 옮겨 글꼴에 의존하지 않음) · OG `og:type` · `og:title`(= `<title>`) · `og:url` · `og:locale` · OG 설명(`description` · `og:description`) = 제출 PDF 소개 첫 문장 "웹에서는 되던 기능이 React Native 앱에서는 동작하지 않는 부분을 찾습니다." (2026-10-12 결정) · OG 이미지 ___
 
 ---
 
@@ -201,6 +201,7 @@
 - [2026-10-12] Projects는 앱·웹 프로젝트 카드(문제 → 해결 사례)를 먼저, 퍼블리싱 4종은 그 아래 묶음으로 둔다 — 제출 PDF와 같은 순서. 최신이고 직무와 가까운 경험을 앞에
 - [2026-10-12] 한글은 단어 단위로 줄바꿈한다(`body { word-break: keep-all }`) — 모바일 390px에서 학력 줄이 "소프트웨/어"처럼 단어 중간에서 끊김
 - [2026-10-12] 첫 화면 제목은 데스크톱 `text-4xl`(md) · `lg:text-6xl`, 모바일 `text-5xl` 그대로 — 제출 PDF 머리말(5줄)을 `text-8xl`로 두면 1024px에서 메뉴와 겹치고 끝줄이 첫 화면 밖으로 나감. AnimatedLetters는 글자마다 inline-block이라 자동 줄바꿈이 단어 중간에서 일어나므로, 줄은 `\n`으로 직접 나눈다 (사용자 선택)
+- [2026-11-23] 페이지 메타(title, description, OG)는 라우트 모듈의 `meta`에 두고 문구는 `Text.ts`에서 가져온다 — React Router 프레임워크 모드로 옮기며 `index.html`이 없어졌고, 블로그 글은 빌드 때 HTML을 미리 만들면서 글마다 제목과 OG를 따로 넣어야 한다
 -
 
 ---

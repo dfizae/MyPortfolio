@@ -1,15 +1,16 @@
 # MyPortfolio
 
-Vite 7 + React 19 + TypeScript + Tailwind v4 로 만든 원페이지 스크롤 포트폴리오.
+Vite 7 + React Router 8(프레임워크 모드, `ssr: false` + 빌드 때 HTML 미리 생성) + React 19 + TypeScript + Tailwind v4 로 만든 원페이지 스크롤 포트폴리오.
 framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · lottie-react(섹션 아이콘) · @formspree/react(Contact 폼). Vercel 배포.
 
 ## 명령
 
-- `npm run dev` · `npm run build` (tsc -b && vite build) · `npm run lint` · `npx vitest run`
+- `npm run dev` · `npm run build` (react-router typegen && tsc -b && react-router build → `build/client`) · `npm run preview` · `npm run lint` · `npx vitest run`
 - 스타일·문구 변경 후 최소 `npm run lint && npx vitest run`. 레이아웃·의존성 변경은 `npm run build`까지.
 
 ## 구조
 
+- `src/root.tsx`(html 뼈대) · `src/routes.ts`(경로 목록) · `src/routes/`(라우트 모듈, `meta`) — React Router 프레임워크 모드. `react-router.config.ts`의 `prerender`에 넣은 경로만 빌드 때 HTML이 만들어진다. Vercel은 `vercel.json`의 `build/client`를 배포한다.
 - `src/pages/main/<Section>/` — 섹션별 컴포넌트 (Title · Profile · Skills · Projects · Contact). `index.tsx`가 컨테이너, 나머지는 프레젠터.
 - `src/components/common/` — 공용 (Gnb, Quickmenu, SideText, ScrollFadeIn, AnimatedLetters, ScrollPinAnimation)
 - `src/constants/` — 데이터·문구. **`Text.ts`의 `MESSAGE`가 모든 사용자 노출 문구**, 그 외 `Projects.ts` `Skills.ts` `Experience.ts` `HyperLink.ts` `ImageInfo.ts`
