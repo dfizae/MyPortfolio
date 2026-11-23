@@ -13,6 +13,10 @@ export const MESSAGE = Object.freeze({
     POSTS_RECENT_TITLE: "최근 글",
     POSTS_EMPTY: "아직 글이 없습니다.",
     POSTS_BACK_HOME: "홈으로",
+    // 위쪽 메뉴의 글 분류 링크 (메뉴 라벨은 영문, DESIGN.md §6)
+    NAV_RETROSPECT: "Retrospective",
+    NAV_THOUGHTS: "Thoughts",
+    NAV_STUDY: "Study",
 
     TITLE_DESKTOP: "안녕하세요.\n사용자가 서비스를 이용할 때\n불편함이 없도록 꼼꼼히 찾아보는\n신입 프론트엔드 개발자\n김재영입니다.",
     TITLE_MOBILE: "안녕하세요.\n사용자가\n서비스를\n이용할 때\n불편함이\n없도록 꼼꼼히\n찾아보는 신입\n프론트엔드\n개발자\n김재영입니다.",

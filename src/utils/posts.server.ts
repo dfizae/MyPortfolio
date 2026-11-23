@@ -8,7 +8,7 @@ import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
-import { POST_CATEGORY_IDS, type Post, type PostCategory, type PostSummary } from '../constants/Posts'
+import { POST_CATEGORIES, POST_CATEGORY_IDS, type Post, type PostCategory, type PostSummary } from '../constants/Posts'
 
 export const POSTS_DIR = path.resolve('content/posts')
 
@@ -89,6 +89,12 @@ export function getPostSummaries(options: ReadOptions = {}): PostSummary[] {
 
 export function getPostSlugs(options: ReadOptions = {}): string[] {
   return readAll(options).map((post) => post.summary.slug)
+}
+
+// 위쪽 메뉴에 보일 분류. 분류마다 글이 minPostsForNav편 이상일 때만 넣는다 (공부는 2편, 나머지는 1편).
+export function getNavCategoryIds(options: ReadOptions = {}): PostCategory[] {
+  const posts = getPostSummaries(options)
+  return POST_CATEGORIES.filter((c) => posts.filter((p) => p.category === c.id).length >= c.minPostsForNav).map((c) => c.id)
 }
 
 export async function getPost(slug: string, options: ReadOptions = {}): Promise<Post | null> {

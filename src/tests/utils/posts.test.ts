@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { getPost, getPostSlugs, getPostSummaries } from '../../utils/posts.server'
+import { getNavCategoryIds, getPost, getPostSlugs, getPostSummaries } from '../../utils/posts.server'
 
 let dir: string
 
@@ -56,5 +56,14 @@ describe('posts.server', () => {
   it('파일 이름이 주소 규칙(영문 소문자, 숫자, 하이픈)에 맞지 않으면 멈춘다', () => {
     write('Turn_Server.md', 'title: 글\ndate: 2026-11-20\ncategory: retrospect\nsummary: 요약')
     expect(() => getPostSummaries({ dir })).toThrow('content/posts/Turn_Server.md: 파일 이름은')
+  })
+
+  it('위쪽 메뉴에는 글이 1편(공부는 2편) 이상인 분류만 넣는다', () => {
+    write('retro-one.md', 'title: 회고\ndate: 2026-11-20\ncategory: retrospect\nsummary: 요약')
+    write('study-one.md', 'title: 공부 1\ndate: 2026-11-21\ncategory: study\nsummary: 요약')
+    expect(getNavCategoryIds({ dir })).toEqual(['retrospect'])
+
+    write('study-two.md', 'title: 공부 2\ndate: 2026-11-22\ncategory: study\nsummary: 요약')
+    expect(getNavCategoryIds({ dir })).toEqual(['retrospect', 'study'])
   })
 })
