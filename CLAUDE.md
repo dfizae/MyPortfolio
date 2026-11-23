@@ -7,6 +7,7 @@ framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · l
 
 - `npm run dev` · `npm run build` (react-router typegen && tsc -b && react-router build → `build/client`) · `npm run preview` · `npm run lint` · `npx vitest run`
 - 스타일·문구 변경 후 최소 `npm run lint && npx vitest run`. 레이아웃·의존성 변경은 `npm run build`까지.
+- 로컬 `npm run preview`는 끝에 `/`가 없는 주소(`/posts/x`)에 미리 만든 HTML 대신 홈 HTML을 돌려준다. 로컬에서 글 페이지를 확인할 때는 `/posts/x/`처럼 `/`를 붙인다. Vercel은 `/`가 없어도 미리 만든 HTML을 준다 (2026-11-23 미리보기 배포의 `/retrospect` 소스로 확인).
 
 ## 구조
 
