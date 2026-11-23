@@ -8,6 +8,9 @@ export const MESSAGE = Object.freeze({
     POST_CATEGORY_RETROSPECT: "프로젝트 회고",
     POST_CATEGORY_THOUGHTS: "기술 고찰",
     POST_CATEGORY_STUDY: "공부",
+    POSTS_SECTION_TITLE: "Posts",
+    POSTS_PINNED_TITLE: "대표 글",
+    POSTS_RECENT_TITLE: "최근 글",
     POSTS_EMPTY: "아직 글이 없습니다.",
     POSTS_BACK_HOME: "홈으로",
 
