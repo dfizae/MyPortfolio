@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* 디자인 토큰 — 단일 소스는 docs/DESIGN.md §2.1 (2026-08-21 확정).
+/* 디자인 토큰 — 단일 소스는 docs/DESIGN.md §2.1 (2026-08-21 확정), §3.3 (블로그 글 본문, 2026-11-23).
    여기 값은 그 표를 그대로 옮긴 것. 새 색이 필요하면 DESIGN.md에 먼저 추가한다.
    유틸리티: bg-canvas · bg-surface · text-ink · text-ink-muted · bg-brand · text-brand-ink · border-line · text-success */
 @theme {
@@ -12,6 +12,9 @@
   --color-brand-ink: #ffffff;  /* brand 배경 위 글자 */
   --color-line: #cbd5e1;       /* 보더·구분선 (slate-300) */
   --color-success: #15803d;    /* 전송 완료 (green-700) */
+
+  --leading-article: 1.8;      /* 블로그 글 본문 줄 간격 → leading-article */
+  --container-article: 65ch;   /* 블로그 글 본문 줄 길이 → max-w-article */
 }
 
 /* Paperlogy 폰트 */
@@ -85,6 +88,40 @@ body {
   color: var(--color-ink); /* 2. 기본 글자색 — 토큰 ink (2026-08-21 Profile 배치에서 #fff 에서 전환, DESIGN.md §10) */
   word-break: keep-all;     /* 3. 한글은 단어 단위로 줄바꿈 (DESIGN.md §9 2026-10-12) */
   overflow-wrap: break-word; /*    한 단어가 칸보다 길 때만 단어 안에서 줄바꿈 (예: requestAnimationFrame으로) */
+}
+
+/* 블로그 글 본문 — 값은 docs/DESIGN.md §3.3. md에서 만든 HTML이라 클래스 대신 요소 선택자로 둔다 (§9 2026-11-23) */
+@layer components {
+  .post-body {
+    @apply text-base md:text-lg leading-article text-ink max-w-article;
+  }
+  .post-body > * + * { margin-top: 1.25em; }
+  .post-body h2 { @apply text-2xl font-bold; margin-top: 2em; margin-bottom: 0.75em; }
+  .post-body h3 { @apply text-xl font-bold; margin-top: 1.6em; margin-bottom: 0.5em; }
+  .post-body h2 + *, .post-body h3 + * { margin-top: 0; }
+  .post-body > :first-child { margin-top: 0; }
+
+  .post-body ul { list-style: disc; padding-left: 1.5em; }
+  .post-body ol { list-style: decimal; padding-left: 1.5em; }
+  .post-body li + li,
+  .post-body li > ul,
+  .post-body li > ol { margin-top: 0.5em; }
+
+  .post-body a { @apply text-brand underline; }
+  .post-body blockquote { @apply border-l-4 border-line text-ink-muted; padding-left: 1em; }
+  .post-body hr { @apply border-line; margin-top: 2em; margin-bottom: 2em; }
+  .post-body img { @apply rounded-2xl; }
+
+  .post-body table { display: block; overflow-x: auto; border-collapse: collapse; }
+  .post-body th,
+  .post-body td { @apply border border-line; padding: 0.5em 0.75em; }
+  .post-body th { @apply font-bold text-left; }
+
+  /* 인라인 코드 */
+  .post-body code { @apply bg-surface rounded font-mono; font-size: 0.875em; padding: 0.15em 0.35em; }
+  /* 코드 블록: 어두운 면(§2.1), 문법 색 강조 없음 */
+  .post-body pre { @apply bg-ink text-surface rounded-2xl font-mono text-sm; padding: 1em 1.25em; overflow-x: auto; }
+  .post-body pre code { background: none; padding: 0; font-size: inherit; border-radius: 0; }
 }
 
 

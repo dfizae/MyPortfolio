@@ -14,9 +14,8 @@ export default function PostArticle({ post }: { post: Post }) {
           </span>
           <h1 className="text-4xl lg:text-6xl font-bold text-ink">{post.title}</h1>
         </header>
-        {/* 본문 HTML은 빌드 때 md에서 만든다. 글자 크기, 줄 간격, 줄 길이, 글 안 제목, 코드 블록 스타일은
-            DESIGN.md에서 값을 정한 뒤 붙인다 (지금은 빈칸). */}
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        {/* 본문 HTML은 빌드 때 md에서 만든다. 스타일은 App.css의 .post-body (DESIGN.md §3.3) */}
+        <div className="post-body" dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
     </BlogLayout>
   )
