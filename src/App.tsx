@@ -1,4 +1,3 @@
-import './styles/App.css'
 import Title from './pages/main/Title'
 import ScrollFixedComponents from './pages/main/ScrollFixedComponents'
 import Profile from './pages/main/Profile';
