@@ -32,7 +32,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node scripts/hooks/post-edit-check.cjs",
+            "command": "node",
+            "args": ["${CLAUDE_PROJECT_DIR}/scripts/hooks/post-edit-check.cjs"],
             "timeout": 30,
             "statusMessage": "토큰·하네스 검사 중"
           }

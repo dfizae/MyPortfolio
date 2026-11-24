@@ -51,7 +51,7 @@ npm run harness:check   # 미러, JSON, 스킬 잠금, 규칙·스킬 frontmatte
 
 ## 자동 검사
 
-- **편집 직후 훅** (`.claude/settings.json` → `scripts/hooks/post-edit-check.cjs`, node로 실행). Claude Code는 저장소 루트에서 시작한다. 훅 명령이 루트 기준 상대 경로다
+- **편집 직후 훅** (`.claude/settings.json` → `scripts/hooks/post-edit-check.cjs`, node로 실행). 훅은 Claude의 현재 작업 폴더에서 실행되므로, 스크립트는 `${CLAUDE_PROJECT_DIR}`(프로젝트 루트) 기준 경로로 부른다. `command` + `args` 형식이라 셸을 거치지 않아 경로의 공백이나 OS별 셸 차이에 영향받지 않는다
   - `.agents/` 편집 → `.claude/` 미러 동기화
   - `src/`의 `.ts`·`.tsx` 편집(테스트 제외) → 그 파일의 토큰 검사. 위반이 있으면 Claude에게 오류로 돌려준다
   - `src/styles/App.css` 편집 → DESIGN.md ↔ `@theme` 검사
