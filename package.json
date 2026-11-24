@@ -12,7 +12,9 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "typecheck": "react-router typegen && tsc -b",
-    "tokens:check": "node scripts/check-tokens.cjs"
+    "tokens:check": "node scripts/check-tokens.cjs",
+    "harness:sync": "node scripts/sync-harness.cjs",
+    "harness:check": "node scripts/check-harness.cjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
