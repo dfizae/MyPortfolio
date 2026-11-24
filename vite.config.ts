@@ -12,6 +12,24 @@ export default defineConfig({
     noExternal: ['lottie-react'],
   },
 
+  // 무거운 벤더 라이브러리를 개별 청크로 분리해 브라우저 캐싱을 개선한다.
+  // 서버 번들에서는 react가 외부 모듈이라 나눌 수 없으므로 클라이언트 빌드에만 적용한다.
+  environments: {
+    client: {
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              react: ['react', 'react-dom'],
+              'framer-motion': ['framer-motion'],
+              lottie: ['lottie-react'],
+            },
+          },
+        },
+      },
+    },
+  },
+
   test: {
     globals: true, // 'describe', 'it' 등을 import 없이 사용
     environment: 'jsdom',
