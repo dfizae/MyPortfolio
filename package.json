@@ -11,7 +11,8 @@
     "init-tailwind": "tailwindcss init -p",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "typecheck": "react-router typegen && tsc -b"
+    "typecheck": "react-router typegen && tsc -b",
+    "tokens:check": "node scripts/check-tokens.cjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

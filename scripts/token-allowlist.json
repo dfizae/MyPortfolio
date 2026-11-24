@@ -1,0 +1,15 @@
+{
+  "$description": "scripts/check-tokens.cjs가 통과시키는 기존 예외. 하네스를 들인 2026-11-24에 이미 있던 것만 담는다. 새 위반을 여기에 넣어 통과시키지 않는다. 코드에서 사라진 항목은 검사가 지우라고 알린다.",
+  "allow": [
+    {
+      "file": "src/pages/main/Profile/ProfileInfo.tsx",
+      "match": "border-b-[3px]",
+      "why": "프로필 카드 이름 밑줄(DESIGN.md §7). 선 두께 토큰은 §4에서 아직 정하지 않았다"
+    },
+    {
+      "file": "src/components/common/ScrollPinAnimation.tsx",
+      "match": "perspective-[1000px]",
+      "why": "카드 뒤집기의 3D 원근 거리. 화면 디자인 값(색·간격·크기)이 아니다"
+    }
+  ]
+}
