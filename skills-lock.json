@@ -1,5 +1,21 @@
 {
   "version": 2,
   "$description": "스킬의 출처 기록. project 출처는 이 저장소에서 작성한 스킬이다. 스킬을 더하거나 지우면 여기도 고친다(npm run harness:check가 누락을 잡는다).",
-  "skills": {}
+  "skills": {
+    "new-page-route": {
+      "source": "project",
+      "sourceType": "local",
+      "skillPath": ".agents/skills/new-page-route/SKILL.md"
+    },
+    "portfolio-ui-patterns": {
+      "source": "project",
+      "sourceType": "local",
+      "skillPath": ".agents/skills/portfolio-ui-patterns/SKILL.md"
+    },
+    "post-check": {
+      "source": "project",
+      "sourceType": "local",
+      "skillPath": ".agents/skills/post-check/SKILL.md"
+    }
+  }
 }
