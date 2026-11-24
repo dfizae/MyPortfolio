@@ -31,17 +31,24 @@ const CHECKS = [
     re: new RegExp(`(?<![\\w-])(?:${COLOR_UTILS})-(?:white|black)(?![\\w-])`, "g"),
     hint: "surface · ink · brand-ink 토큰으로 바꾼다",
   },
-  {
-    name: "임의 hex",
-    re: /(?<![\w-])[a-z][a-z0-9-]*-\[#[0-9a-fA-F]{3,8}\]/g,
-    hint: "새 색은 DESIGN.md에 먼저 추가 → @theme → 컴포넌트 순서로",
-  },
-  {
-    name: "임의 px",
-    re: /(?<![\w-])[a-z][a-z0-9-]*-\[-?\d+(?:\.\d+)?px\]/g,
-    hint: "기존 크기·간격 유틸리티를 재사용한다. 새 값은 DESIGN.md에 먼저",
-  },
 ];
+
+const COLOR_HINT = "새 색은 DESIGN.md에 먼저 추가 → @theme → 컴포넌트 순서로";
+const SIZE_HINT = "기존 크기·간격 유틸리티를 재사용한다. 새 값은 DESIGN.md에 먼저";
+
+// 대괄호 임의 값: `mt-[2rem]`, `-mt-[4px]`, `shadow-[0_4px_8px_#000]` 같은 유틸리티와 `[font-size:13px]` 같은 임의 속성.
+// 값 안에 색이나 단위가 붙은 수가 있으면 잡는다. 단위 없는 값(`leading-[1.35]`, `z-[60]`, `aspect-[4/3]`)은 보지 않는다.
+const ARBITRARY = /(?<![\w-])(?:-?[a-z][a-z0-9-]*-\[[^\]\s]+\]|\[[a-z-]+:[^\]\s]+\])/g;
+const COLOR_IN_VALUE = /#[0-9a-fA-F]{3,8}(?![0-9a-zA-Z])|\b(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color-mix)\(/i;
+const UNIT_IN_VALUE = /\d(?:px|r?em|%|[sdl]?v(?:h|w|i|b|min|max)|ch|ex|pt|ms|s)(?![a-z])/i;
+
+// 문자열로 쓴 색: 인라인 style이나 JS 값의 '#ff0000', "rgb(10, 20, 30)"
+const COLOR_STRING = /(['"`])\s*(?:#[0-9a-fA-F]{3,8}|(?:rgba?|hsla?|oklab|oklch)\([^'"`]*\))\s*\1/g;
+
+// 인라인 style={{ … }} 안의 고정 크기. 변수나 motion 값(`height: height`, `x: x`)은 숫자가 아니라서 걸리지 않는다.
+const STYLE_OPEN = /style=\{\{/;
+const STYLE_SIZE =
+  /\b(?:fontSize|lineHeight|letterSpacing|gap|rowGap|columnGap|borderRadius|(?:padding|margin)(?:Top|Right|Bottom|Left|Inline|Block)?|(?:min|max)?(?:Width|Height)|width|height|top|right|bottom|left|inset)\s*:\s*(['"`]?)-?(\d+(?:\.\d+)?)(?:px|r?em|%|v[hw])?\1(?![\w.])/g;
 
 const failures = [];
 const fileArgs = process.argv.slice(2).filter((a) => !a.startsWith("--"));
@@ -70,12 +77,35 @@ console.log(fileArgs.length ? "토큰 검사 통과" : "토큰 검사 통과 (sr
 // ---------- 코드의 클래스 문자열 ----------
 function scanFile(rel) {
   const lines = fs.readFileSync(rel, "utf8").split(/\r?\n/);
+  const report = (i, match, name, hint) => {
+    if (allow.some((a) => a.file === rel && a.match === match)) return;
+    failures.push(`${rel}:${i + 1}  ${match}  — ${name}. ${hint}`);
+  };
+  let inStyle = false;
   lines.forEach((line, i) => {
+    // 대괄호 값을 먼저 보고 그 자리를 비운다. 같은 글자를 아래 검사가 다시 세지 않게 하려는 것이다.
+    let rest = line;
+    for (const m of line.matchAll(ARBITRARY)) {
+      const value = m[0].slice(m[0].indexOf("[") + 1, -1);
+      if (COLOR_IN_VALUE.test(value)) report(i, m[0], "임의 색 값", COLOR_HINT);
+      else if (UNIT_IN_VALUE.test(value)) report(i, m[0], "임의 크기 값", SIZE_HINT);
+      rest = rest.replace(m[0], " ".repeat(m[0].length));
+    }
     for (const c of CHECKS) {
-      for (const m of line.matchAll(c.re)) {
-        if (allow.some((a) => a.file === rel && a.match === m[0])) continue;
-        failures.push(`${rel}:${i + 1}  ${m[0]}  — ${c.name}. ${c.hint}`);
+      for (const m of rest.matchAll(c.re)) report(i, m[0], c.name, c.hint);
+    }
+    for (const m of rest.matchAll(COLOR_STRING)) report(i, m[0], "문자열로 쓴 색", COLOR_HINT);
+
+    let seg = rest;
+    if (STYLE_OPEN.test(seg)) {
+      inStyle = true;
+      seg = seg.slice(seg.search(STYLE_OPEN));
+    }
+    if (inStyle) {
+      for (const m of seg.matchAll(STYLE_SIZE)) {
+        if (Number(m[2]) !== 0) report(i, m[0], "인라인 style의 고정 크기", SIZE_HINT);
       }
+      if (seg.includes("}}")) inStyle = false;
     }
   });
 }

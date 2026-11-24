@@ -12,7 +12,7 @@ paths:
 
 - 값과 의도의 단일 소스는 `docs/DESIGN.md`다. 이 규칙에는 값을 적지 않는다. UI를 만들거나 고치기 전에 DESIGN.md에서 해당 절(§2 색, §3 글자, §4 간격, §5 모션, §7 컴포넌트, §9 쌓인 규칙)을 읽는다.
 - 금지 대상과 값을 더하는 순서는 `CLAUDE.md` "디자인 규칙"을 따른다. DESIGN.md의 `___` 빈칸이 필요하면 채우지 말고 묻는다.
-- `npm run tokens:check`가 Tailwind 기본 팔레트, white·black 색 유틸리티, 임의 hex, 임의 px를 잡는다. 편집 직후 훅이 같은 검사를 그 파일에 돌린다.
+- `npm run tokens:check`가 Tailwind 기본 팔레트, white·black 색 유틸리티, 대괄호 임의 값 안의 색(hex, `rgb()` 등)과 단위가 붙은 수(px, rem, %, vh, ms 등), 문자열로 쓴 색, 인라인 `style={{ }}`의 고정 크기를 잡는다. 편집 직후 훅이 같은 검사를 그 파일에 돌린다.
 - `scripts/token-allowlist.json`은 하네스를 들일 때 이미 있던 예외만 담는다. 새 위반을 목록에 넣어 통과시키지 않는다.
 - `@theme`을 바꾸려면 DESIGN.md에 같은 이름과 값을 먼저 적는다. `tokens:check`가 두 파일이 맞는지 본다.
 - 인라인 `style`은 측정값, 애니메이션 값처럼 클래스로 나타낼 수 없는 동적 값에만 쓴다.
