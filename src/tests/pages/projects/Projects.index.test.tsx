@@ -10,15 +10,15 @@ vi.mock('lottie-react', () => ({
 
 describe('Projects 페이지 통합 테스트', () => {
 
-  it('제목, Lottie 아이콘, 그리고 실제 프로젝트 카드 목록을 렌더링해야 한다', () => {
-    
+  it('제목, Lottie 아이콘, 그리고 실제 프로젝트 카드 목록을 렌더링해야 한다', async () => {
+
     // Given, When
     render(<Projects />);
 
     // Then
-    
-    // 1. 가짜 Lottie가 렌더링 되었는가?
-    expect(screen.getByTestId('lottie-mock')).toBeInTheDocument();
+
+    // 1. 가짜 Lottie가 렌더링 되었는가? (지연 로딩되므로 findBy로 대기)
+    expect(await screen.findByTestId('lottie-mock')).toBeInTheDocument();
 
     // 2. AnimatedLetters'의 aria-label을 찾는다.
     expect(screen.getByLabelText('Projects')).toBeInTheDocument();

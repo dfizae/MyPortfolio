@@ -15,7 +15,7 @@ framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · l
 - `content/posts/<slug>.md` — 블로그 글. 형식은 `_template.md`(frontmatter: title, date, category, summary, pinned, draft). `draft: true`는 `npm run dev`에서만 보인다. 읽는 코드는 `src/utils/posts.server.ts`(빌드 때만 실행, 브라우저 번들에 안 들어감), 분류와 홈 섹션 개수는 `src/constants/Posts.ts`
 - `src/pages/blog/` — 글 목록, 글 상세, 분류별 목록 화면 (`/posts/:slug`, `/study`, `/retrospect`, `/algorithm`)
 - `src/pages/main/<Section>/` — 섹션별 컴포넌트 (Title · Profile · Skills · Projects · Posts · Contact). `index.tsx`가 컨테이너, 나머지는 프레젠터.
-- `src/components/common/` — 공용 (Gnb, Quickmenu, SideText, ScrollFadeIn, AnimatedLetters, ScrollPinAnimation)
+- `src/components/common/` — 공용 (Gnb, Quickmenu, SideText, ScrollFadeIn, AnimatedLetters, ScrollPinAnimation, LottieIcon)
 - `src/constants/` — 데이터·문구. **`Text.ts`의 `MESSAGE`가 모든 사용자 노출 문구**, 그 외 `Projects.ts` `Skills.ts` `Experience.ts` `HyperLink.ts` `ImageInfo.ts`
 - `src/styles/App.css` — 전역 CSS, 폰트(@font-face), `@theme` 토큰
 - `src/tests/` — vitest + React Testing Library (jsdom, IntersectionObserver 모킹은 `setup.ts`)

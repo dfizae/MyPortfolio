@@ -1,6 +1,6 @@
 import SkillInfo from "./SkillInfo";
 import AnimatedLetters from "../../../components/common/AnimatedLetters";
-import Lottie from 'lottie-react';
+import LottieIcon from "../../../components/common/LottieIcon";
 import skillsAnimationData from '../../../assets/lottie/skills-icon.json';
 
 export default function Skills(){
@@ -8,9 +8,8 @@ export default function Skills(){
         <>
             <section className="w-full min-h-screen flex flex-col gap-8 lg:gap-16 justify-center items-center bg-canvas p-4 md:py-24">
                 <div className="flex justify-center items-center gap-4">
-                    <Lottie 
-                        animationData={skillsAnimationData} 
-                        loop={true} 
+                    <LottieIcon
+                        animationData={skillsAnimationData}
                         className="w-20 h-20 lg:w-24 lg:h-24"
                     />
 
