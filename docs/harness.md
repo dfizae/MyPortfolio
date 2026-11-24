@@ -58,6 +58,7 @@ npm run harness:check   # 미러, JSON, 스킬 잠금, 규칙·스킬 frontmatte
 - **토큰 검사가 잡는 것**: Tailwind 기본 팔레트 색 유틸리티, white·black 색 유틸리티, 임의 hex, 임의 px. `@theme`의 토큰마다 DESIGN.md에 같은 이름과 값이 적혀 있는지. 테스트 파일은 디자인 결정을 단언하느라 클래스 문자열을 담고 있어 제외한다.
 - **허용 목록** (`scripts/token-allowlist.json`): 하네스를 들일 때 이미 있던 임의 px 2곳만 이유와 함께 둔다. 코드에서 사라지면 검사가 목록에서 지우라고 알린다.
 - CI 워크플로는 없다. 푸시 전 검증은 로컬 명령으로 한다.
+- 공유 `settings.json`에는 어느 PC에서나 이름이 같은 권한(검증 명령, IDE 진단)만 둔다. Figma처럼 연결 방식에 따라 PC나 계정마다 도구 이름이 달라지는 MCP 권한은 PC마다 같은 `.claude` 폴더의 `settings.local.json`(git 무시)에 둔다. 읽기 도구는 허용하고 쓰기 도구(`use_figma`, `create_new_file`, `add_code_connect_map`, `upload_assets`)는 매번 묻는다.
 
 ## 하네스 유지보수
 

@@ -10,19 +10,7 @@
       "Bash(npm run harness:check)",
       "Bash(npm run harness:check -- --verbose)",
       "Bash(npm run harness:sync)",
-      "mcp__claude_ai_Figma__whoami",
-      "mcp__claude_ai_Figma__get_metadata",
-      "mcp__claude_ai_Figma__get_design_context",
-      "mcp__claude_ai_Figma__get_variable_defs",
-      "mcp__claude_ai_Figma__get_screenshot",
-      "mcp__claude_ai_Figma__get_code_connect_map",
       "mcp__ide__getDiagnostics"
-    ],
-    "ask": [
-      "mcp__claude_ai_Figma__use_figma",
-      "mcp__claude_ai_Figma__create_new_file",
-      "mcp__claude_ai_Figma__add_code_connect_map",
-      "mcp__claude_ai_Figma__upload_assets"
     ]
   },
   "hooks": {
