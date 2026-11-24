@@ -68,6 +68,7 @@
 - ✅ 2026-08-21 `ca07d0a` — Profile (Comment · ProfileCard · ProfileInfo · ProfileBack · ProfileBackInfo · ScrollPinAnimation) + `body { color }` → `ink` 전환. 뒷면 어두운 면은 `bg-ink`/`text-surface` 재사용
 - ✅ 2026-08-25 — Skills (index · SkillBadge · SkillCategory · SkillInfo) + `SkillCategory.test` / `SkillInfo.test` 단언 갱신(`bg-indigo-800`→`bg-brand`, `bg-white text-slate-700`→`bg-surface text-ink`). 배지 배경은 `bg-canvas`, SkillInfo 카드의 `border-4 border-slate-700`은 §7 카드 패턴에 맞춰 **제거**
 - 남은 raw 색 클래스: 약 77곳 → 40곳 → 14곳 → **0곳 (`src/**` 전체, `@theme` 토큰 정의 제외)** (2026-08-25 확인)
+- 2026-11-24 — `npm run tokens:check`와 편집 직후 훅이 0곳을 유지한다(테스트 파일 제외). 임의 px 2곳(Profile 이름 밑줄, ScrollPinAnimation 원근 거리)은 `scripts/token-allowlist.json`에 이유와 함께 둔다. `@theme` 값이 이 문서와 다르면 같은 검사가 잡는다
 
 ### 2.3 규칙
 

@@ -3,10 +3,15 @@
 Vite 7 + React Router 8(프레임워크 모드, `ssr: false` + 빌드 때 HTML 미리 생성) + React 19 + TypeScript + Tailwind v4 로 만든 원페이지 스크롤 포트폴리오.
 framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · lottie-react(섹션 아이콘) · @formspree/react(Contact 폼). Vercel 배포.
 
+하네스 지침(규칙·스킬 적용, 시작 전에 물을 것, 완료 보고)은 `AGENTS.md`에 있고 아래 줄로 함께 불러온다. 사람용 구성 설명은 `docs/harness.md`.
+
+@AGENTS.md
+
 ## 명령
 
 - `npm run dev` · `npm run build` (react-router typegen && tsc -b && react-router build → `build/client`) · `npm run preview` · `npm run lint` · `npx vitest run`
 - 스타일·문구 변경 후 최소 `npm run lint && npx vitest run`. 레이아웃·의존성 변경은 `npm run build`까지.
+- 하네스: `npm run tokens:check`(토큰 위반 + DESIGN.md ↔ `@theme`) · `npm run harness:check` · `npm run harness:sync`. 언제 돌리는지는 `AGENTS.md` "완료와 보고".
 - 로컬 `npm run preview`는 끝에 `/`가 없는 주소(`/posts/x`)에 미리 만든 HTML 대신 홈 HTML을 돌려준다. 로컬에서 글 페이지를 확인할 때는 `/posts/x/`처럼 `/`를 붙인다. Vercel은 `/`가 없어도 미리 만든 HTML을 준다 (2026-11-23 미리보기 배포의 `/retrospect` 소스로 확인).
 
 ## 구조
@@ -20,6 +25,8 @@ framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · l
 - `src/styles/App.css` — 전역 CSS, 폰트(@font-face), `@theme` 토큰
 - `src/tests/` — vitest + React Testing Library (jsdom, IntersectionObserver 모킹은 `setup.ts`)
 - `tailwind.config.js` — v3 잔재. Tailwind v4에선 읽지 않음. 토큰은 `@theme`에만 둔다.
+- `.agents/` — 하네스 정본(`rules/` 00~60, `skills/` 3종). `.claude/`는 그 미러와 `settings.json`(권한, 편집 직후 훅)이다. `.claude/`의 rules·skills는 직접 고치지 않는다.
+- `scripts/` — 토큰·하네스 검사(`check-tokens.cjs`, `token-allowlist.json`, `check-harness.cjs`, `sync-harness.cjs`, `hooks/post-edit-check.cjs`)
 
 ## 디자인 규칙 — 상세·단일 소스는 `docs/DESIGN.md`
 
