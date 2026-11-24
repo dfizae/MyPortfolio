@@ -9,6 +9,6 @@ const hasPosts = getPostSlugs({ includeDrafts: process.env.NODE_ENV === 'develop
 export default [
   index('routes/home.tsx'),
   ...(hasPosts ? [route('posts/:slug', 'routes/post.tsx')] : []),
-  // 분류별 목록은 같은 모듈을 주소만 바꿔 쓴다 (/retrospect, /thoughts, /study)
+  // 분류별 목록은 같은 모듈을 주소만 바꿔 쓴다 (/study, /retrospect, /algorithm)
   ...POST_CATEGORIES.map((c) => route(c.path.slice(1), 'routes/category.tsx', { id: `category-${c.id}` })),
 ] satisfies RouteConfig

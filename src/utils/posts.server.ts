@@ -91,7 +91,7 @@ export function getPostSlugs(options: ReadOptions = {}): string[] {
   return readAll(options).map((post) => post.summary.slug)
 }
 
-// 위쪽 메뉴에 보일 분류. 분류마다 글이 minPostsForNav편 이상일 때만 넣는다 (공부는 2편, 나머지는 1편).
+// 위쪽 메뉴에 보일 분류. 분류마다 글이 minPostsForNav편 이상일 때만 넣는다.
 export function getNavCategoryIds(options: ReadOptions = {}): PostCategory[] {
   const posts = getPostSummaries(options)
   return POST_CATEGORIES.filter((c) => posts.filter((p) => p.category === c.id).length >= c.minPostsForNav).map((c) => c.id)

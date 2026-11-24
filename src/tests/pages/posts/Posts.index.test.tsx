@@ -24,14 +24,14 @@ describe('홈 Posts 섹션', () => {
   it('대표 글과 최근 글을 나눠 보여 주고 카드는 글 주소로 이어진다', () => {
     render(
       <MemoryRouter>
-        <Posts pinned={[post('turn-server', { pinned: true })]} recent={[post('ai-screens', { category: 'thoughts' })]} />
+        <Posts pinned={[post('turn-server', { pinned: true })]} recent={[post('ai-screens', { category: 'algorithm' })]} />
       </MemoryRouter>,
     )
 
     expect(screen.getByText(MESSAGE.POSTS_PINNED_TITLE)).toBeInTheDocument()
     expect(screen.getByText(MESSAGE.POSTS_RECENT_TITLE)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /turn-server 제목/ })).toHaveAttribute('href', '/posts/turn-server')
-    expect(screen.getByRole('link', { name: /ai-screens 제목/ })).toHaveTextContent(MESSAGE.POST_CATEGORY_THOUGHTS)
+    expect(screen.getByRole('link', { name: /ai-screens 제목/ })).toHaveTextContent(MESSAGE.POST_CATEGORY_ALGORITHM)
   })
 
   it('대표 글이 없으면 대표 글 제목도 그리지 않는다', () => {

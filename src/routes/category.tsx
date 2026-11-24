@@ -6,7 +6,7 @@ import CategoryPage from '../pages/blog/CategoryPage'
 import { MESSAGE } from '../constants/Text'
 import { LINK } from '../constants/HyperLink'
 
-// 같은 모듈을 /retrospect, /thoughts, /study 세 주소에 쓰므로 주소로 분류를 고른다.
+// 같은 모듈을 /study, /retrospect, /algorithm 세 주소에 쓰므로 주소로 분류를 고른다.
 export async function loader({ request }: Route.LoaderArgs) {
   const pathname = new URL(request.url).pathname.replace(/\.data$/, '').replace(/\/$/, '')
   const category = POST_CATEGORIES.find((c) => c.path === pathname)

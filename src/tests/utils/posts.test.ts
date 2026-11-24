@@ -22,7 +22,7 @@ afterEach(() => {
 describe('posts.server', () => {
   it('최근 날짜 순으로 읽고 draft와 _로 시작하는 파일은 뺀다', () => {
     write('older-post.md', 'title: 예전 글\ndate: 2026-11-01\ncategory: retrospect\nsummary: 요약\npinned: true')
-    write('newer-post.md', 'title: 새 글\ndate: 2026-11-20\ncategory: thoughts\nsummary: 요약')
+    write('newer-post.md', 'title: 새 글\ndate: 2026-11-20\ncategory: algorithm\nsummary: 요약')
     write('draft-post.md', 'title: 초안\ndate: 2026-11-22\ncategory: study\nsummary: 요약\ndraft: true')
     write('_template.md', 'title: 템플릿\ndate: 2026-11-23\ncategory: retrospect\nsummary: 요약')
 
@@ -58,12 +58,14 @@ describe('posts.server', () => {
     expect(() => getPostSummaries({ dir })).toThrow('content/posts/Turn_Server.md: 파일 이름은')
   })
 
-  it('위쪽 메뉴에는 글이 1편(공부는 2편) 이상인 분류만 넣는다', () => {
+  it('위쪽 메뉴에는 글이 1편 이상인 분류만 공부, 회고, 알고리즘 순서로 넣는다', () => {
     write('retro-one.md', 'title: 회고\ndate: 2026-11-20\ncategory: retrospect\nsummary: 요약')
-    write('study-one.md', 'title: 공부 1\ndate: 2026-11-21\ncategory: study\nsummary: 요약')
     expect(getNavCategoryIds({ dir })).toEqual(['retrospect'])
 
-    write('study-two.md', 'title: 공부 2\ndate: 2026-11-22\ncategory: study\nsummary: 요약')
-    expect(getNavCategoryIds({ dir })).toEqual(['retrospect', 'study'])
+    write('study-one.md', 'title: 공부\ndate: 2026-11-21\ncategory: study\nsummary: 요약')
+    expect(getNavCategoryIds({ dir })).toEqual(['study', 'retrospect'])
+
+    write('algorithm-one.md', 'title: 알고리즘\ndate: 2026-11-22\ncategory: algorithm\nsummary: 요약')
+    expect(getNavCategoryIds({ dir })).toEqual(['study', 'retrospect', 'algorithm'])
   })
 })

@@ -3,7 +3,7 @@
 # 파일 이름이 주소가 된다: content/posts/turn-server.md → /posts/turn-server (영문 소문자, 숫자, 하이픈)
 title: 글 제목
 date: 2026-11-23
-# retrospect(프로젝트 회고) | thoughts(기술 고찰) | study(공부)
+# study(공부, CS 포함) | retrospect(프로젝트 회고) | algorithm(알고리즘)
 category: retrospect
 # 목록 카드와 링크 미리보기(description, og:description)에 쓰는 한두 문장
 summary: 한두 문장 요약

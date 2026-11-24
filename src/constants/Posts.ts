@@ -1,11 +1,11 @@
 import { MESSAGE } from './Text'
 
 // 글 분류. id는 md frontmatter의 category 값, path는 분류별 목록 주소, label은 페이지 제목,
-// navLabel은 위쪽 메뉴 이름. 메뉴에는 글이 minPostsForNav편 이상일 때만 보인다.
+// navLabel은 위쪽 메뉴 이름. 메뉴에는 글이 minPostsForNav편 이상일 때만 보인다. CS 정리는 공부(study)에 쓴다.
 export const POST_CATEGORIES = [
+  { id: 'study', path: '/study', label: MESSAGE.POST_CATEGORY_STUDY, navLabel: MESSAGE.NAV_STUDY, minPostsForNav: 1 },
   { id: 'retrospect', path: '/retrospect', label: MESSAGE.POST_CATEGORY_RETROSPECT, navLabel: MESSAGE.NAV_RETROSPECT, minPostsForNav: 1 },
-  { id: 'thoughts', path: '/thoughts', label: MESSAGE.POST_CATEGORY_THOUGHTS, navLabel: MESSAGE.NAV_THOUGHTS, minPostsForNav: 1 },
-  { id: 'study', path: '/study', label: MESSAGE.POST_CATEGORY_STUDY, navLabel: MESSAGE.NAV_STUDY, minPostsForNav: 2 },
+  { id: 'algorithm', path: '/algorithm', label: MESSAGE.POST_CATEGORY_ALGORITHM, navLabel: MESSAGE.NAV_ALGORITHM, minPostsForNav: 1 },
 ] as const
 
 export type PostCategory = (typeof POST_CATEGORIES)[number]['id']

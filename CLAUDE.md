@@ -13,7 +13,7 @@ framer-motion(등장·글자 애니메이션) · lenis(스무스 스크롤) · l
 
 - `src/root.tsx`(html 뼈대) · `src/routes.ts`(경로 목록) · `src/routes/`(라우트 모듈, `meta`) — React Router 프레임워크 모드. `react-router.config.ts`의 `prerender`에 넣은 경로만 빌드 때 HTML이 만들어진다. Vercel은 `vercel.json`의 `build/client`를 배포한다.
 - `content/posts/<slug>.md` — 블로그 글. 형식은 `_template.md`(frontmatter: title, date, category, summary, pinned, draft). `draft: true`는 `npm run dev`에서만 보인다. 읽는 코드는 `src/utils/posts.server.ts`(빌드 때만 실행, 브라우저 번들에 안 들어감), 분류와 홈 섹션 개수는 `src/constants/Posts.ts`
-- `src/pages/blog/` — 글 목록, 글 상세, 분류별 목록 화면 (`/posts/:slug`, `/retrospect`, `/thoughts`, `/study`)
+- `src/pages/blog/` — 글 목록, 글 상세, 분류별 목록 화면 (`/posts/:slug`, `/study`, `/retrospect`, `/algorithm`)
 - `src/pages/main/<Section>/` — 섹션별 컴포넌트 (Title · Profile · Skills · Projects · Posts · Contact). `index.tsx`가 컨테이너, 나머지는 프레젠터.
 - `src/components/common/` — 공용 (Gnb, Quickmenu, SideText, ScrollFadeIn, AnimatedLetters, ScrollPinAnimation)
 - `src/constants/` — 데이터·문구. **`Text.ts`의 `MESSAGE`가 모든 사용자 노출 문구**, 그 외 `Projects.ts` `Skills.ts` `Experience.ts` `HyperLink.ts` `ImageInfo.ts`
