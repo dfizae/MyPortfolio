@@ -35,23 +35,40 @@
 
 ## 2. 색
 
-### 2.1 역할 토큰 (확정 2026-08-21 — "초안 + 밝게")
+### 2.1 역할 토큰 (2026-11-26 팔레트 교체 — 밝은 면과 어두운 면을 섞는다)
+
+검정 2 · 빨강 4 · 밝은 무채색 4, 모두 10색 팔레트에서 고른다. 시안은 Figma "색 시안 2026-11 (섞기)" 페이지. 2026-08-21 확정값(slate + indigo)은 git 기록에 있다.
+
+**밝은 면** (Profile · Posts · Skills · Projects, 블로그 화면)
 
 | 역할 | 토큰 | 값 | 용도 |
 |---|---|---|---|
-| 페이지 배경 | `--color-canvas` | `#f1f5f9` (slate-100) | body·섹션 바닥. 초안 slate-200에서 한 단계 밝게 |
-| 서피스 | `--color-surface` | `#ffffff` | 카드 / 폼 / 배지 배경 |
-| 본문 글자 | `--color-ink` | `#0f172a` (slate-900) | 제목·본문 모두. 위계는 굵기로 |
-| 보조 글자 | `--color-ink-muted` | `#475569` (slate-600) | 설명, 캡션, 폼 라벨, 기간 |
-| 브랜드 | `--color-brand` | `#4f46e5` (indigo-600) | 강조, 링크 hover, 버튼, pill, 언더라인, 포커스 링. 초안 indigo-800에서 선명하게 |
-| 브랜드 위 글자 | `--color-brand-ink` | `#ffffff` | 브랜드색 배경 위 텍스트 |
-| 선 | `--color-line` | `#cbd5e1` (slate-300) | 보더, 구분선 (장식선이라 대비 기준 없음) |
-| 성공 | `--color-success` | `#15803d` (green-700) | Contact 전송 완료. green-600은 본문 대비 3.3:1로 탈락해 한 단계 진하게 |
+| 페이지 배경 | `--color-canvas` | `#f5f3f4` | body·밝은 섹션 바닥 |
+| 서피스 | `--color-surface` | `#ffffff` | 카드 / 배지 배경 |
+| 본문 글자 | `--color-ink` | `#161a1d` | 제목·본문 모두. 위계는 굵기로. 어두운 면에서는 카드 배경으로도 쓴다 |
+| 보조 글자 | `--color-ink-muted` | `#161a1db3` | 설명, 캡션, 기간. ink를 70% 불투명도로 — 팔레트의 회색(`#b1a7a6`)은 밝은 바닥에서 대비 2.1이라 글자로 못 쓴다 |
+| 브랜드 | `--color-brand` | `#ba181b` | 버튼, pill, 선택된 탭, 분류 라벨 같은 작은 강조 글자 |
+| 브랜드 hover | `--color-brand-hover` | `#a4161a` | brand 버튼의 hover |
+| 브랜드 위 글자 | `--color-brand-ink` | `#ffffff` | brand 배경 위 텍스트 |
+| 선 | `--color-line` | `#d3d3d3` | 보더, 구분선 (장식선이라 대비 기준 없음) |
+| 성공 | `--color-success` | `#15803d` | Contact 전송 완료. 팔레트에 초록이 없어 그대로 둔다. surface 카드 위에서만 쓴다 |
 
+**어두운 면** (Title · Contact 섹션, 경험 카드, 글 본문의 코드 블록)
+
+| 역할 | 토큰 | 값 | 용도 |
+|---|---|---|---|
+| 어두운 바닥 | `--color-night` | `#0b090a` | 어두운 섹션 바닥, 어두운 카드 안의 입력칸 |
+| 어두운 면 글자 | `--color-night-ink` | `#f5f3f4` | night · ink 배경 위 제목·본문 |
+| 어두운 면 보조 글자 | `--color-night-muted` | `#b1a7a6` | night · ink 배경 위 라벨, 기간. 테두리는 `/40`, 구분선은 `/30` |
+| 강조 | `--color-accent` | `#e5383b` | night 바닥 위 강조 글자(첫 화면 제목의 낱말), 어두운 면의 포커스 링 |
+
+- 어두운 면의 카드는 새 토큰 없이 `bg-ink`(`#161a1d`)를 쓴다 — night 바닥 위에 한 단계 밝은 면.
+- 팔레트의 `#660708`은 아직 쓰는 곳이 없어 토큰으로 두지 않았다.
 - 토큰 이름은 `--color-bg` 대신 `--color-canvas` — Tailwind v4 유틸리티가 `bg-canvas` / `bg-surface` / `text-ink` / `text-ink-muted` / `bg-brand` / `text-brand-ink` / `border-line` / `text-success` 로 생김.
-- 대비 검사 (WCAG, 2026-08-21 계산): ink/canvas **16.3** · ink/surface **17.9** · ink-muted/canvas **6.9** · ink-muted/surface **7.6** · brand-ink/brand **6.3** · brand(글자로)/canvas **5.7** · brand/surface **6.3** · success/surface **5.0** · success/canvas **4.6** — 본문 4.5:1 전부 통과.
+- 대비 검사 (WCAG, 2026-11-26 계산). 밝은 면: ink/canvas **15.8** · ink/surface **17.5** · ink-muted/canvas **6.2** · ink-muted/surface **6.5** · brand-ink/brand **6.5** · brand-ink/brand-hover **7.8** · brand(글자로)/canvas **5.9** · brand/surface **6.5** · success/surface **5.0**. 어두운 면: night-ink/night **18.0** · night-ink/ink **15.8** · night-muted/night **8.5** · night-muted/ink **7.5** · accent/night **4.7** · brand-ink/brand **6.5** — 본문 4.5:1 통과.
+- 쓰면 안 되는 조합: accent 글자를 ink 카드 위에 (**4.1**, 큰 글자만 가능) · accent 배경에 흰 글자 (**4.2**) · success를 canvas 바닥 위에 (**4.5**) 또는 어두운 면 위에 (**4.0**) · night-muted를 밝은 면에 (**2.1**).
 - 현재 코드 → 토큰 매핑: `bg-slate-200`→`bg-canvas` · `bg-white`→`bg-surface` · `text-slate-900`/`text-slate-700`/`text-black`→`text-ink` · `text-slate-600`/`text-gray-700`→`text-ink-muted` · `bg-indigo-800`/`bg-indigo-900`/`text-indigo-900`/`before:bg-indigo-900`→`brand` · `text-slate-50`/`text-white`(인디고 위)→`text-brand-ink` · `border-slate-300`/`border-slate-700`→`border-line` · `text-green-600`→`text-success`. 그 외(`bg-slate-900/600`, `bg-indigo-200`, `bg-gray-400`, `text-slate-100/300`, `border-slate-50`)는 교체 시 역할을 보고 위 8개 중 하나로 — 새 토큰 추가는 여기 먼저.
-- **어두운 면** (Profile 뒷면 경험 카드의 `bg-slate-600` / `bg-slate-900`): 토큰 추가 없이 **`bg-ink` + `text-surface`**(보조 글자 `text-surface/70`, 구분선 `border-surface/30`), 제목 pill만 `bg-brand text-brand-ink` — 2026-08-21 결정 (`ca07d0a`). 밝은 틴트가 필요하면 `bg-brand/10`처럼 토큰에 투명도 수식자(color-mix)로.
+- 밝은 틴트가 필요하면 `bg-brand/10`처럼 토큰에 투명도 수식자(color-mix)로.
 
 ### 2.2 현재 코드에서 쓰이는 색 (매핑용)
 
@@ -73,8 +90,10 @@
 ### 2.3 규칙
 
 - 위 토큰 외의 색 사용 금지 — Tailwind 팔레트 직접 사용(`slate-*`, `indigo-*`, `gray-*`), 임의 hex 모두 포함.
-- 브랜드색 면적: **버튼 · pill · 언더라인 · 링크 hover · 포커스 링만.** 섹션·카드 같은 큰 면의 배경으로 쓰지 않는다 — "밝은"은 색 면적이 아니라 톤·대비로 만든다 (2026-08-21 확정)
-- 다크모드: **지원 안 함** (2026-08-21 확정). 토큰이 역할 기반이라 필요해지면 값만 바꿔 추가할 수 있으니 미리 만들지 않는다
+- 브랜드색 면적: **버튼 · pill · 선택된 탭 · 작은 강조 글자(분류 라벨, 사례 제목)만.** 섹션·카드 같은 큰 면의 배경으로 쓰지 않는다 (2026-08-21 확정, 2026-11-26 빨강으로 바뀐 뒤에도 유지 — 빨강은 면적이 커지면 경고색으로 읽힌다)
+- `accent`는 night 바닥 위의 강조 글자와 어두운 면의 포커스 링에만 쓴다. 배경으로 쓰지 않는다 (2026-11-26)
+- 어두운 면은 정해진 자리에만: Title · Contact 섹션, Profile 뒷면 경험 카드, 글 본문의 코드 블록. 바닥 `night` → 카드 `ink` 순서로 쌓고 글자는 `night-ink`, 보조는 `night-muted` (2026-11-26)
+- 다크모드: **지원 안 함** (2026-08-21 확정). 어두운 섹션은 사용자 설정에 따라 바뀌는 다크모드가 아니라 고정된 배치다 (2026-11-26)
 
 ---
 
@@ -191,14 +210,15 @@
 
 | 컴포넌트 | 위치 | 기본 | hover | focus-visible | 비고 |
 |---|---|---|---|---|---|
-| 내비 링크 | `common/Gnb.tsx` | `text-ink`, 언더라인 0 | `text-brand` + bold + `before:bg-brand` 언더라인 | ___ (현재 없음) | hover 시 bold로 폭이 변함 → 흔들림 확인 (`65f6ad3` 색만 교체). 2026-11-23: 섹션 메뉴 뒤 세로 구분선(`w-px bg-line`) 다음에 글 분류 링크(`NavLink`, 현재 페이지에 `aria-current`). 홈 밖에서는 섹션 메뉴가 `/#id` |
-| 버튼(primary) | `Contact/ContactForm.tsx` | `bg-brand text-brand-ink rounded-lg font-bold py-3 px-6` | `bg-brand/90` | `focus-visible:ring-2 ring-brand ring-offset-2` | disabled `opacity-60 cursor-not-allowed` (`12a16ff`) |
-| 텍스트 인풋 | `Contact/ContactForm.tsx` | `bg-surface border border-line text-ink rounded py-3 px-4 shadow` | — | `focus-visible:ring-2 ring-brand` | 라벨 `text-ink-muted text-sm font-bold` (`12a16ff`, `FIELD_CLASS`/`LABEL_CLASS` 상수) |
-| 카드 | `Projects/ProjectCard.tsx`, `Contact/ContactForm.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`) |
+| 내비 링크 | `common/Gnb.tsx` | `text-surface` + 메뉴 전체에 `mix-blend-difference`(아래 바탕이 어두우면 밝게, 밝으면 어둡게 보인다), 언더라인 0 | bold + `before:bg-surface` 언더라인 | ___ (현재 없음) | hover 시 bold로 폭이 변함 → 흔들림 확인 (`65f6ad3` 색만 교체). 2026-11-23: 섹션 메뉴 뒤 세로 구분선(`w-px bg-surface/40`) 다음에 글 분류 링크(`NavLink`, 현재 페이지에 `aria-current`). 홈 밖에서는 섹션 메뉴가 `/#id` |
+| 버튼(primary) | `Contact/ContactForm.tsx` | `bg-brand text-brand-ink rounded-lg font-bold py-3 px-6` | `bg-brand-hover` | `focus-visible:ring-2 ring-accent ring-offset-2 ring-offset-ink` | disabled `opacity-60 cursor-not-allowed` (`12a16ff`). 2026-11-26 어두운 폼 카드 위로 옮기며 hover·링 색 변경 |
+| 텍스트 인풋 | `Contact/ContactForm.tsx` | `bg-night border border-night-muted/40 text-night-ink rounded py-3 px-4` | — | `focus-visible:ring-2 ring-accent` | 라벨 `text-night-muted text-sm font-bold`, 입력 오류 문구 `text-night-ink text-sm` (`FIELD_CLASS`/`LABEL_CLASS` 상수). 2026-11-26 어두운 면으로 |
+| 카드 | `Projects/ProjectCard.tsx`, `blog/PostListItem.tsx` | `bg-surface rounded-2xl shadow-lg text-ink` | ___ (현재 없음) | — | 구분선 `border-line`, 보조 텍스트 `text-ink-muted` (`12a16ff`). 글 항목의 분류 이름은 `font-medium text-brand` (2026-11-26) |
+| 문의 폼 카드 (어두운 면) | `Contact/ContactForm.tsx` | `bg-ink rounded-2xl shadow-lg` | — | — | night 섹션 위의 카드. 전송 완료 문구는 `bg-surface` 카드에 `text-success` 제목 + `text-ink-muted` 본문 (2026-11-26) |
 | 기술 칩 | `Projects/ProjectCard.tsx` | 칩 하나에 기술 하나: `bg-canvas text-ink rounded-lg text-sm px-3 py-1` | — | — | 2026-10-12 brand pill 한 개(기술을 공백으로 이어 붙임) → 칩 여러 개. surface 카드 안이라 canvas (§9 면 깊이 규칙), brand 면은 쓰지 않음 |
 | 문제 해결 사례 | `Projects/ProjectCard.tsx` | 제목 `text-sm font-bold text-brand` · 문제 `text-sm text-ink-muted` · 해결 `font-semibold text-ink` · 항목 사이 `border-t border-line` | — | — | 앱 프로젝트 카드만. 제출 PDF 2쪽 「문제 해결 사례」 목차와 같은 문장 (2026-10-12) |
 | 퀵메뉴 버튼 | `common/Quickmenu.tsx` | `bg-surface rounded-full w-12 h-12` | `bg-brand/10 border-2 border-brand` | ___ (현재 없음) | `65f6ad3` |
-| 경험 카드 (어두운 면) | `Profile/ProfileBackInfo.tsx` | `bg-ink text-surface rounded-2xl shadow-lg` · 제목 pill `bg-brand text-brand-ink rounded-full` · 기간 `text-surface/70 border-b-2 border-surface/30` | — | ___ (링크 아이콘) | 토큰 추가 없이 ink/surface 재사용, github 아이콘은 `bg-surface` 원형 (`ca07d0a`) |
+| 경험 카드 (어두운 면) | `Profile/ProfileBackInfo.tsx` | `bg-ink text-night-ink rounded-2xl shadow-lg` · 제목 pill `bg-brand text-brand-ink rounded-full` · 기간 `text-night-muted border-b-2 border-night-muted/30` | — | ___ (링크 아이콘) | github 아이콘은 `bg-surface` 원형 (`ca07d0a`). 2026-11-26 글자를 어두운 면 토큰으로 |
 | 프로필 카드 앞/뒤 · 코멘트 | `Profile/ProfileCard.tsx` `Profile/Comment.tsx` | `bg-surface text-ink rounded-2xl shadow-lg` | — | — | 이름 밑줄 `border-b-[3px] border-line` (`ca07d0a`) |
 | 배지 | `Skills/SkillBadge.tsx` | `bg-canvas text-ink rounded-lg shadow-lg` | — (현재 없음) | — | `bg-surface` 카드 **안**에 놓이므로 canvas로 한 단계 낮춰 구분 (2026-08-25) |
 | 탭 (카테고리) | `Skills/SkillCategory.tsx` | 컨테이너 `bg-surface rounded-full shadow-lg` · 활성 `bg-brand text-brand-ink` · 비활성 `bg-surface text-ink` | 비활성만 `bg-brand text-brand-ink` (200ms) | ___ (현재 없음. `li` + onClick이라 키보드 접근 자체가 안 됨 → §10) | 브랜드 면적 규칙(§2.3) 안 — pill 크기 (2026-08-25) |
@@ -239,6 +259,10 @@
 - [2026-11-23] 글 본문 스타일은 `App.css`의 `.post-body` 아래 요소 선택자(h2, p, pre 등)로 둔다 — md에서 만든 HTML에는 클래스를 붙일 수 없다. 값은 §3.3과 `@theme`에서만 가져온다
 - [2026-11-23] 위쪽 메뉴는 홈, 글 상세, 분류 목록이 같은 것을 같은 자리(오른쪽 위, lg 이상)에 쓴다. 글 분류 링크는 섹션 메뉴 뒤 구분선 다음 — 홈 안 이동과 다른 페이지 이동을 나누고, 어느 페이지에서든 다른 분류로 바로 간다 (사용자 선택)
 - [2026-11-24] 글 분류는 공부, 회고, 알고리즘 순서로 두고 CS 정리는 공부에 합친다. 기술 고찰(`/thoughts`)은 없앤다 (사용자 선택). 첫 공개 구성의 공부 글이 1편이라 메뉴 기준도 모든 분류 1편으로 맞춘다
+- [2026-11-26] 팔레트를 검정 2 · 빨강 4 · 밝은 무채색 4로 바꾸고, 첫 화면(Title)과 Contact는 어두운 면, 가운데 섹션은 밝은 면으로 섞는다 (사용자 선택, Figma "색 시안 2026-11 (섞기)"). 어두운 면용 토큰 `night` · `night-ink` · `night-muted` · `accent`와 `brand-hover`를 더했다 — 2026-08-21의 "토큰 8개만", "어두운 면은 새 토큰 없이"를 대체한다. `ink` 하나로는 어두운 바닥과 그 위 카드를 나눌 수 없다
+- [2026-11-26] 화면에 고정된 메뉴와 모서리 문구(Gnb, SideText)는 흰 글자 + `mix-blend-difference`로 둔다 — 스크롤하면 어두운 섹션과 밝은 섹션 위를 번갈아 지나가서, 한 가지 글자색으로는 한쪽에서 안 보인다. 이 방식에서는 hover에 색을 쓸 수 없어(색이 뒤집힌다) 굵기와 밑줄로만 표시한다
+- [2026-11-26] 첫 화면 제목에서 강조할 낱말은 `Text.ts`의 `TITLE_HIGHLIGHTS`에 두고 `accent`로 칠한다 — 모바일 문구는 "프론트엔드"와 "개발자" 사이에서 줄이 바뀌어 낱말 단위로 지정해야 양쪽 문구에 같이 걸린다
+- [2026-11-26] 밝은 면의 보조 글자는 팔레트 밖 회색을 더하지 않고 `ink`의 70% 불투명도(`#161a1db3`)로 둔다 — 팔레트의 회색 두 개는 밝은 바닥에서 대비가 2.1 이하다
 -
 
 ---
