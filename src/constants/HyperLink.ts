@@ -1,3 +1,4 @@
+// 외부 링크와 배포 주소.
 export const LINK = Object.freeze({
    LINK_GITHUB: "https://github.com/dfizae?tab=repositories", 
    LINK_VELOG: "https://velog.io/@dfizae/posts",

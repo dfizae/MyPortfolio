@@ -6,6 +6,7 @@ import SkillContentDisplay from './SkillContentDisplay';
 
 
 
+// 분류 탭과 그 분류의 기술 목록. 고른 분류를 상태로 가진다.
 export default function SkillInfo(){
     const [activeCategory, setActiveCategory] = useState<Category>(category[0]);
 

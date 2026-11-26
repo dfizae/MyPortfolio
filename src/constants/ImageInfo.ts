@@ -1,3 +1,4 @@
+// 이미지 alt 문구.
 export const IMAGE_INFO = Object.freeze({
     GITHUB_ALT: "깃허브링크",
     VELOG_ALT: "벨로그링크",

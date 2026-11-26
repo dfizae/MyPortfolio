@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { getCategory, type Post } from '../../constants/Posts'
 import BlogLayout from './BlogLayout'
 
+// 글 상세 화면: 분류, 날짜, 제목, 그 아래 본문.
 export default function PostArticle({ post }: { post: Post }) {
   const category = getCategory(post.category)
   return (

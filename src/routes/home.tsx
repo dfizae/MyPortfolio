@@ -5,6 +5,7 @@ import { LINK } from '../constants/HyperLink'
 import { PINNED_POST_COUNT, RECENT_POST_COUNT } from '../constants/Posts'
 import { getPostSummaries } from '../utils/posts.server'
 
+// 홈에 넘길 글: 대표 글(pinned)을 먼저 뽑고, 최근 글은 대표 글을 뺀 나머지에서 뽑는다.
 export async function loader() {
   const posts = getPostSummaries({ includeDrafts: import.meta.env.DEV })
   const pinned = posts.filter((p) => p.pinned).slice(0, PINNED_POST_COUNT)

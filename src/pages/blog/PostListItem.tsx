@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { getCategory, type PostSummary } from '../../constants/Posts'
 
+// 글 목록의 한 항목: 분류, 날짜, 제목, 요약을 담은 카드. 누르면 글 상세로 간다.
 // 카드 패턴(DESIGN.md §7): bg-surface + rounded-2xl + shadow-lg, 테두리 없음
 export default function PostListItem({ post }: { post: PostSummary }) {
   return (

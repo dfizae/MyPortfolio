@@ -10,6 +10,7 @@ type LottieIconProps = {
   className?: string;
 };
 
+// 뷰포트 근처에 왔을 때 lottie 애니메이션을 불러와 그리는 섹션 아이콘.
 const LottieIcon = ({ animationData, className }: LottieIconProps) => {
   // 섹션이 뷰포트 근처(200px 이내)에 올 때 한 번만 lottie 청크를 불러온다.
   const [ref, inView] = useInView({

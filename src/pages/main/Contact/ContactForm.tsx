@@ -8,6 +8,7 @@ const FIELD_CLASS =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
 const LABEL_CLASS = "block text-ink-muted text-sm font-bold mb-2";
 
+// Formspree로 보내는 문의 폼. 전송에 성공하면 폼 대신 감사 문구를 보여 준다.
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("mpwkwjpg");
   if (state.succeeded) {
@@ -27,6 +28,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="w-full max-w-lg bg-surface p-8 rounded-2xl shadow-lg"
     >
+      {/* 성함 */}
       <div className="mb-6">
         <label
           htmlFor="name"
@@ -48,6 +50,7 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* 이메일 */}
       <div className="mb-6">
         <label
           htmlFor="email"
@@ -68,6 +71,8 @@ export default function ContactForm() {
           errors={state.errors}
         />
       </div>
+
+      {/* 문의 내용 */}
       <div className="mb-6">
         <label
           htmlFor="message"
@@ -88,6 +93,8 @@ export default function ContactForm() {
           errors={state.errors}
         />
       </div>
+
+      {/* 보내기 버튼 */}
       <div className="flex items-center justify-center">
         <button
           type="submit"

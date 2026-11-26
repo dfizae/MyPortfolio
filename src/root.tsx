@@ -8,6 +8,7 @@ export async function loader() {
   return { navCategoryIds: getNavCategoryIds({ includeDrafts: import.meta.env.DEV }) }
 }
 
+// 모든 페이지의 html 뼈대.
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
@@ -27,6 +28,7 @@ export function Layout({ children }: { children: ReactNode }) {
   )
 }
 
+// 라우트 화면이 들어가는 자리.
 export default function Root() {
   return <Outlet />
 }

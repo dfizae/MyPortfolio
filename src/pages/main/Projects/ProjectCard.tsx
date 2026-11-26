@@ -10,6 +10,7 @@ const LINK_ICONS: { key: keyof ProjectLinks; icon: string; alt: string }[] = [
   { key: "blog", icon: "/images/icons/Naver-mark.svg", alt: IMAGE_INFO.PROJECT_BLOG_ALT },
 ];
 
+// 프로젝트 한 건의 카드. 퍼블리싱 카드는 작업 포인트(descriptions)를, 앱·웹 카드는 문제 해결 사례(cases)를 보여 준다.
 export default function ProjectCard({ project }: { project: Project }) {
   const descriptions = project.descriptions ?? [];
   const cases = project.cases ?? [];
@@ -17,15 +18,18 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div className="bg-surface flex flex-col p-6 md:p-8 rounded-2xl shadow-lg w-full md:max-w-md text-ink">
+      {/* 이름, 로고 */}
       <div className="flex justify-between items-center mb-2">
         <span className="text-2xl font-bold text-ink">{project.name}</span>
         {project.logo && (
           <img src={project.logo} alt={`${project.name} 로고`} className="w-10 h-10" />
         )}
       </div>
+      {/* 기간 */}
       <div className="border-b-2 border-line pb-2 mb-4">
         <span className="text-sm text-ink-muted">{project.period}</span>
       </div>
+      {/* 한 줄 소개, 맡은 일, 작업 포인트 */}
       <div className="mb-4">
         <span className="text-lg font-semibold">{project.mainTitle}</span>
         {project.role && (
@@ -40,6 +44,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
+      {/* 문제 해결 사례 */}
       {cases.length > 0 && (
         <div className="mb-4">
           <p className="text-sm font-bold text-brand">{MESSAGE.PROJECT_CASES_TITLE}</p>
@@ -57,6 +62,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       )}
 
+      {/* 기술 칩, 링크 아이콘 */}
       <div className="flex flex-col gap-4 mt-auto pt-4 border-t border-line">
         <ul className="flex flex-wrap gap-2" aria-label={MESSAGE.PROJECT_STACK}>
           {project.skill.map((skill) => (

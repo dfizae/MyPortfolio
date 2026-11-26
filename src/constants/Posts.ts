@@ -10,6 +10,7 @@ export const POST_CATEGORIES = [
 
 export type PostCategory = (typeof POST_CATEGORIES)[number]['id']
 
+// frontmatter의 category 값을 검증할 때 쓰는 id 목록.
 export const POST_CATEGORY_IDS: readonly string[] = POST_CATEGORIES.map((c) => c.id)
 
 export function getCategory(id: PostCategory) {

@@ -3,6 +3,7 @@ import AnimatedLetters from "../../../components/common/AnimatedLetters";
 import LottieIcon from "../../../components/common/LottieIcon";
 import skillsAnimationData from '../../../assets/lottie/skills-icon.json';
 
+// Skills 섹션: 제목(아이콘, 글자 애니메이션)과 분류별 기술 목록.
 export default function Skills(){
     return(
         <>

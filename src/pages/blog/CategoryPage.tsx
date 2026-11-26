@@ -3,6 +3,7 @@ import { MESSAGE } from '../../constants/Text'
 import BlogLayout from './BlogLayout'
 import PostList from './PostList'
 
+// 분류별 글 목록 화면. 글이 없으면 안내 문구를 보여 준다.
 export default function CategoryPage({ label, posts }: { label: string; posts: PostSummary[] }) {
   return (
     <BlogLayout>

@@ -14,6 +14,7 @@ type ScrollPinAnimationProps = {
 };
 
 
+// 섹션을 화면에 고정해 두고, 스크롤 진행도를 Profile의 등장·카드 뒤집기 값으로 바꿔 children에 넘긴다.
 export default function ScrollPinAnimation({ 
   height = '400vh',
   children 

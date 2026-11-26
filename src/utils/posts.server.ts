@@ -47,6 +47,7 @@ function optionalFlag(file: string, data: Record<string, unknown>, key: string):
   return value
 }
 
+// md 파일 하나를 읽어 frontmatter를 검증한다. 형식이 틀리면 파일 이름과 함께 오류를 던져 빌드를 멈춘다.
 function parseFile(dir: string, file: string): ParsedPost {
   const slug = file.slice(0, -'.md'.length)
   if (!SLUG.test(slug)) fail(file, '파일 이름은 영문 소문자, 숫자, 하이픈만 쓴다 (주소가 된다)')
@@ -82,11 +83,12 @@ function readAll({ dir = POSTS_DIR, includeDrafts = false }: ReadOptions): Parse
     .sort((a, b) => b.summary.date.localeCompare(a.summary.date) || a.summary.slug.localeCompare(b.summary.slug))
 }
 
-// 최근 날짜 순
+// 글 요약 목록. 최근 날짜 순.
 export function getPostSummaries(options: ReadOptions = {}): PostSummary[] {
   return readAll(options).map((post) => post.summary)
 }
 
+// 글 주소(slug) 목록. 라우트 등록(routes.ts)과 미리 만들 주소 목록(react-router.config.ts)에 쓴다.
 export function getPostSlugs(options: ReadOptions = {}): string[] {
   return readAll(options).map((post) => post.summary.slug)
 }
@@ -97,6 +99,7 @@ export function getNavCategoryIds(options: ReadOptions = {}): PostCategory[] {
   return POST_CATEGORIES.filter((c) => posts.filter((p) => p.category === c.id).length >= c.minPostsForNav).map((c) => c.id)
 }
 
+// 글 하나를 본문 HTML과 함께 돌려준다. 없으면 null.
 export async function getPost(slug: string, options: ReadOptions = {}): Promise<Post | null> {
   const found = readAll(options).find((post) => post.summary.slug === slug)
   if (!found) return null

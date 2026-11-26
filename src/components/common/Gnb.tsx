@@ -12,6 +12,7 @@ type GnbProps = {
     categories?: NavCategory[];
 };
 
+// 데스크톱(lg 이상) 위쪽 메뉴: 홈 섹션 앵커, 그 뒤에 글 분류 링크.
 export default function Gnb({ menus, anchorPrefix = '', categories = [] }: GnbProps){
     return(
         <>

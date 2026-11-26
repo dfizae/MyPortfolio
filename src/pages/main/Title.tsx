@@ -1,6 +1,7 @@
 import { MESSAGE } from "../../constants/Text";
 import AnimatedLetters from "../../components/common/AnimatedLetters";
 
+// 첫 화면 제목. 모바일과 md 이상은 줄바꿈이 다른 문구를 쓴다.
 export default function Title(){
     const commonClasses = "font-extrabold text-center text-ink leading-[1.35] px-4";
     

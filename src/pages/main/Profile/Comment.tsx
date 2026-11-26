@@ -6,6 +6,7 @@ type CommentProps = {
     x?: MotionValue<number>;
 }
 
+// Profile 섹션 위쪽의 한마디 카드. 스크롤 값(opacity, x)을 받아 왼쪽에서 들어온다.
 export default function ProfileComment({ opacity, x }: CommentProps){
 
     return(

@@ -1,5 +1,6 @@
 import { MESSAGE } from "../../constants/Text";
 
+// 데스크톱(lg 이상) 화면 모서리에 고정된 문구 (왼쪽 위, 오른쪽 아래).
 export default function SideText(){
     return(
         <>

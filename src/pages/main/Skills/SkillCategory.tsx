@@ -7,6 +7,7 @@ interface SkillCategoryProps {
 };
 
 
+// 기술 분류 탭. 고른 분류를 brand 색으로 표시한다.
 export default function SkillCategory({category, activeCategory, clickHandler}: SkillCategoryProps){
     return(
         <>

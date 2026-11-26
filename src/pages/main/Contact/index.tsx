@@ -3,6 +3,7 @@ import AnimatedLetters from "../../../components/common/AnimatedLetters";
 import LottieIcon from "../../../components/common/LottieIcon";
 import skillsAnimationData from '../../../assets/lottie/contact-icon.json';
 
+// Contact 섹션: 제목(아이콘, 글자 애니메이션)과 문의 폼.
 export default function Contact(){
     return(
         <>

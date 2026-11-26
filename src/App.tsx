@@ -7,15 +7,13 @@ import Contact from './pages/main/Contact';
 import Posts from './pages/main/Posts';
 import type { PostSummary } from './constants/Posts';
 
-//Framer Motion
 import ScrollFadeIn from './components/common/ScrollFadeIn';
-
-//Lenis 훅
 import useSmoothScroll from './hooks/useSmoothScroll';
 
 
 type AppProps = { pinnedPosts: PostSummary[]; recentPosts: PostSummary[] };
 
+// 홈 한 페이지: Title, Profile, Posts, Skills, Projects, Contact 순서로 섹션을 쌓는다. 섹션 id는 위쪽 메뉴의 앵커다.
 function App({ pinnedPosts, recentPosts }: AppProps) {
   useSmoothScroll();
 

@@ -9,6 +9,7 @@ type ProfileCardProps = {
     x?: MotionValue<number>;
 }
 
+// 스크롤 값(rotateY)으로 뒤집히는 프로필 카드. 앞면은 사진과 기본 정보, 뒷면은 ProfileBack.
 export default function ProfileCard({ rotateY, opacity, x }: ProfileCardProps){
     return(
         <>

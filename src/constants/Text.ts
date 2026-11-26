@@ -1,3 +1,4 @@
+// 사용자에게 보이는 모든 문구. 컴포넌트에 직접 쓰지 않고 여기서 가져온다.
 export const MESSAGE = Object.freeze({
     // 페이지 메타 (<title>, description, OG). OG 설명은 제출 PDF 소개 첫 문장 (DESIGN.md §6)
     META_TITLE: "김재영 | 프론트엔드 개발자",
@@ -18,15 +19,17 @@ export const MESSAGE = Object.freeze({
     NAV_RETROSPECT: "Retrospective",
     NAV_ALGORITHM: "Algorithm",
 
+    // 첫 화면 제목 (모바일은 줄바꿈 위치가 다르다)
     TITLE_DESKTOP: "안녕하세요.\n사용자가 서비스를 이용할 때\n불편함이 없도록 꼼꼼히 찾아보는\n신입 프론트엔드 개발자\n김재영입니다.",
     TITLE_MOBILE: "안녕하세요.\n사용자가\n서비스를\n이용할 때\n불편함이\n없도록 꼼꼼히\n찾아보는 신입\n프론트엔드\n개발자\n김재영입니다.",
     
     
+    // 화면에 고정된 메뉴와 모서리 문구
     MENUS: ['Profile', 'Skill', 'Project', 'Contact'],
     MY_PORTFOLIO: "My Portfolio",
     DFIZAE: "Dfizae",
     
-    // Profile 컴포넌트 내용
+    // Profile 카드
     NAME: "이름: 김재영",
     CERTIFICATE: "학력: 가천대학교 글로벌경영 / 소프트웨어 학사 (2025.08 졸업)", 
     PHONENUMBER: "연락처: 010-xxxx-xxxx",

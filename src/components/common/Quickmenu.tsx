@@ -1,6 +1,7 @@
 import { IMAGE_INFO } from "../../constants/ImageInfo";
 import { LINK } from "../../constants/HyperLink";
 
+// 데스크톱(lg 이상) 왼쪽 아래에 고정된 외부 링크 아이콘 (GitHub, velog, 네이버 블로그).
 export default function Quickmenu() {
   const menus = [
     { src: "/images/icons/github-mark.svg", alt: IMAGE_INFO.GITHUB_ALT, href: LINK.LINK_GITHUB },

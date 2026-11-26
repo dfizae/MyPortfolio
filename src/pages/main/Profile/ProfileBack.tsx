@@ -1,8 +1,8 @@
 import { MESSAGE } from "../../../constants/Text";
-// 1. [수정] 'experience.ts'에서 EXPERIENCES 데이터를 import
 import { EXPERIENCES } from "../../../constants/Experience";
 import ProfileBackInfo from "./ProfileBackInfo";
 
+// 프로필 카드 뒷면: 개발자로서의 방향과 교육·협업 경험.
 export default function ProfileBack() {
   const experiences = EXPERIENCES;
 

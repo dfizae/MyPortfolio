@@ -1,6 +1,7 @@
 import type { Experience } from "../../../constants/Experience";
 import { IMAGE_INFO } from "../../../constants/ImageInfo";
 
+// 교육·협업 경험 카드 목록: 이름, 기간, 설명, 링크가 있으면 GitHub 아이콘.
 // 어두운 면은 새 토큰 없이 ink 배경 + surface 글자로 (docs/DESIGN.md §2.1 결정 2026-08-21).
 // 카드 제목 pill 만 brand — 브랜드 면적 규칙(§2.3) 안의 작은 면.
 export default function ProfileBackInfo({ experiences }: { experiences: Experience[] }){

@@ -1,5 +1,6 @@
 import { MESSAGE } from "../../../constants/Text";
 
+// 프로필 카드 앞면의 기본 정보: 이름, 학력, 연락처, 이메일.
 export default function ProfileInfo(){
     const messages = [MESSAGE.CERTIFICATE, MESSAGE.PHONENUMBER, MESSAGE.EMAIL];
     return(

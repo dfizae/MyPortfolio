@@ -3,6 +3,7 @@ export type Skill = {
   icon: string;
 };
 
+// Skills 섹션의 분류 탭 이름과 분류별 기술 목록.
 export const category = ['Language', 'Frontend', "Library", "Test", "Deployment", "etc"] as const;
 export type Category = typeof category[number];
 

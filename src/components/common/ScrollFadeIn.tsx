@@ -13,6 +13,7 @@ type ScrollFadeInProps = {
   duration?: number;     
 };
 
+// 스크롤로 화면에 들어올 때 한 번, 살짝 이동하며 나타나게 하는 래퍼.
 const ScrollFadeIn = ({
   children,
   className,
