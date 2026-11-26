@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
-/* 디자인 토큰 — 단일 소스는 docs/DESIGN.md §2.1 (2026-08-21 확정), §3.3 (블로그 글 본문, 2026-11-23).
+/* 디자인 토큰 — 단일 소스는 docs/DESIGN.md §2.1 (2026-11-26 팔레트 교체), §3.3 (블로그 글 본문, 2026-11-23).
    여기 값은 그 표를 그대로 옮긴 것. 새 색이 필요하면 DESIGN.md에 먼저 추가한다.
-   유틸리티: bg-canvas · bg-surface · text-ink · text-ink-muted · bg-brand · text-brand-ink · border-line · text-success */
+   밝은 면: bg-canvas · bg-surface · text-ink · text-ink-muted · bg-brand · bg-brand-hover · text-brand-ink · border-line · text-success
+   어두운 면: bg-night · text-night-ink · text-night-muted · text-accent (카드는 bg-ink) */
 @theme {
-  --color-canvas: #f1f5f9;     /* 페이지·섹션 바닥 (slate-100) */
-  --color-surface: #ffffff;    /* 카드·폼·배지 */
-  --color-ink: #0f172a;        /* 제목·본문 (slate-900) */
-  --color-ink-muted: #475569;  /* 설명·캡션·라벨 (slate-600) */
-  --color-brand: #4f46e5;      /* 강조 한 가지 (indigo-600) */
-  --color-brand-ink: #ffffff;  /* brand 배경 위 글자 */
-  --color-line: #cbd5e1;       /* 보더·구분선 (slate-300) */
-  --color-success: #15803d;    /* 전송 완료 (green-700) */
+  --color-canvas: #f5f3f4;       /* 페이지·밝은 섹션 바닥 */
+  --color-surface: #ffffff;      /* 카드·배지 */
+  --color-ink: #161a1d;          /* 제목·본문. 어두운 면에서는 카드 배경 */
+  --color-ink-muted: #161a1db3;  /* 설명·캡션 (ink 70%) */
+  --color-brand: #ba181b;        /* 버튼·pill·작은 강조 글자 */
+  --color-brand-hover: #a4161a;  /* brand 버튼 hover */
+  --color-brand-ink: #ffffff;    /* brand 배경 위 글자 */
+  --color-line: #d3d3d3;         /* 보더·구분선 */
+  --color-success: #15803d;      /* 전송 완료 (surface 카드 위에서만) */
+
+  --color-night: #0b090a;        /* 어두운 섹션 바닥 */
+  --color-night-ink: #f5f3f4;    /* 어두운 면 글자 */
+  --color-night-muted: #b1a7a6;  /* 어두운 면 보조 글자 */
+  --color-accent: #e5383b;       /* night 위 강조 글자, 어두운 면 포커스 링 */
 
   --leading-article: 1.8;      /* 블로그 글 본문 줄 간격 → leading-article */
   --container-article: 65ch;   /* 블로그 글 본문 줄 길이 → max-w-article */
@@ -120,7 +127,7 @@ body {
   /* 인라인 코드 */
   .post-body code { @apply bg-surface rounded font-mono; font-size: 0.875em; padding: 0.15em 0.35em; }
   /* 코드 블록: 어두운 면(§2.1), 문법 색 강조 없음 */
-  .post-body pre { @apply bg-ink text-surface rounded-2xl font-mono text-sm; padding: 1em 1.25em; overflow-x: auto; }
+  .post-body pre { @apply bg-ink text-night-ink rounded-2xl font-mono text-sm; padding: 1em 1.25em; overflow-x: auto; }
   .post-body pre code { background: none; padding: 0; font-size: inherit; border-radius: 0; }
 }
 

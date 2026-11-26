@@ -11,7 +11,7 @@ export default function PostListItem({ post }: { post: PostSummary }) {
         className="bg-surface flex flex-col gap-2 p-6 md:p-8 rounded-2xl shadow-lg w-full text-ink"
       >
         <span className="flex gap-2 text-sm text-ink-muted">
-          <span>{getCategory(post.category).label}</span>
+          <span className="font-medium text-brand">{getCategory(post.category).label}</span>
           <time dateTime={post.date}>{post.date}</time>
         </span>
         <span className="text-2xl font-bold text-ink">{post.title}</span>

@@ -1,22 +1,26 @@
 import { MESSAGE } from "../../constants/Text";
 import AnimatedLetters from "../../components/common/AnimatedLetters";
 
-// 첫 화면 제목. 모바일과 md 이상은 줄바꿈이 다른 문구를 쓴다.
+// 첫 화면 제목 (어두운 면). 모바일과 md 이상은 줄바꿈이 다른 문구를 쓴다.
 export default function Title(){
-    const commonClasses = "font-extrabold text-center text-ink leading-[1.35] px-4";
+    const commonClasses = "font-extrabold text-center text-night-ink leading-[1.35] px-4";
     
     return (
         <>
-            <header className="flex w-full min-h-screen items-center justify-center bg-canvas">
+            <header className="flex w-full min-h-screen items-center justify-center bg-night">
                 <div className="block md:hidden">
                     <AnimatedLetters 
                         text={MESSAGE.TITLE_MOBILE}
+                        highlights={MESSAGE.TITLE_HIGHLIGHTS}
+                        highlightClassName="text-accent"
                         className={`${commonClasses} text-5xl`} 
                     />
                 </div>
                 <div className="hidden md:block">
                     <AnimatedLetters 
                         text={MESSAGE.TITLE_DESKTOP}
+                        highlights={MESSAGE.TITLE_HIGHLIGHTS}
+                        highlightClassName="text-accent"
                         className={`${commonClasses} text-4xl lg:text-6xl`}
                     />
                 </div>

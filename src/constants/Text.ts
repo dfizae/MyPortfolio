@@ -22,8 +22,9 @@ export const MESSAGE = Object.freeze({
     // 첫 화면 제목 (모바일은 줄바꿈 위치가 다르다)
     TITLE_DESKTOP: "안녕하세요.\n사용자가 서비스를 이용할 때\n불편함이 없도록 꼼꼼히 찾아보는\n신입 프론트엔드 개발자\n김재영입니다.",
     TITLE_MOBILE: "안녕하세요.\n사용자가\n서비스를\n이용할 때\n불편함이\n없도록 꼼꼼히\n찾아보는 신입\n프론트엔드\n개발자\n김재영입니다.",
-    
-    
+    // 제목에서 accent 색으로 강조할 낱말. 두 문구에 모두 들어 있어야 한다 (DESIGN.md §9 2026-11-26)
+    TITLE_HIGHLIGHTS: ["프론트엔드", "개발자"],
+
     // 화면에 고정된 메뉴와 모서리 문구
     MENUS: ['Profile', 'Skill', 'Project', 'Contact'],
     MY_PORTFOLIO: "My Portfolio",
