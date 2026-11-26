@@ -36,7 +36,7 @@ npm run harness:check   # 미러, JSON, 스킬 잠금, 규칙·스킬 frontmatte
 | `00-baseline` | src, content, 빌드 설정 | 범위 준수, 기존 구조 우선, 토큰·문구 위치, 코드 품질 4기준 |
 | `10-react-state` | 라우트, 화면, 공용 컴포넌트, 훅 | 상태 5분류(빌드 때 데이터·주소·폼·로컬 UI·파생), Hook 선택 |
 | `20-routing-content` | routes, root, posts.server, 설정, content | 경로 등록, prerender, 빌드 멈춤 조건, 서버 전용 모듈 경계, frontmatter 변경 범위 |
-| `30-typescript-structure` | src | strict, 생성 타입, 컨테이너·프레젠터, 파일 배치 표, 주석은 "왜"만 |
+| `30-typescript-structure` | src | strict, 생성 타입, 컨테이너·프레젠터, 파일 배치 표, 주석은 역할 한 줄과 "왜" |
 | `40-styling-accessibility` | 화면, 공용 컴포넌트, styles | DESIGN.md 단일 소스, tokens:check와 허용 목록, 모션 재사용, 마크업·포커스·링크 |
 | `50-error-security` | src, content, env | 오류 UX, 빈 상태, 공개 사이트 개인정보, VITE_ 변수, HTML 주입 범위 |
 | `60-dependencies-tests` | package, 설정, 테스트 | npm 전용, 승인 대상, Vitest 범위와 형식 |
